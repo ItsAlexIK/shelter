@@ -15,10 +15,10 @@ A [shelter](https://shelter.uwu.network/) plugin that watches your Discord serve
 
 ## Usage
 
-1. Open **User Settings → ServerSentinel**
+1. Open **User Settings - ServerSentinel**
 2. Paste a **Server ID** and click **Add** (or press Enter)
-   - To copy a Server ID: right-click a server icon → *Copy Server ID* (requires Developer Mode in `Settings - Advanced`)
-3. That's it. Leave notifications will appear as toasts and be logged in **User Settings → Leave Log**
+   - To copy a Server ID: right-click a server icon - *Copy Server ID* (requires Developer Mode in `Settings - Advanced`)
+3. That's it. Leave notifications will appear as toasts and be logged in **User Settings - Leave Log**
 
 ---
 
