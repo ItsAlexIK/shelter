@@ -290,7 +290,7 @@ function LeaveLog() {
 //#endregion
 //#region plugins/ServerSentinel/index.jsx
 const { flux: { dispatcher, stores }, plugin: { store }, ui: { showToast }, settings: { registerSection } } = shelter;
-const MAX_HISTORY = 200;
+const MAX_HISTORY = 400;
 let diffDone = false;
 let unregisterSection = null;
 const seenThisSession = new Map();
