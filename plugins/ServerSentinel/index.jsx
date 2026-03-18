@@ -8,7 +8,7 @@ const {
   settings: { registerSection },
 } = shelter;
 
-const MAX_HISTORY = 200;
+const MAX_HISTORY = 400;
 let diffDone = false;
 let unregisterSection = null;
 
