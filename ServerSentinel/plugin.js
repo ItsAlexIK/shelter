@@ -39,7 +39,7 @@ var require_solid_js = __commonJS({ "solid-js"(exports, module) {
 } });
 
 //#endregion
-//#region plugins/hello-world/settings.jsx
+//#region plugins/ServerSentinel/settings.jsx
 var import_web$8 = __toESM(require_web(), 1);
 var import_web$9 = __toESM(require_web(), 1);
 var import_web$10 = __toESM(require_web(), 1);
@@ -176,7 +176,7 @@ var settings_default = () => {
 (0, import_web$9.delegateEvents)(["click"]);
 
 //#endregion
-//#region plugins/hello-world/LeaveLog.jsx
+//#region plugins/ServerSentinel/LeaveLog.jsx
 var import_web = __toESM(require_web(), 1);
 var import_web$1 = __toESM(require_web(), 1);
 var import_web$2 = __toESM(require_web(), 1);
@@ -288,7 +288,7 @@ function LeaveLog() {
 (0, import_web$1.delegateEvents)(["click"]);
 
 //#endregion
-//#region plugins/hello-world/index.jsx
+//#region plugins/ServerSentinel/index.jsx
 const { flux: { dispatcher, stores }, plugin: { store }, ui: { showToast }, settings: { registerSection } } = shelter;
 const MAX_HISTORY = 200;
 let diffDone = false;
