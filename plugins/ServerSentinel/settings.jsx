@@ -51,7 +51,7 @@ export default () => {
   }
 
   return (
-    <div style={{ padding: "16px 0" }}>
+    <div style={{ padding: "0px 0px 16px 0px" }}>
       <span style={{ color: "var(--header-primary)", "font-size": "20px", "font-weight": "700" }}>
         Watched Servers
       </span>
