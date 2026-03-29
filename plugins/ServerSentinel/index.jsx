@@ -168,7 +168,6 @@ function onMemberAdd({ guildId, member }) {
   const user = member?.user;
   if (!user?.id) return;
   markSeen(guildId, user.id);
-  // Also persist to snapshot
   const data = readSnapshots();
   if (!data[guildId]) data[guildId] = {};
   data[guildId][user.id] = {
@@ -207,7 +206,6 @@ export function onLoad() {
   diffDone = false;
   seenThisSession.clear();
 
-  // Seed immediately from current cache
   for (const guildId of store.watchedGuilds) seedSeenFromCache(guildId);
 
   dispatcher.subscribe("CONNECTION_OPEN",          onConnectionOpen);
