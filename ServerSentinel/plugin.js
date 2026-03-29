@@ -77,7 +77,7 @@ var settings_default = () => {
 	function add() {
 		const id = input().trim();
 		if (!id) return setError("Enter a server ID.");
-		if (!/^\d{17,20}$/.test(id)) return setError("Invalid ID — must be 17–20 digits.");
+		if (!/^\d{17,20}$/.test(id)) return setError("Invalid ID - must be 17–20 digits.");
 		if (guilds().includes(id)) return setError("Already watching this server!");
 		const next = [...guilds(), id];
 		store$2.watchedGuilds = next;
