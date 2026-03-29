@@ -2,10 +2,16 @@
   "devDependencies": {
     "@uwu/lune": "^1.6.2",
     "@uwu/shelter-defs": "^1.5.1",
-    "solid-js": "^1.9.12"
+    "solid-js": "^1.9.4"
   },
   "type": "module",
   "workspaces": [
     "plugins/*"
-  ]
+  ],
+  "pnpm": {
+    "overrides": {
+      "solid-js": "^1.9.4",
+      "esbuild": "^0.25.0"
+    }
+  }
 }
