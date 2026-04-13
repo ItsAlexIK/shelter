@@ -17,9 +17,9 @@ Watches your Discord servers and notifies you whenever someone leaves.
 
 **Usage**
 1. Open Discord settings.
-2. Paste a **Server ID** and click **Add** (or press Enter)
+2. Paste a **Server ID** and click **Add**
    - To copy a Server ID: right-click a server icon -> *Copy Server ID* (requires Developer Mode in `Settings -> Advanced`)
-3. Leave notifications will appear as toasts and be logged in the **Leave Log** tab
+3. Leave notifications will appear as toasts and be logged in the **ServerSentinel -> Leave Log** tab
 
 ---
 
