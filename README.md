@@ -11,9 +11,9 @@ A collection of plugins for [shelter](https://shelter.uwu.network/).
 Watches your Discord servers and notifies you whenever someone leaves.
 
 **Features**
-- **Live detection** — instant toast notification when someone leaves while you're online. Click to dismiss.
-- **Leave Log** — full history of every departure with username, user ID, server, and timestamp. Accessible from Discord's settings sidebar under **Settings**.
-- **Zero API calls** — reads entirely from Discord's internal Flux stores and gateway events. No HTTP requests, no selfbot risk, no rate limits.
+- **Live detection** - instant toast notification when someone leaves while you're online. Click to dismiss.
+- **Leave Log** - full history of every departure with username, user ID, server, and timestamp. Accessible from Discord's settings sidebar under **Settings**.
+- **Zero API calls** - reads entirely from Discord's internal Flux stores and gateway events. No HTTP requests, no selfbot risk, no rate limits.
 
 **Usage**
 1. Open Discord settings.
