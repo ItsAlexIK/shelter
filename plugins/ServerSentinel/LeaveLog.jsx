@@ -22,6 +22,76 @@ function openProfile(userId, guildId) {
   } catch {}
 }
 
+function DarkSelect({ value, onChange, options }) {
+  const [open, setOpen] = createSignal(false);
+  const selected = () => options.find(o => o.value === value()) ?? options[0];
+
+  return (
+    <div style={{ position: "relative", "flex-shrink": "0" }}>
+      <div
+        onClick={() => setOpen(o => !o)}
+        style={{
+          background: "#1e1f22",
+          color: "#dbdee1",
+          border: "1px solid #3f4147",
+          "border-radius": "4px",
+          padding: "7px 28px 7px 10px",
+          "font-size": "14px",
+          cursor: "pointer",
+          "white-space": "nowrap",
+          "user-select": "none",
+          position: "relative",
+          "min-width": "120px",
+        }}
+      >
+        {selected()?.label}
+        <span style={{
+          position: "absolute", right: "8px", top: "50%",
+          transform: "translateY(-50%)",
+          color: "#80848e", "font-size": "10px", "pointer-events": "none",
+        }}>▼</span>
+      </div>
+      <Show when={open()}>
+        <div
+          style={{
+            position: "absolute", top: "calc(100% + 4px)", right: "0",
+            background: "#2b2d31",
+            border: "1px solid #1e1f22",
+            "border-radius": "6px",
+            "box-shadow": "0 8px 24px rgba(0,0,0,0.6)",
+            "z-index": "10000",
+            "min-width": "100%",
+            "max-height": "260px",
+            "overflow-y": "auto",
+          }}
+        >
+          <For each={options}>
+            {opt => (
+              <div
+                onClick={() => { onChange(opt.value); setOpen(false); }}
+                style={{
+                  padding: "8px 12px",
+                  "font-size": "14px",
+                  color: opt.value === value() ? "#fff" : "#dbdee1",
+                  background: opt.value === value() ? "var(--brand-experiment, #5865f2)" : "transparent",
+                  cursor: "pointer",
+                  "white-space": "nowrap",
+                }}
+                onMouseEnter={e => { if (opt.value !== value()) e.currentTarget.style.background = "rgba(255,255,255,0.06)"; }}
+                onMouseLeave={e => { if (opt.value !== value()) e.currentTarget.style.background = "transparent"; }}
+              >{opt.label}</div>
+            )}
+          </For>
+        </div>
+        <div
+          style={{ position: "fixed", inset: "0", "z-index": "9999" }}
+          onClick={() => setOpen(false)}
+        />
+      </Show>
+    </div>
+  );
+}
+
 export function LeaveLog() {
   const [history, setHistory] = createSignal([...(store.leaveHistory ?? [])]);
   const [search, setSearch]   = createSignal("");
@@ -93,16 +163,14 @@ export function LeaveLog() {
             style={{ ...inputStyle, flex: "1" }}
           />
           <Show when={guildOptions().length > 1}>
-            <select
-              value={guild()}
-              onChange={e => setGuild(e.target.value)}
-              style={{ ...inputStyle, flex: "0 0 auto", cursor: "pointer", "color-scheme": "dark" }}
-            >
-              <option value="all">All servers</option>
-              <For each={guildOptions()}>
-                {([guildId, name]) => <option value={guildId}>{name}</option>}
-              </For>
-            </select>
+            <DarkSelect
+              value={guild}
+              onChange={v => setGuild(v)}
+              options={[
+                { value: "all", label: "All servers" },
+                ...guildOptions().map(([guildId, name]) => ({ value: guildId, label: name })),
+              ]}
+            />
           </Show>
         </div>
 

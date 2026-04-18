@@ -23,6 +23,237 @@ function getGuildIcon(guildId) {
   } catch { return null; }
 }
 
+function DarkSelect({ value, onChange, options }) {
+  const [open, setOpen] = createSignal(false);
+  const selected = () => options.find(o => o.value === value()) ?? options[0];
+
+  return (
+    <div style={{ position: "relative", "flex-shrink": "0" }}>
+      <div
+        onClick={() => setOpen(o => !o)}
+        style={{
+          background: "#1e1f22",
+          color: "#dbdee1",
+          border: "1px solid #3f4147",
+          "border-radius": "4px",
+          padding: "7px 28px 7px 10px",
+          "font-size": "14px",
+          cursor: "pointer",
+          "white-space": "nowrap",
+          "user-select": "none",
+          position: "relative",
+          "min-width": "120px",
+        }}
+      >
+        {selected()?.label}
+        <span style={{
+          position: "absolute", right: "8px", top: "50%",
+          transform: "translateY(-50%)",
+          color: "#80848e", "font-size": "10px", "pointer-events": "none",
+        }}>▼</span>
+      </div>
+      <Show when={open()}>
+        <div
+          style={{
+            position: "absolute", top: "calc(100% + 4px)", right: "0",
+            background: "#2b2d31",
+            border: "1px solid #1e1f22",
+            "border-radius": "6px",
+            "box-shadow": "0 8px 24px rgba(0,0,0,0.6)",
+            "z-index": "10000",
+            "min-width": "100%",
+            "max-height": "260px",
+            "overflow-y": "auto",
+          }}
+        >
+          <For each={options}>
+            {opt => (
+              <div
+                onClick={() => { onChange(opt.value); setOpen(false); }}
+                style={{
+                  padding: "8px 12px",
+                  "font-size": "14px",
+                  color: opt.value === value() ? "#fff" : "#dbdee1",
+                  background: opt.value === value() ? "var(--brand-experiment, #5865f2)" : "transparent",
+                  cursor: "pointer",
+                  "white-space": "nowrap",
+                }}
+                onMouseEnter={e => { if (opt.value !== value()) e.currentTarget.style.background = "rgba(255,255,255,0.06)"; }}
+                onMouseLeave={e => { if (opt.value !== value()) e.currentTarget.style.background = "transparent"; }}
+              >{opt.label}</div>
+            )}
+          </For>
+        </div>
+        {/* Click-outside backdrop */}
+        <div
+          style={{ position: "fixed", inset: "0", "z-index": "9999" }}
+          onClick={() => setOpen(false)}
+        />
+      </Show>
+    </div>
+  );
+}
+
+function getAllGuilds() {
+  try {
+    const guildsMap = stores.GuildStore?.getGuilds() ?? {};
+    return Object.values(guildsMap).sort((a, b) =>
+      (a.name ?? "").localeCompare(b.name ?? "", undefined, { sensitivity: "base" })
+    );
+  } catch { return []; }
+}
+
+function GuildPickerModal({ onAdd, alreadyWatched, onClose }) {
+  const [search, setSearch] = createSignal("");
+
+  const allGuilds = getAllGuilds();
+
+  const filtered = createMemo(() => {
+    const q = search().trim().toLowerCase();
+    if (!q) return allGuilds;
+    return allGuilds.filter(g =>
+      g.name?.toLowerCase().includes(q) || g.id?.includes(q)
+    );
+  });
+
+  function pickGuild(id) {
+    if (alreadyWatched.includes(id)) return;
+    onAdd(id);
+    onClose();
+  }
+
+  const inputStyle = {
+    background: "#1e1f22",
+    color: "#dbdee1",
+    border: "1px solid #3f4147",
+    "border-radius": "6px",
+    padding: "8px 11px",
+    "font-size": "14px",
+    width: "100%",
+    "box-sizing": "border-box",
+    outline: "none",
+    "color-scheme": "dark",
+  };
+
+  return (
+    <div
+      style={{
+        position: "fixed", inset: "0", "z-index": "9999",
+        background: "rgba(0,0,0,0.7)",
+        display: "flex", "align-items": "center", "justify-content": "center",
+      }}
+      onClick={e => e.target === e.currentTarget && onClose()}
+    >
+      <div style={{
+        background: "#2b2d31",
+        border: "1px solid #1e1f22",
+        "border-radius": "10px",
+        width: "420px",
+        "max-width": "calc(100vw - 32px)",
+        "max-height": "80vh",
+        display: "flex",
+        "flex-direction": "column",
+        overflow: "hidden",
+        "box-shadow": "0 8px 32px rgba(0,0,0,0.8)",
+        "color-scheme": "dark",
+      }}>
+        {/* Header */}
+        <div style={{
+          padding: "14px 16px 12px",
+          "border-bottom": "1px solid #1e1f22",
+          display: "flex", "align-items": "center", "justify-content": "space-between",
+          background: "#2b2d31",
+        }}>
+          <span style={{ color: "#f2f3f5", "font-size": "16px", "font-weight": "700" }}>
+            Pick a Server
+          </span>
+          <button
+            onClick={onClose}
+            style={{
+              background: "none", border: "none", cursor: "pointer",
+              color: "#80848e", "font-size": "20px",
+              "line-height": "1", padding: "0 2px",
+            }}
+          >×</button>
+        </div>
+
+        {/* Search */}
+        <div style={{ padding: "10px 12px 6px", background: "#2b2d31" }}>
+          <input
+            type="text"
+            value={search()}
+            onInput={e => setSearch(e.target.value)}
+            placeholder="Search by name or ID…"
+            style={inputStyle}
+            autofocus
+          />
+        </div>
+
+        {/* Guild list */}
+        <div style={{ "overflow-y": "auto", flex: "1", background: "#2b2d31" }}>
+          <Show when={filtered().length === 0}>
+            <p style={{ color: "#80848e", "font-size": "14px", padding: "12px 16px", margin: 0 }}>No servers found.</p>
+          </Show>
+          <For each={filtered()}>
+            {guild => {
+              const watched = alreadyWatched.includes(guild.id);
+              const iconUrl = (() => {
+                if (!guild.icon) return null;
+                const ext = guild.icon.startsWith("a_") ? "gif" : "webp";
+                return `https://cdn.discordapp.com/icons/${guild.id}/${guild.icon}.${ext}?size=32`;
+              })();
+              return (
+                <div
+                  onClick={() => !watched && pickGuild(guild.id)}
+                  style={{
+                    display: "flex", "align-items": "center", gap: "10px",
+                    padding: "8px 14px",
+                    cursor: watched ? "default" : "pointer",
+                    opacity: watched ? "0.45" : "1",
+                    transition: "background 0.1s",
+                  }}
+                  onMouseEnter={e => { if (!watched) e.currentTarget.style.background = "rgba(255,255,255,0.06)"; }}
+                  onMouseLeave={e => { e.currentTarget.style.background = "transparent"; }}
+                >
+                  <Show
+                    when={iconUrl}
+                    fallback={
+                      <div style={{
+                        width: "36px", height: "36px", "border-radius": "50%",
+                        background: "#3f4147",
+                        display: "flex", "align-items": "center", "justify-content": "center",
+                        "flex-shrink": "0", "font-size": "13px", color: "#80848e",
+                        "font-weight": "600",
+                      }}>
+                        {guild.name?.[0]?.toUpperCase() ?? "?"}
+                      </div>
+                    }
+                  >
+                    <img
+                      src={iconUrl}
+                      style={{ width: "36px", height: "36px", "border-radius": "50%", "object-fit": "cover", "flex-shrink": "0" }}
+                    />
+                  </Show>
+                  <div style={{ "min-width": 0 }}>
+                    <div style={{
+                      color: "#f2f3f5", "font-size": "14px", "font-weight": "600",
+                      overflow: "hidden", "text-overflow": "ellipsis", "white-space": "nowrap",
+                    }}>{guild.name}</div>
+                    <div style={{ color: "#80848e", "font-size": "11px", "font-family": "monospace" }}>{guild.id}</div>
+                  </div>
+                  <Show when={watched}>
+                    <span style={{ "margin-left": "auto", "font-size": "11px", color: "#80848e", "flex-shrink": "0" }}>Watching</span>
+                  </Show>
+                </div>
+              );
+            }}
+          </For>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function formatTime(ts) {
   return new Date(ts).toLocaleString(undefined, {
     month: "short", day: "numeric", hour: "2-digit", minute: "2-digit",
@@ -85,6 +316,7 @@ export function MainPanel() {
   const [tab, setTab] = createSignal("servers");
 
   const [guilds, setGuilds]         = createSignal([...(store.watchedGuilds ?? [])]);
+  const [showPicker, setShowPicker] = createSignal(false);
   const [input, setInput]           = createSignal("");
   const [error, setError]           = createSignal("");
   const [checkState, setCheck]      = createSignal({});
@@ -122,17 +354,17 @@ export function MainPanel() {
     });
   });
 
-  function add() {
-    const id = input().trim();
-    if (!id)                      return setError("Enter a server ID.");
-    if (!/^\d{17,20}$/.test(id)) return setError("Invalid ID - must be 17-20 digits.");
-    if (guilds().includes(id))   return setError("Already watching this server.");
-    const next = [...guilds(), id];
+  function add(id) {
+    const guildId = (id ?? input()).trim();
+    if (!guildId)                      return setError("Enter a server ID.");
+    if (!/^\d{17,20}$/.test(guildId)) return setError("Invalid ID - must be 17-20 digits.");
+    if (guilds().includes(guildId))   return setError("Already watching this server.");
+    const next = [...guilds(), guildId];
     store.watchedGuilds = next;
     setGuilds(next);
     setInput("");
     setError("");
-    getSnap(id).then(snap => setSnapCounts(s => ({ ...s, [id]: Object.keys(snap).length })));
+    getSnap(guildId).then(snap => setSnapCounts(s => ({ ...s, [guildId]: Object.keys(snap).length })));
   }
 
   function remove(id) {
@@ -229,7 +461,7 @@ export function MainPanel() {
   );
 
   return (
-    <div style={{ padding: "0 0 16px 0" }}>
+    <div style={{ padding: "0 0 5px 0" }}>
       <span style={{ color: "var(--header-primary)", "font-size": "20px", "font-weight": "700" }}>
         ServerSentinel
       </span>
@@ -248,11 +480,20 @@ export function MainPanel() {
             onKeyDown={e => e.key === "Enter" && add()}
             placeholder="Server ID..."
           />
-          <button style={btn("var(--button-positive-background)")} onClick={add}>Add</button>
+          <button style={btn("var(--button-positive-background)")} onClick={() => add()}>Add</button>
+          <button style={btn("var(--button-secondary-background)")} onClick={() => setShowPicker(true)}>Browse</button>
         </div>
 
         <Show when={error()}>
           <p style={{ color: "var(--status-danger)", "font-size": "13px", margin: "0 0 8px" }}>{error()}</p>
+        </Show>
+
+        <Show when={showPicker()}>
+          <GuildPickerModal
+            alreadyWatched={guilds()}
+            onAdd={id => add(id)}
+            onClose={() => setShowPicker(false)}
+          />
         </Show>
 
         <Show when={guilds().length === 0}>
@@ -423,26 +664,14 @@ export function MainPanel() {
             />
           </div>
           <Show when={logGuildOptions().length > 1}>
-            <select
-              value={logGuild()}
-              onChange={e => setLogGuild(e.target.value)}
-              style={{
-                background: "var(--input-background)",
-                color: "var(--text-normal)",
-                border: "1px solid var(--background-modifier-accent)",
-                "border-radius": "4px",
-                padding: "7px 10px",
-                "font-size": "14px",
-                cursor: "pointer",
-                "flex-shrink": "0",
-                "color-scheme": "dark",
-              }}
-            >
-              <option value="all">All servers</option>
-              <For each={logGuildOptions()}>
-                {([guildId, name]) => <option value={guildId}>{name}</option>}
-              </For>
-            </select>
+            <DarkSelect
+              value={logGuild}
+              onChange={v => setLogGuild(v)}
+              options={[
+                { value: "all", label: "All servers" },
+                ...logGuildOptions().map(([guildId, name]) => ({ value: guildId, label: name })),
+              ]}
+            />
           </Show>
         </div>
 
