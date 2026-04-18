@@ -1,4 +1,4 @@
-import { createSignal, For, Show } from "solid-js";
+import { createSignal, createMemo, For, Show } from "solid-js";
 import { getSnap, saveSnap, deleteSnap } from "./Db.js";
 import { extractUser, toSnapEntry, displayName } from "./memberUtils.js";
 import { getRawMembers, getTotalMemberCount } from "./index.jsx";
@@ -14,10 +14,25 @@ function getGuildName(guildId) {
   catch { return null; }
 }
 
+function getGuildIcon(guildId) {
+  try {
+    const icon = stores.GuildStore?.getGuild(guildId)?.icon;
+    if (!icon) return null;
+    const ext = icon.startsWith("a_") ? "gif" : "webp";
+    return `https://cdn.discordapp.com/icons/${guildId}/${icon}.${ext}?size=32`;
+  } catch { return null; }
+}
+
 function formatTime(ts) {
   return new Date(ts).toLocaleString(undefined, {
     month: "short", day: "numeric", hour: "2-digit", minute: "2-digit",
   });
+}
+
+function openProfile(userId, guildId) {
+  try {
+    dispatcher.dispatch({ type: "USER_PROFILE_MODAL_OPEN", userId, guildId });
+  } catch {}
 }
 
 const btn = (color, extra = {}) => ({
@@ -77,10 +92,34 @@ export function MainPanel() {
   const [expanded, setExpanded]     = createSignal(null);
   const [memberList, setMemberList] = createSignal({});
 
-  const [history, setHistory] = createSignal([...(store.leaveHistory ?? [])]);
+  const [history, setHistory]   = createSignal([...(store.leaveHistory ?? [])]);
+  const [logSearch, setLogSearch] = createSignal("");
+  const [logGuild, setLogGuild]   = createSignal("all");
 
   guilds().forEach(id => {
     getSnap(id).then(snap => setSnapCounts(s => ({ ...s, [id]: Object.keys(snap).length })));
+  });
+
+  const logGuildOptions = createMemo(() => {
+    const seen = new Map();
+    for (const e of history()) {
+      if (!seen.has(e.guildId)) {
+        seen.set(e.guildId, getGuildName(e.guildId) ?? e.guildName ?? e.guildId);
+      }
+    }
+    return [...seen.entries()];
+  });
+
+  const filteredHistory = createMemo(() => {
+    const q = logSearch().trim().toLowerCase();
+    const g = logGuild();
+    return history().filter(e => {
+      if (g !== "all" && e.guildId !== g) return false;
+      if (!q) return true;
+      const name = (e.globalName || e.username || "").toLowerCase();
+      const id   = e.userId;
+      return name.includes(q) || id.includes(q);
+    });
   });
 
   function add() {
@@ -99,17 +138,13 @@ export function MainPanel() {
   function remove(id) {
     const next = guilds().filter(g => g !== id);
     store.watchedGuilds = next;
-
     deleteSnap(id);
-
     store.leaveHistory = (store.leaveHistory ?? []).filter(e => e.guildId !== id);
-
     setGuilds(next);
     setSnapCounts(s => { const n = { ...s }; delete n[id]; return n; });
     setCheck(s => { const n = { ...s }; delete n[id]; return n; });
     setMemberList(s => { const n = { ...s }; delete n[id]; return n; });
     if (expanded() === id) setExpanded(null);
-
     setHistory([...(store.leaveHistory ?? [])]);
   }
 
@@ -232,18 +267,44 @@ export function MainPanel() {
             const incomplete = () => total() > 0 && count() < total();
             const isExpanded = () => expanded() === id;
             const members    = () => memberList()[id] ?? [];
+            const iconUrl    = () => getGuildIcon(id);
 
             return (
               <div style={{ "margin-bottom": "6px", background: "var(--background-secondary)", "border-radius": "6px", overflow: "hidden" }}>
                 {/* Main row */}
                 <div style={{ padding: "10px 12px" }}>
                   <div style={{ display: "flex", "align-items": "center", "justify-content": "space-between", gap: "8px" }}>
-                    <div style={{ "min-width": 0 }}>
-                      <span style={{ color: "var(--header-primary)", "font-weight": "600" }}>
-                        {getGuildName(id) ?? "Unknown Server"}
-                      </span>
-                      <span style={{ color: "var(--text-muted)", "font-size": "12px", "margin-left": "8px" }}>{id}</span>
+                    {/* Guild identity */}
+                    <div style={{ display: "flex", "align-items": "center", gap: "10px", "min-width": 0 }}>
+                      <Show
+                        when={iconUrl()}
+                        fallback={
+                          <div style={{
+                            width: "32px", height: "32px", "border-radius": "50%",
+                            background: "var(--background-modifier-accent)",
+                            display: "flex", "align-items": "center", "justify-content": "center",
+                            "flex-shrink": "0", "font-size": "12px", color: "var(--text-muted)",
+                          }}>
+                            {(getGuildName(id) ?? "?")[0]?.toUpperCase()}
+                          </div>
+                        }
+                      >
+                        <img
+                          src={iconUrl()}
+                          style={{
+                            width: "32px", height: "32px", "border-radius": "50%",
+                            "object-fit": "cover", "flex-shrink": "0",
+                          }}
+                        />
+                      </Show>
+                      <div style={{ "min-width": 0 }}>
+                        <span style={{ color: "var(--header-primary)", "font-weight": "600" }}>
+                          {getGuildName(id) ?? "Unknown Server"}
+                        </span>
+                        <span style={{ color: "var(--text-muted)", "font-size": "12px", "margin-left": "8px" }}>{id}</span>
+                      </div>
                     </div>
+
                     <div style={{ display: "flex", gap: "6px", "flex-shrink": "0" }}>
                       <button
                         style={btn("var(--button-secondary-background)", { opacity: cs()?.phase === "checking" ? "0.6" : "1" })}
@@ -352,9 +413,42 @@ export function MainPanel() {
 
       {/* ── LEAVE LOG TAB ── */}
       <Show when={tab() === "log"}>
+        {/* Search + filter bar */}
+        <div style={{ display: "flex", gap: "8px", "margin-bottom": "10px", "align-items": "center" }}>
+          <div style={{ flex: "1" }}>
+            <TextBox
+              value={logSearch()}
+              onInput={v => setLogSearch(v)}
+              placeholder="Search by username or user ID…"
+            />
+          </div>
+          <Show when={logGuildOptions().length > 1}>
+            <select
+              value={logGuild()}
+              onChange={e => setLogGuild(e.target.value)}
+              style={{
+                background: "var(--input-background)",
+                color: "var(--text-normal)",
+                border: "1px solid var(--background-modifier-accent)",
+                "border-radius": "4px",
+                padding: "7px 10px",
+                "font-size": "14px",
+                cursor: "pointer",
+                "flex-shrink": "0",
+                "color-scheme": "dark",
+              }}
+            >
+              <option value="all">All servers</option>
+              <For each={logGuildOptions()}>
+                {([guildId, name]) => <option value={guildId}>{name}</option>}
+              </For>
+            </select>
+          </Show>
+        </div>
+
         <div style={{ display: "flex", "justify-content": "space-between", "align-items": "center", "margin-bottom": "12px" }}>
           <span style={{ color: "var(--text-muted)", "font-size": "13px" }}>
-            {history().length} event{history().length !== 1 ? "s" : ""} recorded
+            {filteredHistory().length}{filteredHistory().length !== history().length ? ` / ${history().length}` : ""} record{history().length !== 1 ? "s" : ""}
           </span>
           <Show when={history().length > 0}>
             <button onClick={clearLog} style={btn("var(--button-danger-background)")}>Clear</button>
@@ -365,7 +459,11 @@ export function MainPanel() {
           <p style={{ color: "var(--text-muted)" }}>No leaves recorded yet.</p>
         </Show>
 
-        <For each={history()}>
+        <Show when={history().length > 0 && filteredHistory().length === 0}>
+          <p style={{ color: "var(--text-muted)" }}>No results match your search.</p>
+        </Show>
+
+        <For each={filteredHistory()}>
           {entry => {
             const name  = displayName(entry);
             const guild = (() => {
@@ -373,11 +471,18 @@ export function MainPanel() {
               catch { return entry.guildName ?? entry.guildId; }
             })();
             return (
-              <div style={{
-                padding: "8px 12px", "margin-bottom": "4px",
-                background: "var(--background-secondary)", "border-radius": "6px",
-                "border-left": "3px solid var(--status-danger)",
-              }}>
+              <div
+                onClick={() => openProfile(entry.userId, entry.guildId)}
+                style={{
+                  padding: "8px 12px", "margin-bottom": "4px",
+                  background: "var(--background-secondary)", "border-radius": "6px",
+                  "border-left": "3px solid var(--status-danger)",
+                  cursor: "pointer",
+                  transition: "background 0.1s",
+                }}
+                onMouseEnter={e => e.currentTarget.style.background = "var(--background-modifier-hover)"}
+                onMouseLeave={e => e.currentTarget.style.background = "var(--background-secondary)"}
+              >
                 <div style={{ display: "flex", "justify-content": "space-between", "align-items": "center" }}>
                   <span>
                     <span style={{ color: "var(--header-primary)", "font-weight": "600" }}>{name}</span>
