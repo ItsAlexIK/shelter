@@ -32,7 +32,9 @@ function bootstrapStore() {
   if (store.watchedGuilds   == null) store.watchedGuilds   = [];
   if (store.leaveHistory    == null) store.leaveHistory    = [];
   if (store.enabled         == null) store.enabled         = true;
+  if (store.soundEnabled    == null) store.soundEnabled    = true;
   if (store.shownReloadHint == null) store.shownReloadHint = false;
+  if (store.customSoundFile == null) store.customSoundFile = null;
 }
 
 function injectToastStyle() {
@@ -163,9 +165,27 @@ function makeToastContent(entry) {
   );
 }
 
+function playNotificationSound() {
+  if (store.customSoundFile) {
+    try {
+      const audio = new Audio(store.customSoundFile);
+      audio.volume = 1;
+      audio.play().catch(e => {
+        console.error("Failed to play custom sound, falling back to beep:", e);
+      });
+      return;
+    } catch (e) {
+      console.error("Failed to create audio element:", e);
+    }
+  }
+}
+
+export { playNotificationSound };
+
 function recordLeave(entry) {
   store.leaveHistory = [entry, ...store.leaveHistory].slice(0, MAX_HISTORY);
   if (!store.enabled) return;
+  if (store.soundEnabled) playNotificationSound();
   const close = showToast({
     content:  makeToastContent(entry),
     duration: 999_999_999,

@@ -1,7 +1,7 @@
 import { createSignal, createMemo, For, Show } from "solid-js";
 import { getSnap, saveSnap, deleteSnap } from "./Db.js";
 import { extractUser, toSnapEntry, displayName } from "./memberUtils.js";
-import { getRawMembers, getTotalMemberCount } from "./index.jsx";
+import { getRawMembers, getTotalMemberCount, playNotificationSound } from "./index.jsx";
 
 const {
   plugin: { store },
@@ -398,6 +398,10 @@ export function MainPanel() {
   const [history, setHistory]   = createSignal([...(store.leaveHistory ?? [])]);
   const [logSearch, setLogSearch] = createSignal("");
   const [logGuild, setLogGuild]   = createSignal("all");
+  const [soundFileName, setSoundFileName] = createSignal(
+    store.customSoundFile ? "sound_uploaded.mp3" : "No file selected"
+  );
+  const [hasCustomSound, setHasCustomSound] = createSignal(!!store.customSoundFile);
 
   guilds().forEach(id => {
     getSnap(id).then(snap => setSnapCounts(s => ({ ...s, [id]: Object.keys(snap).length })));
@@ -516,6 +520,53 @@ export function MainPanel() {
     setHistory([]);
   }
 
+  function handleSoundFileUpload(event) {
+    const file = event.currentTarget?.files?.[0] || event.target?.files?.[0];
+    if (!file) return;
+    
+    const isAudio = file.type.startsWith("audio/");
+    const hasAudioExt = /\.(mp3|wav|ogg|webm|flac|aac|m4a)$/i.test(file.name);
+    
+    if (!isAudio && !hasAudioExt) {
+      alert("Please upload an audio file (MP3, WAV, OGG, etc.)");
+      return;
+    }
+    
+    if (file.size > 5 * 1024 * 1024) {
+      alert("File is too large. Maximum size is 5MB.");
+      return;
+    }
+    
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      try {
+        const result = e.target?.result;
+        if (typeof result === "string") {
+          store.customSoundFile = result;
+          setSoundFileName(file.name);
+          setHasCustomSound(true);
+        }
+      } catch (err) {
+        console.error("Error reading file:", err);
+        alert("Failed to load sound file");
+      }
+    };
+    reader.onerror = () => {
+      alert("Failed to read file");
+    };
+    reader.readAsDataURL(file);
+  }
+
+  function clearSoundFile() {
+    store.customSoundFile = null;
+    setSoundFileName("No file selected");
+    setHasCustomSound(false);
+    const fileInput = document.getElementById("sound-file-input");
+    if (fileInput) {
+      fileInput.value = "";
+    }
+  }
+
   const tabBtn = (key, label) => (
     <button
       style={{
@@ -536,6 +587,76 @@ export function MainPanel() {
       <span style={{ color: "var(--header-primary)", "font-size": "20px", "font-weight": "700" }}>
         ServerSentinel
       </span>
+
+      {/* Sound Settings Section */}
+      <div style={{ 
+        "margin": "12px 0 16px",
+        "padding": "8px 10px",
+        "background": "var(--background-secondary)",
+        "border-radius": "4px",
+        display: "flex",
+        "align-items": "center",
+        gap: "8px",
+        "flex-wrap": "wrap"
+      }}>
+        <label style={{ "font-size": "12px", color: "var(--text-muted)", "white-space": "nowrap" }}>
+          Leave sound:
+        </label>
+        
+        <input
+          id="sound-file-input"
+          type="file"
+          accept="audio/*,.mp3,.wav,.ogg,.webm,.flac,.aac,.m4a"
+          onChange={(e) => handleSoundFileUpload(e)}
+          style={{ display: "none" }}
+        />
+        
+        <button
+          style={{
+            ...btn("var(--button-secondary-background)"),
+            "padding": "4px 10px",
+            "font-size": "12px",
+            flex: "0 0 auto",
+          }}
+          onClick={() => document.getElementById("sound-file-input")?.click()}
+          title="Max 5MB MP3 file"
+        >
+          {hasCustomSound() ? "Change" : "Upload"}
+        </button>
+        
+        <Show when={hasCustomSound()}>
+          <span style={{ "font-size": "12px", color: "var(--text-normal)", flex: "0 1 auto" }}>
+            {soundFileName()}
+          </span>
+          <button
+            style={{
+              ...btn("var(--button-positive-background)"),
+              "padding": "4px 8px",
+              "font-size": "11px",
+              flex: "0 0 auto",
+            }}
+            onClick={() => playNotificationSound()}
+            title="Test the sound"
+          >
+            Test
+          </button>
+          <button
+            style={{
+              ...btn("var(--button-danger-background)"),
+              "padding": "4px 8px",
+              "font-size": "11px",
+              flex: "0 0 auto",
+            }}
+            onClick={clearSoundFile}
+            title="Remove custom sound"
+          >
+            Clear
+          </button>
+        </Show>
+        <Show when={!hasCustomSound()}>
+          <span style={{ "font-size": "12px", color: "var(--text-muted)" }}>No file selected</span>
+        </Show>
+      </div>
 
       <div style={{ display: "flex", gap: "6px", margin: "12px 0 16px" }}>
         {tabBtn("servers", "Watched Servers")}
