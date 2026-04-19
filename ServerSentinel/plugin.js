@@ -151,7 +151,7 @@ var import_web$14 = __toESM(require_web(), 1);
 var import_web$15 = __toESM(require_web(), 1);
 var import_web$16 = __toESM(require_web(), 1);
 var import_solid_js = __toESM(require_solid_js(), 1);
-const _tmpl$$1 = /*#__PURE__*/ (0, import_web$5.template)(`<div></div>`, 2), _tmpl$2 = /*#__PURE__*/ (0, import_web$5.template)(`<div><div><!#><!/><span>▼</span></div><!#><!/></div>`, 10), _tmpl$3 = /*#__PURE__*/ (0, import_web$5.template)(`<p>No servers found.</p>`, 2), _tmpl$4 = /*#__PURE__*/ (0, import_web$5.template)(`<div><div><div><span>Pick a Server</span><button>×</button></div><div><input type="text" placeholder="Search by name or ID…" autofocus></div><div><!#><!/><!#><!/></div></div></div>`, 19), _tmpl$5 = /*#__PURE__*/ (0, import_web$5.template)(`<img>`, 1), _tmpl$6 = /*#__PURE__*/ (0, import_web$5.template)(`<span>Watching</span>`, 2), _tmpl$7 = /*#__PURE__*/ (0, import_web$5.template)(`<div><!#><!/><div><div></div><div></div></div><!#><!/></div>`, 12), _tmpl$8 = /*#__PURE__*/ (0, import_web$5.template)(`<div><div><div><div>ServerSentinel enabled</div><div>One more step needed</div></div><div><div>Close and reopen <span>Discord Settings</span> for the plugin to fully load.</div><div></div><div>Got it</div></div></div></div>`, 20), _tmpl$9 = /*#__PURE__*/ (0, import_web$5.template)(`<div><div></div><span></span></div>`, 6), _tmpl$0 = /*#__PURE__*/ (0, import_web$5.template)(`<button></button>`, 2), _tmpl$1 = /*#__PURE__*/ (0, import_web$5.template)(`<div><!#><!/><button>Add</button><button>Browse</button></div>`, 8), _tmpl$10 = /*#__PURE__*/ (0, import_web$5.template)(`<p></p>`, 2), _tmpl$11 = /*#__PURE__*/ (0, import_web$5.template)(`<p>No servers added yet.</p>`, 2), _tmpl$12 = /*#__PURE__*/ (0, import_web$5.template)(`<p>Click "Check Members" after adding a server to build a snapshot. Snapshot data persists across Discord restarts. For servers with 150+ members Discord may not send the full list - browse channels to improve coverage.</p>`, 2), _tmpl$13 = /*#__PURE__*/ (0, import_web$5.template)(`<div><div></div><!#><!/></div>`, 6), _tmpl$14 = /*#__PURE__*/ (0, import_web$5.template)(`<button>Clear</button>`, 2), _tmpl$15 = /*#__PURE__*/ (0, import_web$5.template)(`<div><span><!#><!/><!#><!/> record<!#><!/></span><!#><!/></div>`, 12), _tmpl$16 = /*#__PURE__*/ (0, import_web$5.template)(`<p>No leaves recorded yet.</p>`, 2), _tmpl$17 = /*#__PURE__*/ (0, import_web$5.template)(`<p>No results match your search.</p>`, 2), _tmpl$18 = /*#__PURE__*/ (0, import_web$5.template)(`<div><span>ServerSentinel</span><div><!#><!/><!#><!/></div><!#><!/><!#><!/></div>`, 14), _tmpl$19 = /*#__PURE__*/ (0, import_web$5.template)(`<span>Incomplete - click Check Members</span>`, 2), _tmpl$20 = /*#__PURE__*/ (0, import_web$5.template)(`<p>No members in snapshot yet.</p>`, 2), _tmpl$21 = /*#__PURE__*/ (0, import_web$5.template)(`<div><!#><!/><!#><!/></div>`, 6), _tmpl$22 = /*#__PURE__*/ (0, import_web$5.template)(`<div><div><div><div><!#><!/><div><span></span><span></span></div></div><div><button></button><button>Remove</button></div></div><div><span>Snapshot: <strong></strong><!#><!/></span><!#><!/><!#><!/></div><!#><!/></div><!#><!/></div>`, 38), _tmpl$23 = /*#__PURE__*/ (0, import_web$5.template)(`<span>@<!#><!/></span>`, 4), _tmpl$24 = /*#__PURE__*/ (0, import_web$5.template)(`<div><span><!#><!/><!#><!/></span><span></span></div>`, 10), _tmpl$25 = /*#__PURE__*/ (0, import_web$5.template)(`<div><div><span><span></span><span>(<!#><!/>)</span></span><span></span></div><div>Left <!#><!/></div></div>`, 18);
+const _tmpl$$1 = /*#__PURE__*/ (0, import_web$5.template)(`<div></div>`, 2), _tmpl$2 = /*#__PURE__*/ (0, import_web$5.template)(`<div><div><!#><!/><span>▼</span></div><!#><!/></div>`, 10), _tmpl$3 = /*#__PURE__*/ (0, import_web$5.template)(`<p>No servers found.</p>`, 2), _tmpl$4 = /*#__PURE__*/ (0, import_web$5.template)(`<div><div><div><span>Pick a Server</span><button>×</button></div><div><input type="text" placeholder="Search by name or ID…" autofocus></div><div><!#><!/><!#><!/></div></div></div>`, 19), _tmpl$5 = /*#__PURE__*/ (0, import_web$5.template)(`<img>`, 1), _tmpl$6 = /*#__PURE__*/ (0, import_web$5.template)(`<span>Watching</span>`, 2), _tmpl$7 = /*#__PURE__*/ (0, import_web$5.template)(`<div><!#><!/><div><div></div><div></div></div><!#><!/></div>`, 12), _tmpl$8 = /*#__PURE__*/ (0, import_web$5.template)(`<div><div><div><div>ServerSentinel enabled</div><div>One more step needed</div></div><div><div>Close and reopen <span>Discord Settings</span> for the plugin to fully load.</div><div></div><div>Got it</div></div></div></div>`, 20), _tmpl$9 = /*#__PURE__*/ (0, import_web$5.template)(`<div><div></div><span></span></div>`, 6), _tmpl$0 = /*#__PURE__*/ (0, import_web$5.template)(`<button></button>`, 2), _tmpl$1 = /*#__PURE__*/ (0, import_web$5.template)(`<span></span>`, 2), _tmpl$10 = /*#__PURE__*/ (0, import_web$5.template)(`<button title="Test the sound">Test</button>`, 2), _tmpl$11 = /*#__PURE__*/ (0, import_web$5.template)(`<button title="Remove custom sound">Clear</button>`, 2), _tmpl$12 = /*#__PURE__*/ (0, import_web$5.template)(`<span>No file selected</span>`, 2), _tmpl$13 = /*#__PURE__*/ (0, import_web$5.template)(`<div><!#><!/><button>Add</button><button>Browse</button></div>`, 8), _tmpl$14 = /*#__PURE__*/ (0, import_web$5.template)(`<p></p>`, 2), _tmpl$15 = /*#__PURE__*/ (0, import_web$5.template)(`<p>No servers added yet.</p>`, 2), _tmpl$16 = /*#__PURE__*/ (0, import_web$5.template)(`<p>Click "Check Members" after adding a server to build a snapshot. Snapshot data persists across Discord restarts. For servers with 150+ members Discord may not send the full list - browse channels to improve coverage.</p>`, 2), _tmpl$17 = /*#__PURE__*/ (0, import_web$5.template)(`<div><div></div><!#><!/></div>`, 6), _tmpl$18 = /*#__PURE__*/ (0, import_web$5.template)(`<button>Clear</button>`, 2), _tmpl$19 = /*#__PURE__*/ (0, import_web$5.template)(`<div><span><!#><!/><!#><!/> record<!#><!/></span><!#><!/></div>`, 12), _tmpl$20 = /*#__PURE__*/ (0, import_web$5.template)(`<p>No leaves recorded yet.</p>`, 2), _tmpl$21 = /*#__PURE__*/ (0, import_web$5.template)(`<p>No results match your search.</p>`, 2), _tmpl$22 = /*#__PURE__*/ (0, import_web$5.template)(`<div><span>ServerSentinel</span><div><label>Leave sound:</label><input id="sound-file-input" type="file" accept="audio/*,.mp3,.wav,.ogg,.webm,.flac,.aac,.m4a"><button title="Max 5MB MP3 file"></button><!#><!/><!#><!/></div><div><!#><!/><!#><!/></div><!#><!/><!#><!/></div>`, 25), _tmpl$23 = /*#__PURE__*/ (0, import_web$5.template)(`<span>Incomplete - click Check Members</span>`, 2), _tmpl$24 = /*#__PURE__*/ (0, import_web$5.template)(`<p>No members in snapshot yet.</p>`, 2), _tmpl$25 = /*#__PURE__*/ (0, import_web$5.template)(`<div><!#><!/><!#><!/></div>`, 6), _tmpl$26 = /*#__PURE__*/ (0, import_web$5.template)(`<div><div><div><div><!#><!/><div><span></span><span></span></div></div><div><button></button><button>Remove</button></div></div><div><span>Snapshot: <strong></strong><!#><!/></span><!#><!/><!#><!/></div><!#><!/></div><!#><!/></div>`, 38), _tmpl$27 = /*#__PURE__*/ (0, import_web$5.template)(`<span>@<!#><!/></span>`, 4), _tmpl$28 = /*#__PURE__*/ (0, import_web$5.template)(`<div><span><!#><!/><!#><!/></span><span></span></div>`, 10), _tmpl$29 = /*#__PURE__*/ (0, import_web$5.template)(`<div><div><span><span></span><span>(<!#><!/>)</span></span><span></span></div><div>Left <!#><!/></div></div>`, 18);
 const { plugin: { store: store$1 }, flux: { stores: stores$1, dispatcher: dispatcher$1 }, ui: { TextBox } } = shelter;
 function getGuildName$1(guildId) {
 	try {
@@ -266,7 +266,11 @@ function DarkSelect({ value, onChange, options }) {
 function getAllGuilds() {
 	try {
 		const guildsMap = stores$1.GuildStore?.getGuilds() ?? {};
-		return Object.values(guildsMap).sort((a, b) => (a.name ?? "").localeCompare(b.name ?? "", undefined, { sensitivity: "base" }));
+		return Object.entries(guildsMap).map(([id, guild]) => ({
+			...guild,
+			id: guild.id ?? id,
+			name: guild.name ?? id
+		})).sort((a, b) => (a.name ?? "").localeCompare(b.name ?? "", undefined, { sensitivity: "base" }));
 	} catch {
 		return [];
 	}
@@ -607,6 +611,8 @@ function MainPanel() {
 	const [history, setHistory] = (0, import_solid_js.createSignal)([...store$1.leaveHistory ?? []]);
 	const [logSearch, setLogSearch] = (0, import_solid_js.createSignal)("");
 	const [logGuild, setLogGuild] = (0, import_solid_js.createSignal)("all");
+	const [soundFileName, setSoundFileName] = (0, import_solid_js.createSignal)(store$1.customSoundFile ? "sound_uploaded.mp3" : "No file selected");
+	const [hasCustomSound, setHasCustomSound] = (0, import_solid_js.createSignal)(!!store$1.customSoundFile);
 	guilds().forEach((id) => {
 		getSnap(id).then((snap) => setSnapCounts((s) => ({
 			...s,
@@ -750,6 +756,45 @@ else {
 		store$1.leaveHistory = [];
 		setHistory([]);
 	}
+	function handleSoundFileUpload(event) {
+		const file = event.currentTarget?.files?.[0] || event.target?.files?.[0];
+		if (!file) return;
+		const isAudio = file.type.startsWith("audio/");
+		const hasAudioExt = /\.(mp3|wav|ogg|webm|flac|aac|m4a)$/i.test(file.name);
+		if (!isAudio && !hasAudioExt) {
+			alert("Please upload an audio file (MP3, WAV, OGG, etc.)");
+			return;
+		}
+		if (file.size > 5242880) {
+			alert("File is too large. Maximum size is 5MB.");
+			return;
+		}
+		const reader = new FileReader();
+		reader.onload = (e) => {
+			try {
+				const result = e.target?.result;
+				if (typeof result === "string") {
+					store$1.customSoundFile = result;
+					setSoundFileName(file.name);
+					setHasCustomSound(true);
+				}
+			} catch (err) {
+				console.error("Error reading file:", err);
+				alert("Failed to load sound file");
+			}
+		};
+		reader.onerror = () => {
+			alert("Failed to read file");
+		};
+		reader.readAsDataURL(file);
+	}
+	function clearSoundFile() {
+		store$1.customSoundFile = null;
+		setSoundFileName("No file selected");
+		setHasCustomSound(false);
+		const fileInput = document.getElementById("sound-file-input");
+		if (fileInput) fileInput.value = "";
+	}
 	const tabBtn = (key, label) => (() => {
 		const _el$47 = (0, import_web$13.getNextElement)(_tmpl$0);
 		_el$47.$$click = () => {
@@ -777,16 +822,83 @@ else {
 		return _el$47;
 	})();
 	return (() => {
-		const _el$48 = (0, import_web$13.getNextElement)(_tmpl$18), _el$49 = _el$48.firstChild, _el$50 = _el$49.nextSibling, _el$51 = _el$50.firstChild, [_el$52, _co$7] = (0, import_web$15.getNextMarker)(_el$51.nextSibling), _el$53 = _el$52.nextSibling, [_el$54, _co$8] = (0, import_web$15.getNextMarker)(_el$53.nextSibling), _el$81 = _el$50.nextSibling, [_el$82, _co$13] = (0, import_web$15.getNextMarker)(_el$81.nextSibling), _el$83 = _el$82.nextSibling, [_el$84, _co$14] = (0, import_web$15.getNextMarker)(_el$83.nextSibling);
+		const _el$48 = (0, import_web$13.getNextElement)(_tmpl$22), _el$49 = _el$48.firstChild, _el$50 = _el$49.nextSibling, _el$51 = _el$50.firstChild, _el$52 = _el$51.nextSibling, _el$53 = _el$52.nextSibling, _el$58 = _el$53.nextSibling, [_el$59, _co$7] = (0, import_web$15.getNextMarker)(_el$58.nextSibling), _el$60 = _el$59.nextSibling, [_el$61, _co$8] = (0, import_web$15.getNextMarker)(_el$60.nextSibling), _el$62 = _el$50.nextSibling, _el$63 = _el$62.firstChild, [_el$64, _co$9] = (0, import_web$15.getNextMarker)(_el$63.nextSibling), _el$65 = _el$64.nextSibling, [_el$66, _co$0] = (0, import_web$15.getNextMarker)(_el$65.nextSibling), _el$93 = _el$62.nextSibling, [_el$94, _co$15] = (0, import_web$15.getNextMarker)(_el$93.nextSibling), _el$95 = _el$94.nextSibling, [_el$96, _co$16] = (0, import_web$15.getNextMarker)(_el$95.nextSibling);
 		_el$48.style.setProperty("padding", "0 0 5px 0");
 		_el$49.style.setProperty("color", "var(--header-primary)");
 		_el$49.style.setProperty("font-size", "20px");
 		_el$49.style.setProperty("font-weight", "700");
-		_el$50.style.setProperty("display", "flex");
-		_el$50.style.setProperty("gap", "6px");
 		_el$50.style.setProperty("margin", "12px 0 16px");
-		(0, import_web$16.insert)(_el$50, () => tabBtn("servers", "Watched Servers"), _el$52, _co$7);
-		(0, import_web$16.insert)(_el$50, () => tabBtn("log", "Leave Log" + (store$1.leaveHistory?.length ? ` (${store$1.leaveHistory.length})` : "")), _el$54, _co$8);
+		_el$50.style.setProperty("padding", "8px 10px");
+		_el$50.style.setProperty("background", "var(--background-secondary)");
+		_el$50.style.setProperty("border-radius", "4px");
+		_el$50.style.setProperty("display", "flex");
+		_el$50.style.setProperty("align-items", "center");
+		_el$50.style.setProperty("gap", "8px");
+		_el$50.style.setProperty("flex-wrap", "wrap");
+		_el$51.style.setProperty("font-size", "12px");
+		_el$51.style.setProperty("color", "var(--text-muted)");
+		_el$51.style.setProperty("white-space", "nowrap");
+		_el$52.addEventListener("change", (e) => handleSoundFileUpload(e));
+		_el$52.style.setProperty("display", "none");
+		_el$53.$$click = () => document.getElementById("sound-file-input")?.click();
+		(0, import_web$16.insert)(_el$53, () => hasCustomSound() ? "Change" : "Upload");
+		(0, import_web$16.insert)(_el$50, (0, import_web$14.createComponent)(import_solid_js.Show, {
+			get when() {
+				return hasCustomSound();
+			},
+			get children() {
+				return [
+					(() => {
+						const _el$54 = (0, import_web$13.getNextElement)(_tmpl$1);
+						_el$54.style.setProperty("font-size", "12px");
+						_el$54.style.setProperty("color", "var(--text-normal)");
+						_el$54.style.setProperty("flex", "0 1 auto");
+						(0, import_web$16.insert)(_el$54, soundFileName);
+						return _el$54;
+					})(),
+					(() => {
+						const _el$55 = (0, import_web$13.getNextElement)(_tmpl$10);
+						_el$55.$$click = () => playNotificationSound();
+						(0, import_web$11.effect)((_$p) => (0, import_web$9.style)(_el$55, {
+							...btn("var(--button-positive-background)"),
+							"padding": "4px 8px",
+							"font-size": "11px",
+							flex: "0 0 auto"
+						}, _$p));
+						(0, import_web$12.runHydrationEvents)();
+						return _el$55;
+					})(),
+					(() => {
+						const _el$56 = (0, import_web$13.getNextElement)(_tmpl$11);
+						_el$56.$$click = clearSoundFile;
+						(0, import_web$11.effect)((_$p) => (0, import_web$9.style)(_el$56, {
+							...btn("var(--button-danger-background)"),
+							"padding": "4px 8px",
+							"font-size": "11px",
+							flex: "0 0 auto"
+						}, _$p));
+						(0, import_web$12.runHydrationEvents)();
+						return _el$56;
+					})()
+				];
+			}
+		}), _el$59, _co$7);
+		(0, import_web$16.insert)(_el$50, (0, import_web$14.createComponent)(import_solid_js.Show, {
+			get when() {
+				return !hasCustomSound();
+			},
+			get children() {
+				const _el$57 = (0, import_web$13.getNextElement)(_tmpl$12);
+				_el$57.style.setProperty("font-size", "12px");
+				_el$57.style.setProperty("color", "var(--text-muted)");
+				return _el$57;
+			}
+		}), _el$61, _co$8);
+		_el$62.style.setProperty("display", "flex");
+		_el$62.style.setProperty("gap", "6px");
+		_el$62.style.setProperty("margin", "12px 0 16px");
+		(0, import_web$16.insert)(_el$62, () => tabBtn("servers", "Watched Servers"), _el$64, _co$9);
+		(0, import_web$16.insert)(_el$62, () => tabBtn("log", "Leave Log" + (store$1.leaveHistory?.length ? ` (${store$1.leaveHistory.length})` : "")), _el$66, _co$0);
 		(0, import_web$16.insert)(_el$48, (0, import_web$14.createComponent)(import_solid_js.Show, {
 			get when() {
 				return tab() === "servers";
@@ -794,11 +906,11 @@ else {
 			get children() {
 				return [
 					(() => {
-						const _el$55 = (0, import_web$13.getNextElement)(_tmpl$1), _el$58 = _el$55.firstChild, [_el$59, _co$9] = (0, import_web$15.getNextMarker)(_el$58.nextSibling), _el$56 = _el$59.nextSibling, _el$57 = _el$56.nextSibling;
-						_el$55.style.setProperty("display", "flex");
-						_el$55.style.setProperty("gap", "8px");
-						_el$55.style.setProperty("margin-bottom", "8px");
-						(0, import_web$16.insert)(_el$55, (0, import_web$14.createComponent)(TextBox, {
+						const _el$67 = (0, import_web$13.getNextElement)(_tmpl$13), _el$70 = _el$67.firstChild, [_el$71, _co$1] = (0, import_web$15.getNextMarker)(_el$70.nextSibling), _el$68 = _el$71.nextSibling, _el$69 = _el$68.nextSibling;
+						_el$67.style.setProperty("display", "flex");
+						_el$67.style.setProperty("gap", "8px");
+						_el$67.style.setProperty("margin-bottom", "8px");
+						(0, import_web$16.insert)(_el$67, (0, import_web$14.createComponent)(TextBox, {
 							get value() {
 								return input();
 							},
@@ -808,32 +920,32 @@ else {
 							},
 							onKeyDown: (e) => e.key === "Enter" && add(),
 							placeholder: "Server ID..."
-						}), _el$59, _co$9);
-						_el$56.$$click = () => add();
-						_el$57.$$click = () => setShowPicker(true);
+						}), _el$71, _co$1);
+						_el$68.$$click = () => add();
+						_el$69.$$click = () => setShowPicker(true);
 						(0, import_web$11.effect)((_p$) => {
 							const _v$6 = btn("var(--button-positive-background)"), _v$7 = btn("var(--button-secondary-background)");
-							_p$._v$6 = (0, import_web$9.style)(_el$56, _v$6, _p$._v$6);
-							_p$._v$7 = (0, import_web$9.style)(_el$57, _v$7, _p$._v$7);
+							_p$._v$6 = (0, import_web$9.style)(_el$68, _v$6, _p$._v$6);
+							_p$._v$7 = (0, import_web$9.style)(_el$69, _v$7, _p$._v$7);
 							return _p$;
 						}, {
 							_v$6: undefined,
 							_v$7: undefined
 						});
 						(0, import_web$12.runHydrationEvents)();
-						return _el$55;
+						return _el$67;
 					})(),
 					(0, import_web$14.createComponent)(import_solid_js.Show, {
 						get when() {
 							return error();
 						},
 						get children() {
-							const _el$60 = (0, import_web$13.getNextElement)(_tmpl$10);
-							_el$60.style.setProperty("color", "var(--status-danger)");
-							_el$60.style.setProperty("font-size", "13px");
-							_el$60.style.setProperty("margin", "0 0 8px");
-							(0, import_web$16.insert)(_el$60, error);
-							return _el$60;
+							const _el$72 = (0, import_web$13.getNextElement)(_tmpl$14);
+							_el$72.style.setProperty("color", "var(--status-danger)");
+							_el$72.style.setProperty("font-size", "13px");
+							_el$72.style.setProperty("margin", "0 0 8px");
+							(0, import_web$16.insert)(_el$72, error);
+							return _el$72;
 						}
 					}),
 					(0, import_web$14.createComponent)(import_solid_js.Show, {
@@ -855,9 +967,9 @@ else {
 							return guilds().length === 0;
 						},
 						get children() {
-							const _el$61 = (0, import_web$13.getNextElement)(_tmpl$11);
-							_el$61.style.setProperty("color", "var(--text-muted)");
-							return _el$61;
+							const _el$73 = (0, import_web$13.getNextElement)(_tmpl$15);
+							_el$73.style.setProperty("color", "var(--text-muted)");
+							return _el$73;
 						}
 					}),
 					(0, import_web$14.createComponent)(import_solid_js.For, {
@@ -873,75 +985,75 @@ else {
 							const members = () => memberList()[id] ?? [];
 							const iconUrl = () => getGuildIcon(id);
 							return (() => {
-								const _el$85 = (0, import_web$13.getNextElement)(_tmpl$22), _el$86 = _el$85.firstChild, _el$87 = _el$86.firstChild, _el$88 = _el$87.firstChild, _el$93 = _el$88.firstChild, [_el$94, _co$15] = (0, import_web$15.getNextMarker)(_el$93.nextSibling), _el$90 = _el$94.nextSibling, _el$91 = _el$90.firstChild, _el$92 = _el$91.nextSibling, _el$95 = _el$88.nextSibling, _el$96 = _el$95.firstChild, _el$97 = _el$96.nextSibling, _el$98 = _el$87.nextSibling, _el$99 = _el$98.firstChild, _el$100 = _el$99.firstChild, _el$102 = _el$100.nextSibling, _el$103 = _el$102.nextSibling, [_el$104, _co$16] = (0, import_web$15.getNextMarker)(_el$103.nextSibling), _el$107 = _el$99.nextSibling, [_el$108, _co$17] = (0, import_web$15.getNextMarker)(_el$107.nextSibling), _el$109 = _el$108.nextSibling, [_el$110, _co$18] = (0, import_web$15.getNextMarker)(_el$109.nextSibling), _el$112 = _el$98.nextSibling, [_el$113, _co$19] = (0, import_web$15.getNextMarker)(_el$112.nextSibling), _el$120 = _el$86.nextSibling, [_el$121, _co$22] = (0, import_web$15.getNextMarker)(_el$120.nextSibling);
-								_el$85.style.setProperty("margin-bottom", "6px");
-								_el$85.style.setProperty("background", "var(--background-secondary)");
-								_el$85.style.setProperty("border-radius", "6px");
-								_el$85.style.setProperty("overflow", "hidden");
-								_el$86.style.setProperty("padding", "10px 12px");
-								_el$87.style.setProperty("display", "flex");
-								_el$87.style.setProperty("align-items", "center");
-								_el$87.style.setProperty("justify-content", "space-between");
-								_el$87.style.setProperty("gap", "8px");
-								_el$88.style.setProperty("display", "flex");
-								_el$88.style.setProperty("align-items", "center");
-								_el$88.style.setProperty("gap", "10px");
-								_el$88.style.setProperty("min-width", "0");
-								(0, import_web$16.insert)(_el$88, (0, import_web$14.createComponent)(import_solid_js.Show, {
+								const _el$97 = (0, import_web$13.getNextElement)(_tmpl$26), _el$98 = _el$97.firstChild, _el$99 = _el$98.firstChild, _el$100 = _el$99.firstChild, _el$105 = _el$100.firstChild, [_el$106, _co$17] = (0, import_web$15.getNextMarker)(_el$105.nextSibling), _el$102 = _el$106.nextSibling, _el$103 = _el$102.firstChild, _el$104 = _el$103.nextSibling, _el$107 = _el$100.nextSibling, _el$108 = _el$107.firstChild, _el$109 = _el$108.nextSibling, _el$110 = _el$99.nextSibling, _el$111 = _el$110.firstChild, _el$112 = _el$111.firstChild, _el$114 = _el$112.nextSibling, _el$115 = _el$114.nextSibling, [_el$116, _co$18] = (0, import_web$15.getNextMarker)(_el$115.nextSibling), _el$119 = _el$111.nextSibling, [_el$120, _co$19] = (0, import_web$15.getNextMarker)(_el$119.nextSibling), _el$121 = _el$120.nextSibling, [_el$122, _co$20] = (0, import_web$15.getNextMarker)(_el$121.nextSibling), _el$124 = _el$110.nextSibling, [_el$125, _co$21] = (0, import_web$15.getNextMarker)(_el$124.nextSibling), _el$132 = _el$98.nextSibling, [_el$133, _co$24] = (0, import_web$15.getNextMarker)(_el$132.nextSibling);
+								_el$97.style.setProperty("margin-bottom", "6px");
+								_el$97.style.setProperty("background", "var(--background-secondary)");
+								_el$97.style.setProperty("border-radius", "6px");
+								_el$97.style.setProperty("overflow", "hidden");
+								_el$98.style.setProperty("padding", "10px 12px");
+								_el$99.style.setProperty("display", "flex");
+								_el$99.style.setProperty("align-items", "center");
+								_el$99.style.setProperty("justify-content", "space-between");
+								_el$99.style.setProperty("gap", "8px");
+								_el$100.style.setProperty("display", "flex");
+								_el$100.style.setProperty("align-items", "center");
+								_el$100.style.setProperty("gap", "10px");
+								_el$100.style.setProperty("min-width", "0");
+								(0, import_web$16.insert)(_el$100, (0, import_web$14.createComponent)(import_solid_js.Show, {
 									get when() {
 										return iconUrl();
 									},
 									get fallback() {
 										return (() => {
-											const _el$122 = (0, import_web$13.getNextElement)(_tmpl$$1);
-											_el$122.style.setProperty("width", "32px");
-											_el$122.style.setProperty("height", "32px");
-											_el$122.style.setProperty("border-radius", "50%");
-											_el$122.style.setProperty("background", "var(--background-modifier-accent)");
-											_el$122.style.setProperty("display", "flex");
-											_el$122.style.setProperty("align-items", "center");
-											_el$122.style.setProperty("justify-content", "center");
-											_el$122.style.setProperty("flex-shrink", "0");
-											_el$122.style.setProperty("font-size", "12px");
-											_el$122.style.setProperty("color", "var(--text-muted)");
-											(0, import_web$16.insert)(_el$122, () => (getGuildName$1(id) ?? "?")[0]?.toUpperCase());
-											return _el$122;
+											const _el$134 = (0, import_web$13.getNextElement)(_tmpl$$1);
+											_el$134.style.setProperty("width", "32px");
+											_el$134.style.setProperty("height", "32px");
+											_el$134.style.setProperty("border-radius", "50%");
+											_el$134.style.setProperty("background", "var(--background-modifier-accent)");
+											_el$134.style.setProperty("display", "flex");
+											_el$134.style.setProperty("align-items", "center");
+											_el$134.style.setProperty("justify-content", "center");
+											_el$134.style.setProperty("flex-shrink", "0");
+											_el$134.style.setProperty("font-size", "12px");
+											_el$134.style.setProperty("color", "var(--text-muted)");
+											(0, import_web$16.insert)(_el$134, () => (getGuildName$1(id) ?? "?")[0]?.toUpperCase());
+											return _el$134;
 										})();
 									},
 									get children() {
-										const _el$89 = (0, import_web$13.getNextElement)(_tmpl$5);
-										_el$89.style.setProperty("width", "32px");
-										_el$89.style.setProperty("height", "32px");
-										_el$89.style.setProperty("border-radius", "50%");
-										_el$89.style.setProperty("object-fit", "cover");
-										_el$89.style.setProperty("flex-shrink", "0");
-										(0, import_web$11.effect)(() => (0, import_web$8.setAttribute)(_el$89, "src", iconUrl()));
-										return _el$89;
+										const _el$101 = (0, import_web$13.getNextElement)(_tmpl$5);
+										_el$101.style.setProperty("width", "32px");
+										_el$101.style.setProperty("height", "32px");
+										_el$101.style.setProperty("border-radius", "50%");
+										_el$101.style.setProperty("object-fit", "cover");
+										_el$101.style.setProperty("flex-shrink", "0");
+										(0, import_web$11.effect)(() => (0, import_web$8.setAttribute)(_el$101, "src", iconUrl()));
+										return _el$101;
 									}
-								}), _el$94, _co$15);
-								_el$90.style.setProperty("min-width", "0");
-								_el$91.style.setProperty("color", "var(--header-primary)");
-								_el$91.style.setProperty("font-weight", "600");
-								(0, import_web$16.insert)(_el$91, () => getGuildName$1(id) ?? "Unknown Server");
-								_el$92.style.setProperty("color", "var(--text-muted)");
-								_el$92.style.setProperty("font-size", "12px");
-								_el$92.style.setProperty("margin-left", "8px");
-								(0, import_web$16.insert)(_el$92, id);
-								_el$95.style.setProperty("display", "flex");
-								_el$95.style.setProperty("gap", "6px");
-								_el$95.style.setProperty("flex-shrink", "0");
-								_el$96.$$click = () => checkMembers(id);
-								(0, import_web$16.insert)(_el$96, () => cs()?.phase === "checking" ? "Checking…" : "Check Members");
-								_el$97.$$click = () => remove(id);
-								_el$98.style.setProperty("margin-top", "6px");
-								_el$98.style.setProperty("font-size", "12px");
-								_el$98.style.setProperty("color", "var(--text-muted)");
-								_el$98.style.setProperty("display", "flex");
-								_el$98.style.setProperty("gap", "12px");
-								_el$98.style.setProperty("flex-wrap", "wrap");
-								_el$98.style.setProperty("align-items", "center");
-								(0, import_web$16.insert)(_el$102, count);
-								(0, import_web$16.insert)(_el$99, (0, import_web$14.createComponent)(import_solid_js.Show, {
+								}), _el$106, _co$17);
+								_el$102.style.setProperty("min-width", "0");
+								_el$103.style.setProperty("color", "var(--header-primary)");
+								_el$103.style.setProperty("font-weight", "600");
+								(0, import_web$16.insert)(_el$103, () => getGuildName$1(id) ?? "Unknown Server");
+								_el$104.style.setProperty("color", "var(--text-muted)");
+								_el$104.style.setProperty("font-size", "12px");
+								_el$104.style.setProperty("margin-left", "8px");
+								(0, import_web$16.insert)(_el$104, id);
+								_el$107.style.setProperty("display", "flex");
+								_el$107.style.setProperty("gap", "6px");
+								_el$107.style.setProperty("flex-shrink", "0");
+								_el$108.$$click = () => checkMembers(id);
+								(0, import_web$16.insert)(_el$108, () => cs()?.phase === "checking" ? "Checking…" : "Check Members");
+								_el$109.$$click = () => remove(id);
+								_el$110.style.setProperty("margin-top", "6px");
+								_el$110.style.setProperty("font-size", "12px");
+								_el$110.style.setProperty("color", "var(--text-muted)");
+								_el$110.style.setProperty("display", "flex");
+								_el$110.style.setProperty("gap", "12px");
+								_el$110.style.setProperty("flex-wrap", "wrap");
+								_el$110.style.setProperty("align-items", "center");
+								(0, import_web$16.insert)(_el$114, count);
+								(0, import_web$16.insert)(_el$111, (0, import_web$14.createComponent)(import_solid_js.Show, {
 									get when() {
 										return total() > 0;
 									},
@@ -952,118 +1064,118 @@ else {
 											" on server"
 										];
 									}
-								}), _el$104, _co$16);
-								(0, import_web$16.insert)(_el$98, (0, import_web$14.createComponent)(import_solid_js.Show, {
+								}), _el$116, _co$18);
+								(0, import_web$16.insert)(_el$110, (0, import_web$14.createComponent)(import_solid_js.Show, {
 									get when() {
 										return (0, import_web$7.memo)(() => !!incomplete())() && !cs();
 									},
 									get children() {
-										const _el$105 = (0, import_web$13.getNextElement)(_tmpl$19);
-										_el$105.style.setProperty("color", "var(--text-warning)");
-										_el$105.style.setProperty("font-size", "11px");
-										return _el$105;
+										const _el$117 = (0, import_web$13.getNextElement)(_tmpl$23);
+										_el$117.style.setProperty("color", "var(--text-warning)");
+										_el$117.style.setProperty("font-size", "11px");
+										return _el$117;
 									}
-								}), _el$108, _co$17);
-								(0, import_web$16.insert)(_el$98, (0, import_web$14.createComponent)(import_solid_js.Show, {
+								}), _el$120, _co$19);
+								(0, import_web$16.insert)(_el$110, (0, import_web$14.createComponent)(import_solid_js.Show, {
 									get when() {
 										return count() > 0;
 									},
 									get children() {
-										const _el$106 = (0, import_web$13.getNextElement)(_tmpl$0);
-										_el$106.$$click = () => toggleMemberList(id);
-										_el$106.style.setProperty("background", "none");
-										_el$106.style.setProperty("border", "none");
-										_el$106.style.setProperty("cursor", "pointer");
-										_el$106.style.setProperty("color", "var(--text-link)");
-										_el$106.style.setProperty("font-size", "12px");
-										_el$106.style.setProperty("padding", "0");
-										(0, import_web$16.insert)(_el$106, (() => {
+										const _el$118 = (0, import_web$13.getNextElement)(_tmpl$0);
+										_el$118.$$click = () => toggleMemberList(id);
+										_el$118.style.setProperty("background", "none");
+										_el$118.style.setProperty("border", "none");
+										_el$118.style.setProperty("cursor", "pointer");
+										_el$118.style.setProperty("color", "var(--text-link)");
+										_el$118.style.setProperty("font-size", "12px");
+										_el$118.style.setProperty("padding", "0");
+										(0, import_web$16.insert)(_el$118, (() => {
 											const _c$2 = (0, import_web$7.memo)(() => !!isExpanded());
 											return () => _c$2() ? "Hide members" : `Show all ${count()} members`;
 										})());
 										(0, import_web$12.runHydrationEvents)();
-										return _el$106;
+										return _el$118;
 									}
-								}), _el$110, _co$18);
-								(0, import_web$16.insert)(_el$86, (0, import_web$14.createComponent)(import_solid_js.Show, {
+								}), _el$122, _co$20);
+								(0, import_web$16.insert)(_el$98, (0, import_web$14.createComponent)(import_solid_js.Show, {
 									get when() {
 										return cs()?.progress;
 									},
 									get children() {
-										const _el$111 = (0, import_web$13.getNextElement)(_tmpl$10);
-										_el$111.style.setProperty("font-size", "12px");
-										_el$111.style.setProperty("margin-top", "6px");
-										_el$111.style.setProperty("margin-bottom", "0");
-										(0, import_web$16.insert)(_el$111, () => cs().progress);
-										(0, import_web$11.effect)(() => _el$111.style.setProperty("color", cs()?.phase === "done" ? cs()?.complete ? "var(--text-positive)" : "var(--text-warning)" : "var(--text-muted)"));
-										return _el$111;
+										const _el$123 = (0, import_web$13.getNextElement)(_tmpl$14);
+										_el$123.style.setProperty("font-size", "12px");
+										_el$123.style.setProperty("margin-top", "6px");
+										_el$123.style.setProperty("margin-bottom", "0");
+										(0, import_web$16.insert)(_el$123, () => cs().progress);
+										(0, import_web$11.effect)(() => _el$123.style.setProperty("color", cs()?.phase === "done" ? cs()?.complete ? "var(--text-positive)" : "var(--text-warning)" : "var(--text-muted)"));
+										return _el$123;
 									}
-								}), _el$113, _co$19);
-								(0, import_web$16.insert)(_el$85, (0, import_web$14.createComponent)(import_solid_js.Show, {
+								}), _el$125, _co$21);
+								(0, import_web$16.insert)(_el$97, (0, import_web$14.createComponent)(import_solid_js.Show, {
 									get when() {
 										return isExpanded();
 									},
 									get children() {
-										const _el$114 = (0, import_web$13.getNextElement)(_tmpl$21), _el$116 = _el$114.firstChild, [_el$117, _co$20] = (0, import_web$15.getNextMarker)(_el$116.nextSibling), _el$118 = _el$117.nextSibling, [_el$119, _co$21] = (0, import_web$15.getNextMarker)(_el$118.nextSibling);
-										_el$114.style.setProperty("border-top", "1px solid var(--background-modifier-accent)");
-										_el$114.style.setProperty("max-height", "280px");
-										_el$114.style.setProperty("overflow-y", "auto");
-										(0, import_web$16.insert)(_el$114, (0, import_web$14.createComponent)(import_solid_js.Show, {
+										const _el$126 = (0, import_web$13.getNextElement)(_tmpl$25), _el$128 = _el$126.firstChild, [_el$129, _co$22] = (0, import_web$15.getNextMarker)(_el$128.nextSibling), _el$130 = _el$129.nextSibling, [_el$131, _co$23] = (0, import_web$15.getNextMarker)(_el$130.nextSibling);
+										_el$126.style.setProperty("border-top", "1px solid var(--background-modifier-accent)");
+										_el$126.style.setProperty("max-height", "280px");
+										_el$126.style.setProperty("overflow-y", "auto");
+										(0, import_web$16.insert)(_el$126, (0, import_web$14.createComponent)(import_solid_js.Show, {
 											get when() {
 												return members().length === 0;
 											},
 											get children() {
-												const _el$115 = (0, import_web$13.getNextElement)(_tmpl$20);
-												_el$115.style.setProperty("color", "var(--text-muted)");
-												_el$115.style.setProperty("padding", "10px 12px");
-												_el$115.style.setProperty("margin", "0");
-												return _el$115;
+												const _el$127 = (0, import_web$13.getNextElement)(_tmpl$24);
+												_el$127.style.setProperty("color", "var(--text-muted)");
+												_el$127.style.setProperty("padding", "10px 12px");
+												_el$127.style.setProperty("margin", "0");
+												return _el$127;
 											}
-										}), _el$117, _co$20);
-										(0, import_web$16.insert)(_el$114, (0, import_web$14.createComponent)(import_solid_js.For, {
+										}), _el$129, _co$22);
+										(0, import_web$16.insert)(_el$126, (0, import_web$14.createComponent)(import_solid_js.For, {
 											get each() {
 												return members();
 											},
 											children: (entry) => (() => {
-												const _el$123 = (0, import_web$13.getNextElement)(_tmpl$24), _el$124 = _el$123.firstChild, _el$129 = _el$124.firstChild, [_el$130, _co$24] = (0, import_web$15.getNextMarker)(_el$129.nextSibling), _el$131 = _el$130.nextSibling, [_el$132, _co$25] = (0, import_web$15.getNextMarker)(_el$131.nextSibling), _el$133 = _el$124.nextSibling;
-												_el$123.style.setProperty("display", "flex");
-												_el$123.style.setProperty("justify-content", "space-between");
-												_el$123.style.setProperty("align-items", "center");
-												_el$123.style.setProperty("padding", "5px 12px");
-												_el$123.style.setProperty("border-bottom", "1px solid var(--background-modifier-accent)");
-												_el$123.style.setProperty("font-size", "13px");
-												_el$124.style.setProperty("color", "var(--header-primary)");
-												(0, import_web$16.insert)(_el$124, () => entry.name, _el$130, _co$24);
-												(0, import_web$16.insert)(_el$124, (0, import_web$14.createComponent)(import_solid_js.Show, {
+												const _el$135 = (0, import_web$13.getNextElement)(_tmpl$28), _el$136 = _el$135.firstChild, _el$141 = _el$136.firstChild, [_el$142, _co$26] = (0, import_web$15.getNextMarker)(_el$141.nextSibling), _el$143 = _el$142.nextSibling, [_el$144, _co$27] = (0, import_web$15.getNextMarker)(_el$143.nextSibling), _el$145 = _el$136.nextSibling;
+												_el$135.style.setProperty("display", "flex");
+												_el$135.style.setProperty("justify-content", "space-between");
+												_el$135.style.setProperty("align-items", "center");
+												_el$135.style.setProperty("padding", "5px 12px");
+												_el$135.style.setProperty("border-bottom", "1px solid var(--background-modifier-accent)");
+												_el$135.style.setProperty("font-size", "13px");
+												_el$136.style.setProperty("color", "var(--header-primary)");
+												(0, import_web$16.insert)(_el$136, () => entry.name, _el$142, _co$26);
+												(0, import_web$16.insert)(_el$136, (0, import_web$14.createComponent)(import_solid_js.Show, {
 													get when() {
 														return entry.username && entry.globalName && entry.username !== entry.globalName;
 													},
 													get children() {
-														const _el$125 = (0, import_web$13.getNextElement)(_tmpl$23), _el$126 = _el$125.firstChild, _el$127 = _el$126.nextSibling, [_el$128, _co$23] = (0, import_web$15.getNextMarker)(_el$127.nextSibling);
-														_el$125.style.setProperty("color", "var(--text-muted)");
-														_el$125.style.setProperty("margin-left", "6px");
-														_el$125.style.setProperty("font-size", "11px");
-														(0, import_web$16.insert)(_el$125, () => entry.username, _el$128, _co$23);
-														return _el$125;
+														const _el$137 = (0, import_web$13.getNextElement)(_tmpl$27), _el$138 = _el$137.firstChild, _el$139 = _el$138.nextSibling, [_el$140, _co$25] = (0, import_web$15.getNextMarker)(_el$139.nextSibling);
+														_el$137.style.setProperty("color", "var(--text-muted)");
+														_el$137.style.setProperty("margin-left", "6px");
+														_el$137.style.setProperty("font-size", "11px");
+														(0, import_web$16.insert)(_el$137, () => entry.username, _el$140, _co$25);
+														return _el$137;
 													}
-												}), _el$132, _co$25);
-												_el$133.style.setProperty("color", "var(--text-muted)");
-												_el$133.style.setProperty("font-size", "11px");
-												_el$133.style.setProperty("font-family", "monospace");
-												_el$133.style.setProperty("flex-shrink", "0");
-												_el$133.style.setProperty("margin-left", "12px");
-												(0, import_web$16.insert)(_el$133, () => entry.uid);
-												return _el$123;
+												}), _el$144, _co$27);
+												_el$145.style.setProperty("color", "var(--text-muted)");
+												_el$145.style.setProperty("font-size", "11px");
+												_el$145.style.setProperty("font-family", "monospace");
+												_el$145.style.setProperty("flex-shrink", "0");
+												_el$145.style.setProperty("margin-left", "12px");
+												(0, import_web$16.insert)(_el$145, () => entry.uid);
+												return _el$135;
 											})()
-										}), _el$119, _co$21);
-										return _el$114;
+										}), _el$131, _co$23);
+										return _el$126;
 									}
-								}), _el$121, _co$22);
+								}), _el$133, _co$24);
 								(0, import_web$11.effect)((_p$) => {
 									const _v$8 = btn("var(--button-secondary-background)", { opacity: cs()?.phase === "checking" ? "0.6" : "1" }), _v$9 = btn("var(--button-danger-background)"), _v$0 = incomplete() ? "var(--text-warning)" : "var(--text-positive)";
-									_p$._v$8 = (0, import_web$9.style)(_el$96, _v$8, _p$._v$8);
-									_p$._v$9 = (0, import_web$9.style)(_el$97, _v$9, _p$._v$9);
-									_v$0 !== _p$._v$0 && _el$102.style.setProperty("color", _p$._v$0 = _v$0);
+									_p$._v$8 = (0, import_web$9.style)(_el$108, _v$8, _p$._v$8);
+									_p$._v$9 = (0, import_web$9.style)(_el$109, _v$9, _p$._v$9);
+									_v$0 !== _p$._v$0 && _el$114.style.setProperty("color", _p$._v$0 = _v$0);
 									return _p$;
 								}, {
 									_v$8: undefined,
@@ -1071,7 +1183,7 @@ else {
 									_v$0: undefined
 								});
 								(0, import_web$12.runHydrationEvents)();
-								return _el$85;
+								return _el$97;
 							})();
 						}
 					}),
@@ -1080,16 +1192,16 @@ else {
 							return guilds().length > 0;
 						},
 						get children() {
-							const _el$62 = (0, import_web$13.getNextElement)(_tmpl$12);
-							_el$62.style.setProperty("color", "var(--text-muted)");
-							_el$62.style.setProperty("font-size", "12px");
-							_el$62.style.setProperty("margin-top", "10px");
-							return _el$62;
+							const _el$74 = (0, import_web$13.getNextElement)(_tmpl$16);
+							_el$74.style.setProperty("color", "var(--text-muted)");
+							_el$74.style.setProperty("font-size", "12px");
+							_el$74.style.setProperty("margin-top", "10px");
+							return _el$74;
 						}
 					})
 				];
 			}
-		}), _el$82, _co$13);
+		}), _el$94, _co$15);
 		(0, import_web$16.insert)(_el$48, (0, import_web$14.createComponent)(import_solid_js.Show, {
 			get when() {
 				return tab() === "log";
@@ -1097,20 +1209,20 @@ else {
 			get children() {
 				return [
 					(() => {
-						const _el$63 = (0, import_web$13.getNextElement)(_tmpl$13), _el$64 = _el$63.firstChild, _el$65 = _el$64.nextSibling, [_el$66, _co$0] = (0, import_web$15.getNextMarker)(_el$65.nextSibling);
-						_el$63.style.setProperty("display", "flex");
-						_el$63.style.setProperty("gap", "8px");
-						_el$63.style.setProperty("margin-bottom", "10px");
-						_el$63.style.setProperty("align-items", "center");
-						_el$64.style.setProperty("flex", "1");
-						(0, import_web$16.insert)(_el$64, (0, import_web$14.createComponent)(TextBox, {
+						const _el$75 = (0, import_web$13.getNextElement)(_tmpl$17), _el$76 = _el$75.firstChild, _el$77 = _el$76.nextSibling, [_el$78, _co$10] = (0, import_web$15.getNextMarker)(_el$77.nextSibling);
+						_el$75.style.setProperty("display", "flex");
+						_el$75.style.setProperty("gap", "8px");
+						_el$75.style.setProperty("margin-bottom", "10px");
+						_el$75.style.setProperty("align-items", "center");
+						_el$76.style.setProperty("flex", "1");
+						(0, import_web$16.insert)(_el$76, (0, import_web$14.createComponent)(TextBox, {
 							get value() {
 								return logSearch();
 							},
 							onInput: (v) => setLogSearch(v),
 							placeholder: "Search by username or user ID…"
 						}));
-						(0, import_web$16.insert)(_el$63, (0, import_web$14.createComponent)(import_solid_js.Show, {
+						(0, import_web$16.insert)(_el$75, (0, import_web$14.createComponent)(import_solid_js.Show, {
 							get when() {
 								return logGuildOptions().length > 1;
 							},
@@ -1129,45 +1241,45 @@ else {
 									}
 								});
 							}
-						}), _el$66, _co$0);
-						return _el$63;
+						}), _el$78, _co$10);
+						return _el$75;
 					})(),
 					(() => {
-						const _el$67 = (0, import_web$13.getNextElement)(_tmpl$15), _el$68 = _el$67.firstChild, _el$70 = _el$68.firstChild, [_el$71, _co$1] = (0, import_web$15.getNextMarker)(_el$70.nextSibling), _el$72 = _el$71.nextSibling, [_el$73, _co$10] = (0, import_web$15.getNextMarker)(_el$72.nextSibling), _el$69 = _el$73.nextSibling, _el$74 = _el$69.nextSibling, [_el$75, _co$11] = (0, import_web$15.getNextMarker)(_el$74.nextSibling), _el$77 = _el$68.nextSibling, [_el$78, _co$12] = (0, import_web$15.getNextMarker)(_el$77.nextSibling);
-						_el$67.style.setProperty("display", "flex");
-						_el$67.style.setProperty("justify-content", "space-between");
-						_el$67.style.setProperty("align-items", "center");
-						_el$67.style.setProperty("margin-bottom", "12px");
-						_el$68.style.setProperty("color", "var(--text-muted)");
-						_el$68.style.setProperty("font-size", "13px");
-						(0, import_web$16.insert)(_el$68, () => filteredHistory().length, _el$71, _co$1);
-						(0, import_web$16.insert)(_el$68, (() => {
+						const _el$79 = (0, import_web$13.getNextElement)(_tmpl$19), _el$80 = _el$79.firstChild, _el$82 = _el$80.firstChild, [_el$83, _co$11] = (0, import_web$15.getNextMarker)(_el$82.nextSibling), _el$84 = _el$83.nextSibling, [_el$85, _co$12] = (0, import_web$15.getNextMarker)(_el$84.nextSibling), _el$81 = _el$85.nextSibling, _el$86 = _el$81.nextSibling, [_el$87, _co$13] = (0, import_web$15.getNextMarker)(_el$86.nextSibling), _el$89 = _el$80.nextSibling, [_el$90, _co$14] = (0, import_web$15.getNextMarker)(_el$89.nextSibling);
+						_el$79.style.setProperty("display", "flex");
+						_el$79.style.setProperty("justify-content", "space-between");
+						_el$79.style.setProperty("align-items", "center");
+						_el$79.style.setProperty("margin-bottom", "12px");
+						_el$80.style.setProperty("color", "var(--text-muted)");
+						_el$80.style.setProperty("font-size", "13px");
+						(0, import_web$16.insert)(_el$80, () => filteredHistory().length, _el$83, _co$11);
+						(0, import_web$16.insert)(_el$80, (() => {
 							const _c$ = (0, import_web$7.memo)(() => filteredHistory().length !== history().length);
 							return () => _c$() ? ` / ${history().length}` : "";
-						})(), _el$73, _co$10);
-						(0, import_web$16.insert)(_el$68, () => history().length !== 1 ? "s" : "", _el$75, _co$11);
-						(0, import_web$16.insert)(_el$67, (0, import_web$14.createComponent)(import_solid_js.Show, {
+						})(), _el$85, _co$12);
+						(0, import_web$16.insert)(_el$80, () => history().length !== 1 ? "s" : "", _el$87, _co$13);
+						(0, import_web$16.insert)(_el$79, (0, import_web$14.createComponent)(import_solid_js.Show, {
 							get when() {
 								return history().length > 0;
 							},
 							get children() {
-								const _el$76 = (0, import_web$13.getNextElement)(_tmpl$14);
-								_el$76.$$click = clearLog;
-								(0, import_web$11.effect)((_$p) => (0, import_web$9.style)(_el$76, btn("var(--button-danger-background)"), _$p));
+								const _el$88 = (0, import_web$13.getNextElement)(_tmpl$18);
+								_el$88.$$click = clearLog;
+								(0, import_web$11.effect)((_$p) => (0, import_web$9.style)(_el$88, btn("var(--button-danger-background)"), _$p));
 								(0, import_web$12.runHydrationEvents)();
-								return _el$76;
+								return _el$88;
 							}
-						}), _el$78, _co$12);
-						return _el$67;
+						}), _el$90, _co$14);
+						return _el$79;
 					})(),
 					(0, import_web$14.createComponent)(import_solid_js.Show, {
 						get when() {
 							return history().length === 0;
 						},
 						get children() {
-							const _el$79 = (0, import_web$13.getNextElement)(_tmpl$16);
-							_el$79.style.setProperty("color", "var(--text-muted)");
-							return _el$79;
+							const _el$91 = (0, import_web$13.getNextElement)(_tmpl$20);
+							_el$91.style.setProperty("color", "var(--text-muted)");
+							return _el$91;
 						}
 					}),
 					(0, import_web$14.createComponent)(import_solid_js.Show, {
@@ -1175,9 +1287,9 @@ else {
 							return (0, import_web$7.memo)(() => history().length > 0)() && filteredHistory().length === 0;
 						},
 						get children() {
-							const _el$80 = (0, import_web$13.getNextElement)(_tmpl$17);
-							_el$80.style.setProperty("color", "var(--text-muted)");
-							return _el$80;
+							const _el$92 = (0, import_web$13.getNextElement)(_tmpl$21);
+							_el$92.style.setProperty("color", "var(--text-muted)");
+							return _el$92;
 						}
 					}),
 					(0, import_web$14.createComponent)(import_solid_js.For, {
@@ -1194,42 +1306,49 @@ else {
 								}
 							})();
 							return (() => {
-								const _el$134 = (0, import_web$13.getNextElement)(_tmpl$25), _el$135 = _el$134.firstChild, _el$136 = _el$135.firstChild, _el$137 = _el$136.firstChild, _el$138 = _el$137.nextSibling, _el$139 = _el$138.firstChild, _el$141 = _el$139.nextSibling, [_el$142, _co$26] = (0, import_web$15.getNextMarker)(_el$141.nextSibling), _el$140 = _el$142.nextSibling, _el$143 = _el$136.nextSibling, _el$144 = _el$135.nextSibling, _el$145 = _el$144.firstChild, _el$146 = _el$145.nextSibling, [_el$147, _co$27] = (0, import_web$15.getNextMarker)(_el$146.nextSibling);
-								_el$134.addEventListener("mouseleave", (e) => e.currentTarget.style.background = "var(--background-secondary)");
-								_el$134.addEventListener("mouseenter", (e) => e.currentTarget.style.background = "var(--background-modifier-hover)");
-								_el$134.$$click = () => openProfile(entry.userId, entry.guildId);
-								_el$134.style.setProperty("padding", "8px 12px");
-								_el$134.style.setProperty("margin-bottom", "4px");
-								_el$134.style.setProperty("background", "var(--background-secondary)");
-								_el$134.style.setProperty("border-radius", "6px");
-								_el$134.style.setProperty("border-left", "3px solid var(--status-danger)");
-								_el$134.style.setProperty("cursor", "pointer");
-								_el$134.style.setProperty("transition", "background 0.1s");
-								_el$135.style.setProperty("display", "flex");
-								_el$135.style.setProperty("justify-content", "space-between");
-								_el$135.style.setProperty("align-items", "center");
-								_el$137.style.setProperty("color", "var(--header-primary)");
-								_el$137.style.setProperty("font-weight", "600");
-								(0, import_web$16.insert)(_el$137, name);
-								_el$138.style.setProperty("color", "var(--text-muted)");
-								_el$138.style.setProperty("font-size", "12px");
-								_el$138.style.setProperty("margin-left", "6px");
-								(0, import_web$16.insert)(_el$138, () => entry.userId, _el$142, _co$26);
-								_el$143.style.setProperty("color", "var(--text-muted)");
-								_el$143.style.setProperty("font-size", "12px");
-								(0, import_web$16.insert)(_el$143, () => formatTime(entry.timestamp));
-								_el$144.style.setProperty("color", "var(--text-muted)");
-								_el$144.style.setProperty("font-size", "13px");
-								_el$144.style.setProperty("margin-top", "2px");
-								(0, import_web$16.insert)(_el$144, guild, _el$147, _co$27);
+								const _el$146 = (0, import_web$13.getNextElement)(_tmpl$29), _el$147 = _el$146.firstChild, _el$148 = _el$147.firstChild, _el$149 = _el$148.firstChild, _el$150 = _el$149.nextSibling, _el$151 = _el$150.firstChild, _el$153 = _el$151.nextSibling, [_el$154, _co$28] = (0, import_web$15.getNextMarker)(_el$153.nextSibling), _el$152 = _el$154.nextSibling, _el$155 = _el$148.nextSibling, _el$156 = _el$147.nextSibling, _el$157 = _el$156.firstChild, _el$158 = _el$157.nextSibling, [_el$159, _co$29] = (0, import_web$15.getNextMarker)(_el$158.nextSibling);
+								_el$146.addEventListener("mouseleave", (e) => e.currentTarget.style.background = "var(--background-secondary)");
+								_el$146.addEventListener("mouseenter", (e) => e.currentTarget.style.background = "var(--background-modifier-hover)");
+								_el$146.$$click = () => openProfile(entry.userId, entry.guildId);
+								_el$146.style.setProperty("padding", "8px 12px");
+								_el$146.style.setProperty("margin-bottom", "4px");
+								_el$146.style.setProperty("background", "var(--background-secondary)");
+								_el$146.style.setProperty("border-radius", "6px");
+								_el$146.style.setProperty("border-left", "3px solid var(--status-danger)");
+								_el$146.style.setProperty("cursor", "pointer");
+								_el$146.style.setProperty("transition", "background 0.1s");
+								_el$147.style.setProperty("display", "flex");
+								_el$147.style.setProperty("justify-content", "space-between");
+								_el$147.style.setProperty("align-items", "center");
+								_el$149.style.setProperty("color", "var(--header-primary)");
+								_el$149.style.setProperty("font-weight", "600");
+								(0, import_web$16.insert)(_el$149, name);
+								_el$150.style.setProperty("color", "var(--text-muted)");
+								_el$150.style.setProperty("font-size", "12px");
+								_el$150.style.setProperty("margin-left", "6px");
+								(0, import_web$16.insert)(_el$150, () => entry.userId, _el$154, _co$28);
+								_el$155.style.setProperty("color", "var(--text-muted)");
+								_el$155.style.setProperty("font-size", "12px");
+								(0, import_web$16.insert)(_el$155, () => formatTime(entry.timestamp));
+								_el$156.style.setProperty("color", "var(--text-muted)");
+								_el$156.style.setProperty("font-size", "13px");
+								_el$156.style.setProperty("margin-top", "2px");
+								(0, import_web$16.insert)(_el$156, guild, _el$159, _co$29);
 								(0, import_web$12.runHydrationEvents)();
-								return _el$134;
+								return _el$146;
 							})();
 						}
 					})
 				];
 			}
-		}), _el$84, _co$14);
+		}), _el$96, _co$16);
+		(0, import_web$11.effect)((_$p) => (0, import_web$9.style)(_el$53, {
+			...btn("var(--button-secondary-background)"),
+			"padding": "4px 10px",
+			"font-size": "12px",
+			flex: "0 0 auto"
+		}, _$p));
+		(0, import_web$12.runHydrationEvents)();
 		return _el$48;
 	})();
 }
@@ -1262,7 +1381,9 @@ function bootstrapStore() {
 	if (store.watchedGuilds == null) store.watchedGuilds = [];
 	if (store.leaveHistory == null) store.leaveHistory = [];
 	if (store.enabled == null) store.enabled = true;
+	if (store.soundEnabled == null) store.soundEnabled = true;
 	if (store.shownReloadHint == null) store.shownReloadHint = false;
+	if (store.customSoundFile == null) store.customSoundFile = null;
 }
 function injectToastStyle() {
 	toastStyleEl = document.createElement("style");
@@ -1401,9 +1522,22 @@ function makeToastContent(entry) {
 		return _el$;
 	})();
 }
+function playNotificationSound() {
+	if (store.customSoundFile) try {
+		const audio = new Audio(store.customSoundFile);
+		audio.volume = 1;
+		audio.play().catch((e) => {
+			console.error("Failed to play custom sound, falling back to beep:", e);
+		});
+		return;
+	} catch (e) {
+		console.error("Failed to create audio element:", e);
+	}
+}
 function recordLeave(entry) {
 	store.leaveHistory = [entry, ...store.leaveHistory].slice(0, MAX_HISTORY);
 	if (!store.enabled) return;
+	if (store.soundEnabled) playNotificationSound();
 	const close = showToast({
 		content: makeToastContent(entry),
 		duration: 999999999,
@@ -1549,5 +1683,6 @@ exports.getRawMembers = getRawMembers
 exports.getTotalMemberCount = getTotalMemberCount
 exports.onLoad = onLoad
 exports.onUnload = onUnload
+exports.playNotificationSound = playNotificationSound
 return exports;
 })({});
