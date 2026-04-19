@@ -97,7 +97,11 @@ function DarkSelect({ value, onChange, options }) {
 function getAllGuilds() {
   try {
     const guildsMap = stores.GuildStore?.getGuilds() ?? {};
-    return Object.values(guildsMap).sort((a, b) =>
+    return Object.entries(guildsMap).map(([id, guild]) => ({
+      ...guild,
+      id: guild.id ?? id,
+      name: guild.name ?? id,
+    })).sort((a, b) =>
       (a.name ?? "").localeCompare(b.name ?? "", undefined, { sensitivity: "base" })
     );
   } catch { return []; }
