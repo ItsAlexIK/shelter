@@ -254,6 +254,77 @@ function GuildPickerModal({ onAdd, alreadyWatched, onClose }) {
   );
 }
 
+export function ReloadModal({ onClose }) {
+  return (
+  <div
+    style={{
+      position: "fixed", inset: "0", "z-index": "99999",
+      display: "flex", "align-items": "center", "justify-content": "center",
+      background: "rgba(0,0,0,0.4)",
+      "backdrop-filter": "blur(10px)"
+    }}
+      onClick={e => e.target === e.currentTarget && onClose?.()}
+    >
+      <div style={{
+        background: "#111214",
+        border: "1px solid #2e2f33",
+        "border-radius": "10px",
+        overflow: "hidden",
+        width: "520px",
+        "box-shadow": "0 8px 24px rgba(0,0,0,0.6)",
+      }}>
+        {/* Header */}
+        <div style={{
+          padding: "18px 20px",
+          "border-bottom": "1px solid #1e1f22",
+        }}>
+          <div style={{ "font-size": "17px", "font-weight": "700", color: "#dbdee1", "margin-bottom": "4px" }}>
+            ServerSentinel enabled
+          </div>
+          <div style={{ "font-size": "13px", color: "#6d6f78" }}>One more step needed</div>
+        </div>
+
+        {/* Body */}
+        <div style={{ padding: "16px 20px", display: "flex", "flex-direction": "column", gap: "14px" }}>
+          <div style={{ "font-size": "14px", color: "#b5bac1", "line-height": "1.6" }}>
+            Close and reopen <span style={{ color: "#dbdee1", "font-weight": "600" }}>Discord Settings</span> for the plugin to fully load.
+          </div>
+
+          <div style={{ display: "flex", "flex-direction": "column", gap: "8px" }}>
+            {[
+              "Close this Settings panel",
+              "Reopen Discord Settings",
+              "Navigate to ServerSentinel",
+            ].map((label, i) => (
+              <div style={{ display: "flex", "align-items": "center", gap: "10px" }}>
+                <div style={{
+                  width: "22px", height: "22px", "border-radius": "50%",
+                  background: "#1e1f22", border: "1px solid #2e2f33",
+                  display: "flex", "align-items": "center", "justify-content": "center",
+                  "flex-shrink": "0", "font-size": "11px", "font-weight": "700",
+                  color: "#6d6f78",
+                }}>{i + 1}</div>
+                <span style={{ "font-size": "14px", color: "#b5bac1" }}>{label}</span>
+              </div>
+            ))}
+          </div>
+
+          <div
+            onClick={() => onClose?.()}
+            style={{
+              "padding-top": "12px",
+              "text-align": "center", "font-size": "13px", "font-weight": "600",
+              color: "#5865f2", cursor: "pointer",
+              "border-top": "1px solid #1e1f22",
+            }}
+            onMouseEnter={e => e.currentTarget.style.color = "#7289da"}
+            onMouseLeave={e => e.currentTarget.style.color = "#5865f2"}
+          >Got it</div>
+        </div>
+      </div>
+    </div>
+  );
+}
 function formatTime(ts) {
   return new Date(ts).toLocaleString(undefined, {
     month: "short", day: "numeric", hour: "2-digit", minute: "2-digit",

@@ -1,4 +1,4 @@
-import { MainPanel } from "./settings.jsx";
+import { MainPanel, ReloadModal } from "./settings.jsx";
 import { getSnap, saveSnap } from "./Db.js";
 import { extractUser, toSnapEntry } from "./memberUtils.js";
 
@@ -15,10 +15,24 @@ const seenThisSession = new Map();
 let unregMain    = null;
 let toastStyleEl = null;
 
+let reloadModalEl = null;
+
+function showReloadModal() {
+  if (reloadModalEl) return;
+  reloadModalEl = <ReloadModal onClose={() => removeReloadModal()} />;
+  document.body.appendChild(reloadModalEl);
+}
+
+function removeReloadModal() {
+  reloadModalEl?.remove();
+  reloadModalEl = null;
+}
+
 function bootstrapStore() {
-  if (store.watchedGuilds == null) store.watchedGuilds = [];
-  if (store.leaveHistory  == null) store.leaveHistory  = [];
-  if (store.enabled       == null) store.enabled       = true;
+  if (store.watchedGuilds   == null) store.watchedGuilds   = [];
+  if (store.leaveHistory    == null) store.leaveHistory    = [];
+  if (store.enabled         == null) store.enabled         = true;
+  if (store.shownReloadHint == null) store.shownReloadHint = false;
 }
 
 function injectToastStyle() {
@@ -263,6 +277,11 @@ export function onLoad() {
   seenThisSession.clear();
   injectToastStyle();
 
+  if (!store.shownReloadHint) {
+    store.shownReloadHint = true;
+    showReloadModal();
+  }
+
   for (const guildId of store.watchedGuilds) {
     getSnap(guildId).then(snap => {
       for (const uid of Object.keys(snap)) markSeen(guildId, uid);
@@ -285,6 +304,7 @@ export function onLoad() {
 export function onUnload() {
   seenThisSession.clear();
   removeToastStyle();
+  removeReloadModal();
 
   dispatcher.unsubscribe("CONNECTION_OPEN",          onConnectionOpen);
   dispatcher.unsubscribe("GUILD_MEMBER_REMOVE",      onMemberRemove);
@@ -294,5 +314,3 @@ export function onUnload() {
 
   unregMain?.();
 }
-
-export { MainPanel as settings };

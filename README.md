@@ -1,26 +1,26 @@
 # shelter plugins
 
-A collection of plugins for [shelter](https://shelter.uwu.network/).
+A small collection of plugins for [shelter](https://shelter.uwu.network/).
 
 ---
 
-## Plugins
+## ServerSentinel
 
-### ServerSentinel 👁️
+![version](https://img.shields.io/badge/version-1.6.0-blue)
 
-Watches your Discord servers and notifies you whenever someone leaves.
+Stay aware of who leaves your Discord servers - quietly and locally.
 
-**Features**
-- **Live detection** - instant toast notification when someone leaves while you're online. Click to dismiss.
-- **Leave Log** - full history of every departure with username, user ID, server, and timestamp. Accessible from Discord's settings sidebar under **Settings**.
-- **Zero API calls** - reads entirely from Discord's internal Flux stores and gateway events. No HTTP requests, no selfbot risk, no rate limits.
+### What it does
+- **Instant alerts** - get a toast when someone leaves while you're online  
+- **Leave history** - view past departures (username, userid, server, time) in settings  
+- **No API usage** - runs entirely on Discord internals (safe, no rate limits)
 
-**Usage**
-1. Open Discord settings.
-2. Paste a **Server ID** and click **Add**
-   - To copy a Server ID: right-click a server icon -> *Copy Server ID* (requires Developer Mode in `Settings -> Advanced`)
-3. Leave notifications will appear as toasts and be logged in the **ServerSentinel -> Leave Log** tab
+### Setup
+1. Open Discord Settings  
+2. Pick a Server or use ID and press Add 
+   (Enable Developer Mode -> right-click server -> Copy Server ID)  
+3. Notifications will appear automatically
 
 ---
 
-*Made by ItsAlexIK*
+made by ItsAlexIK
