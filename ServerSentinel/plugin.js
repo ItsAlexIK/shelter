@@ -138,7 +138,6 @@ function displayName(entry) {
 
 //#endregion
 //#region plugins/ServerSentinel/settings.jsx
-var import_web$5 = __toESM(require_web(), 1);
 var import_web$6 = __toESM(require_web(), 1);
 var import_web$7 = __toESM(require_web(), 1);
 var import_web$8 = __toESM(require_web(), 1);
@@ -150,8 +149,9 @@ var import_web$13 = __toESM(require_web(), 1);
 var import_web$14 = __toESM(require_web(), 1);
 var import_web$15 = __toESM(require_web(), 1);
 var import_web$16 = __toESM(require_web(), 1);
+var import_web$17 = __toESM(require_web(), 1);
 var import_solid_js = __toESM(require_solid_js(), 1);
-const _tmpl$$1 = /*#__PURE__*/ (0, import_web$5.template)(`<div></div>`, 2), _tmpl$2 = /*#__PURE__*/ (0, import_web$5.template)(`<div><div><!#><!/><span>▼</span></div><!#><!/></div>`, 10), _tmpl$3 = /*#__PURE__*/ (0, import_web$5.template)(`<p>No servers found.</p>`, 2), _tmpl$4 = /*#__PURE__*/ (0, import_web$5.template)(`<div><div><div><span>Pick a Server</span><button>×</button></div><div><input type="text" placeholder="Search by name or ID…" autofocus></div><div><!#><!/><!#><!/></div></div></div>`, 19), _tmpl$5 = /*#__PURE__*/ (0, import_web$5.template)(`<img>`, 1), _tmpl$6 = /*#__PURE__*/ (0, import_web$5.template)(`<span>Watching</span>`, 2), _tmpl$7 = /*#__PURE__*/ (0, import_web$5.template)(`<div><!#><!/><div><div></div><div></div></div><!#><!/></div>`, 12), _tmpl$8 = /*#__PURE__*/ (0, import_web$5.template)(`<div><div><div><div>ServerSentinel enabled</div><div>One more step needed</div></div><div><div>Close and reopen <span>Discord Settings</span> for the plugin to fully load.</div><div></div><div>Got it</div></div></div></div>`, 20), _tmpl$9 = /*#__PURE__*/ (0, import_web$5.template)(`<div><div></div><span></span></div>`, 6), _tmpl$0 = /*#__PURE__*/ (0, import_web$5.template)(`<button></button>`, 2), _tmpl$1 = /*#__PURE__*/ (0, import_web$5.template)(`<span></span>`, 2), _tmpl$10 = /*#__PURE__*/ (0, import_web$5.template)(`<button title="Test the sound">Test</button>`, 2), _tmpl$11 = /*#__PURE__*/ (0, import_web$5.template)(`<button title="Remove custom sound">Clear</button>`, 2), _tmpl$12 = /*#__PURE__*/ (0, import_web$5.template)(`<span>No file selected</span>`, 2), _tmpl$13 = /*#__PURE__*/ (0, import_web$5.template)(`<div><!#><!/><button>Add</button><button>Browse</button></div>`, 8), _tmpl$14 = /*#__PURE__*/ (0, import_web$5.template)(`<p></p>`, 2), _tmpl$15 = /*#__PURE__*/ (0, import_web$5.template)(`<p>No servers added yet.</p>`, 2), _tmpl$16 = /*#__PURE__*/ (0, import_web$5.template)(`<p>Click "Check Members" to snapshot whoever Discord has loaded locally. Coverage grows automatically over time as members send messages or appear in the member sidebar.</p>`, 2), _tmpl$17 = /*#__PURE__*/ (0, import_web$5.template)(`<div><div></div><!#><!/></div>`, 6), _tmpl$18 = /*#__PURE__*/ (0, import_web$5.template)(`<button>Clear</button>`, 2), _tmpl$19 = /*#__PURE__*/ (0, import_web$5.template)(`<div><span><!#><!/><!#><!/> record<!#><!/></span><!#><!/></div>`, 12), _tmpl$20 = /*#__PURE__*/ (0, import_web$5.template)(`<p>No leaves recorded yet.</p>`, 2), _tmpl$21 = /*#__PURE__*/ (0, import_web$5.template)(`<p>No results match your search.</p>`, 2), _tmpl$22 = /*#__PURE__*/ (0, import_web$5.template)(`<div><span>ServerSentinel</span><div><label>Leave sound:</label><input id="sound-file-input" type="file" accept="audio/*,.mp3,.wav,.ogg,.webm,.flac,.aac,.m4a"><button title="Max 5MB MP3 file"></button><!#><!/><!#><!/></div><div><!#><!/><!#><!/></div><!#><!/><!#><!/></div>`, 25), _tmpl$23 = /*#__PURE__*/ (0, import_web$5.template)(`<span>Incomplete - click Check Members</span>`, 2), _tmpl$24 = /*#__PURE__*/ (0, import_web$5.template)(`<p>No members in snapshot yet.</p>`, 2), _tmpl$25 = /*#__PURE__*/ (0, import_web$5.template)(`<div><!#><!/><!#><!/></div>`, 6), _tmpl$26 = /*#__PURE__*/ (0, import_web$5.template)(`<div><div><div><div><!#><!/><div><span></span><span></span></div></div><div><button></button><button>Remove</button></div></div><div><span>Snapshot: <strong></strong><!#><!/></span><!#><!/><!#><!/></div><!#><!/></div><!#><!/></div>`, 38), _tmpl$27 = /*#__PURE__*/ (0, import_web$5.template)(`<span>@<!#><!/></span>`, 4), _tmpl$28 = /*#__PURE__*/ (0, import_web$5.template)(`<div><span><!#><!/><!#><!/></span><span></span></div>`, 10), _tmpl$29 = /*#__PURE__*/ (0, import_web$5.template)(`<div><div><span><span></span><span>(<!#><!/>)</span></span><span></span></div><div>Left <!#><!/></div></div>`, 18);
+const _tmpl$$1 = /*#__PURE__*/ (0, import_web$6.template)(`<div></div>`, 2), _tmpl$2 = /*#__PURE__*/ (0, import_web$6.template)(`<div><div><!#><!/><span>▼</span></div><!#><!/></div>`, 10), _tmpl$3 = /*#__PURE__*/ (0, import_web$6.template)(`<p>No servers found.</p>`, 2), _tmpl$4 = /*#__PURE__*/ (0, import_web$6.template)(`<div><div><div><span>Pick a Server</span><button>×</button></div><div><input type="text" placeholder="Search by name or ID…" autofocus></div><div><!#><!/><!#><!/></div></div></div>`, 19), _tmpl$5 = /*#__PURE__*/ (0, import_web$6.template)(`<img>`, 1), _tmpl$6 = /*#__PURE__*/ (0, import_web$6.template)(`<span>Watching</span>`, 2), _tmpl$7 = /*#__PURE__*/ (0, import_web$6.template)(`<div><!#><!/><div><div></div><div></div></div><!#><!/></div>`, 12), _tmpl$8 = /*#__PURE__*/ (0, import_web$6.template)(`<div><div><div><div>ServerSentinel enabled</div><div>One more step needed</div></div><div><div>Close and reopen <span>Discord Settings</span> for the plugin to fully load.</div><div></div><div>Got it</div></div></div></div>`, 20), _tmpl$9 = /*#__PURE__*/ (0, import_web$6.template)(`<div><div></div><span></span></div>`, 6), _tmpl$0 = /*#__PURE__*/ (0, import_web$6.template)(`<button></button>`, 2), _tmpl$1 = /*#__PURE__*/ (0, import_web$6.template)(`<span></span>`, 2), _tmpl$10 = /*#__PURE__*/ (0, import_web$6.template)(`<button title="Test the sound">Test</button>`, 2), _tmpl$11 = /*#__PURE__*/ (0, import_web$6.template)(`<button title="Remove custom sound">Clear</button>`, 2), _tmpl$12 = /*#__PURE__*/ (0, import_web$6.template)(`<span>No file selected</span>`, 2), _tmpl$13 = /*#__PURE__*/ (0, import_web$6.template)(`<div><!#><!/><button>Add</button><button>Browse</button></div>`, 8), _tmpl$14 = /*#__PURE__*/ (0, import_web$6.template)(`<p></p>`, 2), _tmpl$15 = /*#__PURE__*/ (0, import_web$6.template)(`<p>No servers added yet.</p>`, 2), _tmpl$16 = /*#__PURE__*/ (0, import_web$6.template)(`<p>Click "Check Members" to snapshot whoever Discord has loaded locally. Coverage grows automatically over time as members send messages or appear in the member sidebar.</p>`, 2), _tmpl$17 = /*#__PURE__*/ (0, import_web$6.template)(`<div><div></div><!#><!/></div>`, 6), _tmpl$18 = /*#__PURE__*/ (0, import_web$6.template)(`<button>Clear</button>`, 2), _tmpl$19 = /*#__PURE__*/ (0, import_web$6.template)(`<div><span><!#><!/><!#><!/> record<!#><!/></span><!#><!/></div>`, 12), _tmpl$20 = /*#__PURE__*/ (0, import_web$6.template)(`<p>No leaves recorded yet.</p>`, 2), _tmpl$21 = /*#__PURE__*/ (0, import_web$6.template)(`<p>No results match your search.</p>`, 2), _tmpl$22 = /*#__PURE__*/ (0, import_web$6.template)(`<div><span>ServerSentinel</span><div><label>Leave sound:</label><input id="sound-file-input" type="file" accept="audio/*,.mp3,.wav,.ogg,.webm,.flac,.aac,.m4a"><button title="Max 5MB MP3 file"></button><!#><!/><!#><!/></div><div><!#><!/><!#><!/></div><!#><!/><!#><!/></div>`, 25), _tmpl$23 = /*#__PURE__*/ (0, import_web$6.template)(`<span>Incomplete - click Check Members</span>`, 2), _tmpl$24 = /*#__PURE__*/ (0, import_web$6.template)(`<p>No members in snapshot yet.</p>`, 2), _tmpl$25 = /*#__PURE__*/ (0, import_web$6.template)(`<div><!#><!/><!#><!/></div>`, 6), _tmpl$26 = /*#__PURE__*/ (0, import_web$6.template)(`<div><div><div><div><!#><!/><div><span></span><span></span></div></div><div><button></button><button>Remove</button></div></div><div><span>Snapshot: <strong></strong><!#><!/></span><!#><!/><!#><!/></div><!#><!/></div><!#><!/></div>`, 38), _tmpl$27 = /*#__PURE__*/ (0, import_web$6.template)(`<span>@<!#><!/></span>`, 4), _tmpl$28 = /*#__PURE__*/ (0, import_web$6.template)(`<div><span><!#><!/><!#><!/></span><span></span></div>`, 10), _tmpl$29 = /*#__PURE__*/ (0, import_web$6.template)(`<div><div><span><span></span><span>(<!#><!/>)</span></span><span></span></div><div></div></div>`, 16), _tmpl$30 = /*#__PURE__*/ (0, import_web$6.template)(`<span>Banned from <!#><!/></span>`, 4);
 const { plugin: { store: store$1 }, flux: { stores: stores$1, dispatcher: dispatcher$1 }, ui: { TextBox } } = shelter;
 function getGuildName$1(guildId) {
 	try {
@@ -174,7 +174,7 @@ function DarkSelect({ value, onChange, options }) {
 	const [open, setOpen] = (0, import_solid_js.createSignal)(false);
 	const selected = () => options.find((o) => o.value === value()) ?? options[0];
 	return (() => {
-		const _el$ = (0, import_web$13.getNextElement)(_tmpl$2), _el$2 = _el$.firstChild, _el$4 = _el$2.firstChild, [_el$5, _co$] = (0, import_web$15.getNextMarker)(_el$4.nextSibling), _el$3 = _el$5.nextSibling, _el$8 = _el$2.nextSibling, [_el$9, _co$2] = (0, import_web$15.getNextMarker)(_el$8.nextSibling);
+		const _el$ = (0, import_web$14.getNextElement)(_tmpl$2), _el$2 = _el$.firstChild, _el$4 = _el$2.firstChild, [_el$5, _co$] = (0, import_web$16.getNextMarker)(_el$4.nextSibling), _el$3 = _el$5.nextSibling, _el$8 = _el$2.nextSibling, [_el$9, _co$2] = (0, import_web$16.getNextMarker)(_el$8.nextSibling);
 		_el$.style.setProperty("position", "relative");
 		_el$.style.setProperty("flex-shrink", "0");
 		_el$2.$$click = () => setOpen((o) => !o);
@@ -189,7 +189,7 @@ function DarkSelect({ value, onChange, options }) {
 		_el$2.style.setProperty("user-select", "none");
 		_el$2.style.setProperty("position", "relative");
 		_el$2.style.setProperty("min-width", "120px");
-		(0, import_web$16.insert)(_el$2, () => selected()?.label, _el$5, _co$);
+		(0, import_web$17.insert)(_el$2, () => selected()?.label, _el$5, _co$);
 		_el$3.style.setProperty("position", "absolute");
 		_el$3.style.setProperty("right", "8px");
 		_el$3.style.setProperty("top", "50%");
@@ -197,13 +197,13 @@ function DarkSelect({ value, onChange, options }) {
 		_el$3.style.setProperty("color", "#80848e");
 		_el$3.style.setProperty("font-size", "10px");
 		_el$3.style.setProperty("pointer-events", "none");
-		(0, import_web$16.insert)(_el$, (0, import_web$14.createComponent)(import_solid_js.Show, {
+		(0, import_web$17.insert)(_el$, (0, import_web$15.createComponent)(import_solid_js.Show, {
 			get when() {
 				return open();
 			},
 			get children() {
 				return [(() => {
-					const _el$6 = (0, import_web$13.getNextElement)(_tmpl$$1);
+					const _el$6 = (0, import_web$14.getNextElement)(_tmpl$$1);
 					_el$6.style.setProperty("position", "absolute");
 					_el$6.style.setProperty("top", "calc(100% + 4px)");
 					_el$6.style.setProperty("right", "0");
@@ -215,10 +215,10 @@ function DarkSelect({ value, onChange, options }) {
 					_el$6.style.setProperty("min-width", "100%");
 					_el$6.style.setProperty("max-height", "260px");
 					_el$6.style.setProperty("overflow-y", "auto");
-					(0, import_web$16.insert)(_el$6, (0, import_web$14.createComponent)(import_solid_js.For, {
+					(0, import_web$17.insert)(_el$6, (0, import_web$15.createComponent)(import_solid_js.For, {
 						each: options,
 						children: (opt) => (() => {
-							const _el$0 = (0, import_web$13.getNextElement)(_tmpl$$1);
+							const _el$0 = (0, import_web$14.getNextElement)(_tmpl$$1);
 							_el$0.addEventListener("mouseleave", (e) => {
 								if (opt.value !== value()) e.currentTarget.style.background = "transparent";
 							});
@@ -233,8 +233,8 @@ function DarkSelect({ value, onChange, options }) {
 							_el$0.style.setProperty("font-size", "14px");
 							_el$0.style.setProperty("cursor", "pointer");
 							_el$0.style.setProperty("white-space", "nowrap");
-							(0, import_web$16.insert)(_el$0, () => opt.label);
-							(0, import_web$11.effect)((_p$) => {
+							(0, import_web$17.insert)(_el$0, () => opt.label);
+							(0, import_web$12.effect)((_p$) => {
 								const _v$ = opt.value === value() ? "#fff" : "#dbdee1", _v$2 = opt.value === value() ? "var(--brand-experiment, #5865f2)" : "transparent";
 								_v$ !== _p$._v$ && _el$0.style.setProperty("color", _p$._v$ = _v$);
 								_v$2 !== _p$._v$2 && _el$0.style.setProperty("background", _p$._v$2 = _v$2);
@@ -243,23 +243,23 @@ function DarkSelect({ value, onChange, options }) {
 								_v$: undefined,
 								_v$2: undefined
 							});
-							(0, import_web$12.runHydrationEvents)();
+							(0, import_web$13.runHydrationEvents)();
 							return _el$0;
 						})()
 					}));
 					return _el$6;
 				})(), (() => {
-					const _el$7 = (0, import_web$13.getNextElement)(_tmpl$$1);
+					const _el$7 = (0, import_web$14.getNextElement)(_tmpl$$1);
 					_el$7.$$click = () => setOpen(false);
 					_el$7.style.setProperty("position", "fixed");
 					_el$7.style.setProperty("inset", "0");
 					_el$7.style.setProperty("z-index", "9999");
-					(0, import_web$12.runHydrationEvents)();
+					(0, import_web$13.runHydrationEvents)();
 					return _el$7;
 				})()];
 			}
 		}), _el$9, _co$2);
-		(0, import_web$12.runHydrationEvents)();
+		(0, import_web$13.runHydrationEvents)();
 		return _el$;
 	})();
 }
@@ -301,7 +301,7 @@ function GuildPickerModal({ onAdd, alreadyWatched, onClose }) {
 		"color-scheme": "dark"
 	};
 	return (() => {
-		const _el$1 = (0, import_web$13.getNextElement)(_tmpl$4), _el$10 = _el$1.firstChild, _el$11 = _el$10.firstChild, _el$12 = _el$11.firstChild, _el$13 = _el$12.nextSibling, _el$14 = _el$11.nextSibling, _el$15 = _el$14.firstChild, _el$16 = _el$14.nextSibling, _el$18 = _el$16.firstChild, [_el$19, _co$3] = (0, import_web$15.getNextMarker)(_el$18.nextSibling), _el$20 = _el$19.nextSibling, [_el$21, _co$4] = (0, import_web$15.getNextMarker)(_el$20.nextSibling);
+		const _el$1 = (0, import_web$14.getNextElement)(_tmpl$4), _el$10 = _el$1.firstChild, _el$11 = _el$10.firstChild, _el$12 = _el$11.firstChild, _el$13 = _el$12.nextSibling, _el$14 = _el$11.nextSibling, _el$15 = _el$14.firstChild, _el$16 = _el$14.nextSibling, _el$18 = _el$16.firstChild, [_el$19, _co$3] = (0, import_web$16.getNextMarker)(_el$18.nextSibling), _el$20 = _el$19.nextSibling, [_el$21, _co$4] = (0, import_web$16.getNextMarker)(_el$20.nextSibling);
 		_el$1.$$click = (e) => e.target === e.currentTarget && onClose();
 		_el$1.style.setProperty("position", "fixed");
 		_el$1.style.setProperty("inset", "0");
@@ -330,7 +330,7 @@ function GuildPickerModal({ onAdd, alreadyWatched, onClose }) {
 		_el$12.style.setProperty("color", "#f2f3f5");
 		_el$12.style.setProperty("font-size", "16px");
 		_el$12.style.setProperty("font-weight", "700");
-		(0, import_web$10.addEventListener)(_el$13, "click", onClose, true);
+		(0, import_web$11.addEventListener)(_el$13, "click", onClose, true);
 		_el$13.style.setProperty("background", "none");
 		_el$13.style.setProperty("border", "none");
 		_el$13.style.setProperty("cursor", "pointer");
@@ -341,16 +341,16 @@ function GuildPickerModal({ onAdd, alreadyWatched, onClose }) {
 		_el$14.style.setProperty("padding", "10px 12px 6px");
 		_el$14.style.setProperty("background", "#2b2d31");
 		_el$15.$$input = (e) => setSearch(e.target.value);
-		(0, import_web$9.style)(_el$15, inputStyle);
+		(0, import_web$10.style)(_el$15, inputStyle);
 		_el$16.style.setProperty("overflow-y", "auto");
 		_el$16.style.setProperty("flex", "1");
 		_el$16.style.setProperty("background", "#2b2d31");
-		(0, import_web$16.insert)(_el$16, (0, import_web$14.createComponent)(import_solid_js.Show, {
+		(0, import_web$17.insert)(_el$16, (0, import_web$15.createComponent)(import_solid_js.Show, {
 			get when() {
 				return filtered().length === 0;
 			},
 			get children() {
-				const _el$17 = (0, import_web$13.getNextElement)(_tmpl$3);
+				const _el$17 = (0, import_web$14.getNextElement)(_tmpl$3);
 				_el$17.style.setProperty("color", "#80848e");
 				_el$17.style.setProperty("font-size", "14px");
 				_el$17.style.setProperty("padding", "12px 16px");
@@ -358,7 +358,7 @@ function GuildPickerModal({ onAdd, alreadyWatched, onClose }) {
 				return _el$17;
 			}
 		}), _el$19, _co$3);
-		(0, import_web$16.insert)(_el$16, (0, import_web$14.createComponent)(import_solid_js.For, {
+		(0, import_web$17.insert)(_el$16, (0, import_web$15.createComponent)(import_solid_js.For, {
 			get each() {
 				return filtered();
 			},
@@ -370,7 +370,7 @@ function GuildPickerModal({ onAdd, alreadyWatched, onClose }) {
 					return `https://cdn.discordapp.com/icons/${guild.id}/${guild.icon}.${ext}?size=32`;
 				})();
 				return (() => {
-					const _el$22 = (0, import_web$13.getNextElement)(_tmpl$7), _el$28 = _el$22.firstChild, [_el$29, _co$5] = (0, import_web$15.getNextMarker)(_el$28.nextSibling), _el$24 = _el$29.nextSibling, _el$25 = _el$24.firstChild, _el$26 = _el$25.nextSibling, _el$30 = _el$24.nextSibling, [_el$31, _co$6] = (0, import_web$15.getNextMarker)(_el$30.nextSibling);
+					const _el$22 = (0, import_web$14.getNextElement)(_tmpl$7), _el$28 = _el$22.firstChild, [_el$29, _co$5] = (0, import_web$16.getNextMarker)(_el$28.nextSibling), _el$24 = _el$29.nextSibling, _el$25 = _el$24.firstChild, _el$26 = _el$25.nextSibling, _el$30 = _el$24.nextSibling, [_el$31, _co$6] = (0, import_web$16.getNextMarker)(_el$30.nextSibling);
 					_el$22.addEventListener("mouseleave", (e) => {
 						e.currentTarget.style.background = "transparent";
 					});
@@ -385,11 +385,11 @@ function GuildPickerModal({ onAdd, alreadyWatched, onClose }) {
 					_el$22.style.setProperty("cursor", watched ? "default" : "pointer");
 					_el$22.style.setProperty("opacity", watched ? "0.45" : "1");
 					_el$22.style.setProperty("transition", "background 0.1s");
-					(0, import_web$16.insert)(_el$22, (0, import_web$14.createComponent)(import_solid_js.Show, {
+					(0, import_web$17.insert)(_el$22, (0, import_web$15.createComponent)(import_solid_js.Show, {
 						when: iconUrl,
 						get fallback() {
 							return (() => {
-								const _el$32 = (0, import_web$13.getNextElement)(_tmpl$$1);
+								const _el$32 = (0, import_web$14.getNextElement)(_tmpl$$1);
 								_el$32.style.setProperty("width", "36px");
 								_el$32.style.setProperty("height", "36px");
 								_el$32.style.setProperty("border-radius", "50%");
@@ -401,13 +401,13 @@ function GuildPickerModal({ onAdd, alreadyWatched, onClose }) {
 								_el$32.style.setProperty("font-size", "13px");
 								_el$32.style.setProperty("color", "#80848e");
 								_el$32.style.setProperty("font-weight", "600");
-								(0, import_web$16.insert)(_el$32, () => guild.name?.[0]?.toUpperCase() ?? "?");
+								(0, import_web$17.insert)(_el$32, () => guild.name?.[0]?.toUpperCase() ?? "?");
 								return _el$32;
 							})();
 						},
 						get children() {
-							const _el$23 = (0, import_web$13.getNextElement)(_tmpl$5);
-							(0, import_web$8.setAttribute)(_el$23, "src", iconUrl);
+							const _el$23 = (0, import_web$14.getNextElement)(_tmpl$5);
+							(0, import_web$9.setAttribute)(_el$23, "src", iconUrl);
 							_el$23.style.setProperty("width", "36px");
 							_el$23.style.setProperty("height", "36px");
 							_el$23.style.setProperty("border-radius", "50%");
@@ -423,15 +423,15 @@ function GuildPickerModal({ onAdd, alreadyWatched, onClose }) {
 					_el$25.style.setProperty("overflow", "hidden");
 					_el$25.style.setProperty("text-overflow", "ellipsis");
 					_el$25.style.setProperty("white-space", "nowrap");
-					(0, import_web$16.insert)(_el$25, () => guild.name);
+					(0, import_web$17.insert)(_el$25, () => guild.name);
 					_el$26.style.setProperty("color", "#80848e");
 					_el$26.style.setProperty("font-size", "11px");
 					_el$26.style.setProperty("font-family", "monospace");
-					(0, import_web$16.insert)(_el$26, () => guild.id);
-					(0, import_web$16.insert)(_el$22, (0, import_web$14.createComponent)(import_solid_js.Show, {
+					(0, import_web$17.insert)(_el$26, () => guild.id);
+					(0, import_web$17.insert)(_el$22, (0, import_web$15.createComponent)(import_solid_js.Show, {
 						when: watched,
 						get children() {
-							const _el$27 = (0, import_web$13.getNextElement)(_tmpl$6);
+							const _el$27 = (0, import_web$14.getNextElement)(_tmpl$6);
 							_el$27.style.setProperty("margin-left", "auto");
 							_el$27.style.setProperty("font-size", "11px");
 							_el$27.style.setProperty("color", "#80848e");
@@ -439,19 +439,19 @@ function GuildPickerModal({ onAdd, alreadyWatched, onClose }) {
 							return _el$27;
 						}
 					}), _el$31, _co$6);
-					(0, import_web$12.runHydrationEvents)();
+					(0, import_web$13.runHydrationEvents)();
 					return _el$22;
 				})();
 			}
 		}), _el$21, _co$4);
-		(0, import_web$11.effect)(() => _el$15.value = search());
-		(0, import_web$12.runHydrationEvents)();
+		(0, import_web$12.effect)(() => _el$15.value = search());
+		(0, import_web$13.runHydrationEvents)();
 		return _el$1;
 	})();
 }
 function ReloadModal({ onClose }) {
 	return (() => {
-		const _el$33 = (0, import_web$13.getNextElement)(_tmpl$8), _el$34 = _el$33.firstChild, _el$35 = _el$34.firstChild, _el$36 = _el$35.firstChild, _el$37 = _el$36.nextSibling, _el$38 = _el$35.nextSibling, _el$39 = _el$38.firstChild, _el$40 = _el$39.firstChild, _el$41 = _el$40.nextSibling, _el$42 = _el$39.nextSibling, _el$43 = _el$42.nextSibling;
+		const _el$33 = (0, import_web$14.getNextElement)(_tmpl$8), _el$34 = _el$33.firstChild, _el$35 = _el$34.firstChild, _el$36 = _el$35.firstChild, _el$37 = _el$36.nextSibling, _el$38 = _el$35.nextSibling, _el$39 = _el$38.firstChild, _el$40 = _el$39.firstChild, _el$41 = _el$40.nextSibling, _el$42 = _el$39.nextSibling, _el$43 = _el$42.nextSibling;
 		_el$33.$$click = (e) => e.target === e.currentTarget && onClose?.();
 		_el$33.style.setProperty("position", "fixed");
 		_el$33.style.setProperty("inset", "0");
@@ -487,12 +487,12 @@ function ReloadModal({ onClose }) {
 		_el$42.style.setProperty("display", "flex");
 		_el$42.style.setProperty("flex-direction", "column");
 		_el$42.style.setProperty("gap", "8px");
-		(0, import_web$16.insert)(_el$42, () => [
+		(0, import_web$17.insert)(_el$42, () => [
 			"Close this Settings panel",
 			"Reopen Discord Settings",
 			"Navigate to ServerSentinel"
 		].map((label, i) => (() => {
-			const _el$44 = (0, import_web$13.getNextElement)(_tmpl$9), _el$45 = _el$44.firstChild, _el$46 = _el$45.nextSibling;
+			const _el$44 = (0, import_web$14.getNextElement)(_tmpl$9), _el$45 = _el$44.firstChild, _el$46 = _el$45.nextSibling;
 			_el$44.style.setProperty("display", "flex");
 			_el$44.style.setProperty("align-items", "center");
 			_el$44.style.setProperty("gap", "10px");
@@ -508,10 +508,10 @@ function ReloadModal({ onClose }) {
 			_el$45.style.setProperty("font-size", "11px");
 			_el$45.style.setProperty("font-weight", "700");
 			_el$45.style.setProperty("color", "#6d6f78");
-			(0, import_web$16.insert)(_el$45, i + 1);
+			(0, import_web$17.insert)(_el$45, i + 1);
 			_el$46.style.setProperty("font-size", "14px");
 			_el$46.style.setProperty("color", "#b5bac1");
-			(0, import_web$16.insert)(_el$46, label);
+			(0, import_web$17.insert)(_el$46, label);
 			return _el$44;
 		})()));
 		_el$43.addEventListener("mouseleave", (e) => e.currentTarget.style.color = "#5865f2");
@@ -524,7 +524,7 @@ function ReloadModal({ onClose }) {
 		_el$43.style.setProperty("color", "#5865f2");
 		_el$43.style.setProperty("cursor", "pointer");
 		_el$43.style.setProperty("border-top", "1px solid #1e1f22");
-		(0, import_web$12.runHydrationEvents)();
+		(0, import_web$13.runHydrationEvents)();
 		return _el$33;
 	})();
 }
@@ -796,7 +796,7 @@ else {
 		if (fileInput) fileInput.value = "";
 	}
 	const tabBtn = (key, label) => (() => {
-		const _el$47 = (0, import_web$13.getNextElement)(_tmpl$0);
+		const _el$47 = (0, import_web$14.getNextElement)(_tmpl$0);
 		_el$47.$$click = () => {
 			setTab(key);
 			if (key === "log") setHistory([...store$1.leaveHistory ?? []]);
@@ -806,8 +806,8 @@ else {
 		_el$47.style.setProperty("border", "none");
 		_el$47.style.setProperty("cursor", "pointer");
 		_el$47.style.setProperty("font-size", "14px");
-		(0, import_web$16.insert)(_el$47, label);
-		(0, import_web$11.effect)((_p$) => {
+		(0, import_web$17.insert)(_el$47, label);
+		(0, import_web$12.effect)((_p$) => {
 			const _v$3 = tab() === key ? "700" : "400", _v$4 = tab() === key ? "var(--brand-experiment)" : "var(--background-secondary)", _v$5 = tab() === key ? "#fff" : "var(--text-muted)";
 			_v$3 !== _p$._v$3 && _el$47.style.setProperty("font-weight", _p$._v$3 = _v$3);
 			_v$4 !== _p$._v$4 && _el$47.style.setProperty("background", _p$._v$4 = _v$4);
@@ -818,11 +818,11 @@ else {
 			_v$4: undefined,
 			_v$5: undefined
 		});
-		(0, import_web$12.runHydrationEvents)();
+		(0, import_web$13.runHydrationEvents)();
 		return _el$47;
 	})();
 	return (() => {
-		const _el$48 = (0, import_web$13.getNextElement)(_tmpl$22), _el$49 = _el$48.firstChild, _el$50 = _el$49.nextSibling, _el$51 = _el$50.firstChild, _el$52 = _el$51.nextSibling, _el$53 = _el$52.nextSibling, _el$58 = _el$53.nextSibling, [_el$59, _co$7] = (0, import_web$15.getNextMarker)(_el$58.nextSibling), _el$60 = _el$59.nextSibling, [_el$61, _co$8] = (0, import_web$15.getNextMarker)(_el$60.nextSibling), _el$62 = _el$50.nextSibling, _el$63 = _el$62.firstChild, [_el$64, _co$9] = (0, import_web$15.getNextMarker)(_el$63.nextSibling), _el$65 = _el$64.nextSibling, [_el$66, _co$0] = (0, import_web$15.getNextMarker)(_el$65.nextSibling), _el$93 = _el$62.nextSibling, [_el$94, _co$15] = (0, import_web$15.getNextMarker)(_el$93.nextSibling), _el$95 = _el$94.nextSibling, [_el$96, _co$16] = (0, import_web$15.getNextMarker)(_el$95.nextSibling);
+		const _el$48 = (0, import_web$14.getNextElement)(_tmpl$22), _el$49 = _el$48.firstChild, _el$50 = _el$49.nextSibling, _el$51 = _el$50.firstChild, _el$52 = _el$51.nextSibling, _el$53 = _el$52.nextSibling, _el$58 = _el$53.nextSibling, [_el$59, _co$7] = (0, import_web$16.getNextMarker)(_el$58.nextSibling), _el$60 = _el$59.nextSibling, [_el$61, _co$8] = (0, import_web$16.getNextMarker)(_el$60.nextSibling), _el$62 = _el$50.nextSibling, _el$63 = _el$62.firstChild, [_el$64, _co$9] = (0, import_web$16.getNextMarker)(_el$63.nextSibling), _el$65 = _el$64.nextSibling, [_el$66, _co$0] = (0, import_web$16.getNextMarker)(_el$65.nextSibling), _el$93 = _el$62.nextSibling, [_el$94, _co$15] = (0, import_web$16.getNextMarker)(_el$93.nextSibling), _el$95 = _el$94.nextSibling, [_el$96, _co$16] = (0, import_web$16.getNextMarker)(_el$95.nextSibling);
 		_el$48.style.setProperty("padding", "0 0 5px 0");
 		_el$49.style.setProperty("color", "var(--header-primary)");
 		_el$49.style.setProperty("font-size", "20px");
@@ -841,54 +841,54 @@ else {
 		_el$52.addEventListener("change", (e) => handleSoundFileUpload(e));
 		_el$52.style.setProperty("display", "none");
 		_el$53.$$click = () => document.getElementById("sound-file-input")?.click();
-		(0, import_web$16.insert)(_el$53, () => hasCustomSound() ? "Change" : "Upload");
-		(0, import_web$16.insert)(_el$50, (0, import_web$14.createComponent)(import_solid_js.Show, {
+		(0, import_web$17.insert)(_el$53, () => hasCustomSound() ? "Change" : "Upload");
+		(0, import_web$17.insert)(_el$50, (0, import_web$15.createComponent)(import_solid_js.Show, {
 			get when() {
 				return hasCustomSound();
 			},
 			get children() {
 				return [
 					(() => {
-						const _el$54 = (0, import_web$13.getNextElement)(_tmpl$1);
+						const _el$54 = (0, import_web$14.getNextElement)(_tmpl$1);
 						_el$54.style.setProperty("font-size", "12px");
 						_el$54.style.setProperty("color", "var(--text-normal)");
 						_el$54.style.setProperty("flex", "0 1 auto");
-						(0, import_web$16.insert)(_el$54, soundFileName);
+						(0, import_web$17.insert)(_el$54, soundFileName);
 						return _el$54;
 					})(),
 					(() => {
-						const _el$55 = (0, import_web$13.getNextElement)(_tmpl$10);
+						const _el$55 = (0, import_web$14.getNextElement)(_tmpl$10);
 						_el$55.$$click = () => playNotificationSound();
-						(0, import_web$11.effect)((_$p) => (0, import_web$9.style)(_el$55, {
+						(0, import_web$12.effect)((_$p) => (0, import_web$10.style)(_el$55, {
 							...btn("var(--button-positive-background)"),
 							"padding": "4px 8px",
 							"font-size": "11px",
 							flex: "0 0 auto"
 						}, _$p));
-						(0, import_web$12.runHydrationEvents)();
+						(0, import_web$13.runHydrationEvents)();
 						return _el$55;
 					})(),
 					(() => {
-						const _el$56 = (0, import_web$13.getNextElement)(_tmpl$11);
+						const _el$56 = (0, import_web$14.getNextElement)(_tmpl$11);
 						_el$56.$$click = clearSoundFile;
-						(0, import_web$11.effect)((_$p) => (0, import_web$9.style)(_el$56, {
+						(0, import_web$12.effect)((_$p) => (0, import_web$10.style)(_el$56, {
 							...btn("var(--button-danger-background)"),
 							"padding": "4px 8px",
 							"font-size": "11px",
 							flex: "0 0 auto"
 						}, _$p));
-						(0, import_web$12.runHydrationEvents)();
+						(0, import_web$13.runHydrationEvents)();
 						return _el$56;
 					})()
 				];
 			}
 		}), _el$59, _co$7);
-		(0, import_web$16.insert)(_el$50, (0, import_web$14.createComponent)(import_solid_js.Show, {
+		(0, import_web$17.insert)(_el$50, (0, import_web$15.createComponent)(import_solid_js.Show, {
 			get when() {
 				return !hasCustomSound();
 			},
 			get children() {
-				const _el$57 = (0, import_web$13.getNextElement)(_tmpl$12);
+				const _el$57 = (0, import_web$14.getNextElement)(_tmpl$12);
 				_el$57.style.setProperty("font-size", "12px");
 				_el$57.style.setProperty("color", "var(--text-muted)");
 				return _el$57;
@@ -897,20 +897,20 @@ else {
 		_el$62.style.setProperty("display", "flex");
 		_el$62.style.setProperty("gap", "6px");
 		_el$62.style.setProperty("margin", "12px 0 16px");
-		(0, import_web$16.insert)(_el$62, () => tabBtn("servers", "Watched Servers"), _el$64, _co$9);
-		(0, import_web$16.insert)(_el$62, () => tabBtn("log", "Leave Log" + (store$1.leaveHistory?.length ? ` (${store$1.leaveHistory.length})` : "")), _el$66, _co$0);
-		(0, import_web$16.insert)(_el$48, (0, import_web$14.createComponent)(import_solid_js.Show, {
+		(0, import_web$17.insert)(_el$62, () => tabBtn("servers", "Watched Servers"), _el$64, _co$9);
+		(0, import_web$17.insert)(_el$62, () => tabBtn("log", "Leave Log" + (store$1.leaveHistory?.length ? ` (${store$1.leaveHistory.length})` : "")), _el$66, _co$0);
+		(0, import_web$17.insert)(_el$48, (0, import_web$15.createComponent)(import_solid_js.Show, {
 			get when() {
 				return tab() === "servers";
 			},
 			get children() {
 				return [
 					(() => {
-						const _el$67 = (0, import_web$13.getNextElement)(_tmpl$13), _el$70 = _el$67.firstChild, [_el$71, _co$1] = (0, import_web$15.getNextMarker)(_el$70.nextSibling), _el$68 = _el$71.nextSibling, _el$69 = _el$68.nextSibling;
+						const _el$67 = (0, import_web$14.getNextElement)(_tmpl$13), _el$70 = _el$67.firstChild, [_el$71, _co$1] = (0, import_web$16.getNextMarker)(_el$70.nextSibling), _el$68 = _el$71.nextSibling, _el$69 = _el$68.nextSibling;
 						_el$67.style.setProperty("display", "flex");
 						_el$67.style.setProperty("gap", "8px");
 						_el$67.style.setProperty("margin-bottom", "8px");
-						(0, import_web$16.insert)(_el$67, (0, import_web$14.createComponent)(TextBox, {
+						(0, import_web$17.insert)(_el$67, (0, import_web$15.createComponent)(TextBox, {
 							get value() {
 								return input();
 							},
@@ -923,37 +923,37 @@ else {
 						}), _el$71, _co$1);
 						_el$68.$$click = () => add();
 						_el$69.$$click = () => setShowPicker(true);
-						(0, import_web$11.effect)((_p$) => {
+						(0, import_web$12.effect)((_p$) => {
 							const _v$6 = btn("var(--button-positive-background)"), _v$7 = btn("var(--button-secondary-background)");
-							_p$._v$6 = (0, import_web$9.style)(_el$68, _v$6, _p$._v$6);
-							_p$._v$7 = (0, import_web$9.style)(_el$69, _v$7, _p$._v$7);
+							_p$._v$6 = (0, import_web$10.style)(_el$68, _v$6, _p$._v$6);
+							_p$._v$7 = (0, import_web$10.style)(_el$69, _v$7, _p$._v$7);
 							return _p$;
 						}, {
 							_v$6: undefined,
 							_v$7: undefined
 						});
-						(0, import_web$12.runHydrationEvents)();
+						(0, import_web$13.runHydrationEvents)();
 						return _el$67;
 					})(),
-					(0, import_web$14.createComponent)(import_solid_js.Show, {
+					(0, import_web$15.createComponent)(import_solid_js.Show, {
 						get when() {
 							return error();
 						},
 						get children() {
-							const _el$72 = (0, import_web$13.getNextElement)(_tmpl$14);
+							const _el$72 = (0, import_web$14.getNextElement)(_tmpl$14);
 							_el$72.style.setProperty("color", "var(--status-danger)");
 							_el$72.style.setProperty("font-size", "13px");
 							_el$72.style.setProperty("margin", "0 0 8px");
-							(0, import_web$16.insert)(_el$72, error);
+							(0, import_web$17.insert)(_el$72, error);
 							return _el$72;
 						}
 					}),
-					(0, import_web$14.createComponent)(import_solid_js.Show, {
+					(0, import_web$15.createComponent)(import_solid_js.Show, {
 						get when() {
 							return showPicker();
 						},
 						get children() {
-							return (0, import_web$14.createComponent)(GuildPickerModal, {
+							return (0, import_web$15.createComponent)(GuildPickerModal, {
 								get alreadyWatched() {
 									return guilds();
 								},
@@ -962,17 +962,17 @@ else {
 							});
 						}
 					}),
-					(0, import_web$14.createComponent)(import_solid_js.Show, {
+					(0, import_web$15.createComponent)(import_solid_js.Show, {
 						get when() {
 							return guilds().length === 0;
 						},
 						get children() {
-							const _el$73 = (0, import_web$13.getNextElement)(_tmpl$15);
+							const _el$73 = (0, import_web$14.getNextElement)(_tmpl$15);
 							_el$73.style.setProperty("color", "var(--text-muted)");
 							return _el$73;
 						}
 					}),
-					(0, import_web$14.createComponent)(import_solid_js.For, {
+					(0, import_web$15.createComponent)(import_solid_js.For, {
 						get each() {
 							return guilds();
 						},
@@ -985,7 +985,7 @@ else {
 							const members = () => memberList()[id] ?? [];
 							const iconUrl = () => getGuildIcon(id);
 							return (() => {
-								const _el$97 = (0, import_web$13.getNextElement)(_tmpl$26), _el$98 = _el$97.firstChild, _el$99 = _el$98.firstChild, _el$100 = _el$99.firstChild, _el$105 = _el$100.firstChild, [_el$106, _co$17] = (0, import_web$15.getNextMarker)(_el$105.nextSibling), _el$102 = _el$106.nextSibling, _el$103 = _el$102.firstChild, _el$104 = _el$103.nextSibling, _el$107 = _el$100.nextSibling, _el$108 = _el$107.firstChild, _el$109 = _el$108.nextSibling, _el$110 = _el$99.nextSibling, _el$111 = _el$110.firstChild, _el$112 = _el$111.firstChild, _el$114 = _el$112.nextSibling, _el$115 = _el$114.nextSibling, [_el$116, _co$18] = (0, import_web$15.getNextMarker)(_el$115.nextSibling), _el$119 = _el$111.nextSibling, [_el$120, _co$19] = (0, import_web$15.getNextMarker)(_el$119.nextSibling), _el$121 = _el$120.nextSibling, [_el$122, _co$20] = (0, import_web$15.getNextMarker)(_el$121.nextSibling), _el$124 = _el$110.nextSibling, [_el$125, _co$21] = (0, import_web$15.getNextMarker)(_el$124.nextSibling), _el$132 = _el$98.nextSibling, [_el$133, _co$24] = (0, import_web$15.getNextMarker)(_el$132.nextSibling);
+								const _el$97 = (0, import_web$14.getNextElement)(_tmpl$26), _el$98 = _el$97.firstChild, _el$99 = _el$98.firstChild, _el$100 = _el$99.firstChild, _el$105 = _el$100.firstChild, [_el$106, _co$17] = (0, import_web$16.getNextMarker)(_el$105.nextSibling), _el$102 = _el$106.nextSibling, _el$103 = _el$102.firstChild, _el$104 = _el$103.nextSibling, _el$107 = _el$100.nextSibling, _el$108 = _el$107.firstChild, _el$109 = _el$108.nextSibling, _el$110 = _el$99.nextSibling, _el$111 = _el$110.firstChild, _el$112 = _el$111.firstChild, _el$114 = _el$112.nextSibling, _el$115 = _el$114.nextSibling, [_el$116, _co$18] = (0, import_web$16.getNextMarker)(_el$115.nextSibling), _el$119 = _el$111.nextSibling, [_el$120, _co$19] = (0, import_web$16.getNextMarker)(_el$119.nextSibling), _el$121 = _el$120.nextSibling, [_el$122, _co$20] = (0, import_web$16.getNextMarker)(_el$121.nextSibling), _el$124 = _el$110.nextSibling, [_el$125, _co$21] = (0, import_web$16.getNextMarker)(_el$124.nextSibling), _el$132 = _el$98.nextSibling, [_el$133, _co$24] = (0, import_web$16.getNextMarker)(_el$132.nextSibling);
 								_el$97.style.setProperty("margin-bottom", "6px");
 								_el$97.style.setProperty("background", "var(--background-secondary)");
 								_el$97.style.setProperty("border-radius", "6px");
@@ -999,13 +999,13 @@ else {
 								_el$100.style.setProperty("align-items", "center");
 								_el$100.style.setProperty("gap", "10px");
 								_el$100.style.setProperty("min-width", "0");
-								(0, import_web$16.insert)(_el$100, (0, import_web$14.createComponent)(import_solid_js.Show, {
+								(0, import_web$17.insert)(_el$100, (0, import_web$15.createComponent)(import_solid_js.Show, {
 									get when() {
 										return iconUrl();
 									},
 									get fallback() {
 										return (() => {
-											const _el$134 = (0, import_web$13.getNextElement)(_tmpl$$1);
+											const _el$134 = (0, import_web$14.getNextElement)(_tmpl$$1);
 											_el$134.style.setProperty("width", "32px");
 											_el$134.style.setProperty("height", "32px");
 											_el$134.style.setProperty("border-radius", "50%");
@@ -1016,34 +1016,34 @@ else {
 											_el$134.style.setProperty("flex-shrink", "0");
 											_el$134.style.setProperty("font-size", "12px");
 											_el$134.style.setProperty("color", "var(--text-muted)");
-											(0, import_web$16.insert)(_el$134, () => (getGuildName$1(id) ?? "?")[0]?.toUpperCase());
+											(0, import_web$17.insert)(_el$134, () => (getGuildName$1(id) ?? "?")[0]?.toUpperCase());
 											return _el$134;
 										})();
 									},
 									get children() {
-										const _el$101 = (0, import_web$13.getNextElement)(_tmpl$5);
+										const _el$101 = (0, import_web$14.getNextElement)(_tmpl$5);
 										_el$101.style.setProperty("width", "32px");
 										_el$101.style.setProperty("height", "32px");
 										_el$101.style.setProperty("border-radius", "50%");
 										_el$101.style.setProperty("object-fit", "cover");
 										_el$101.style.setProperty("flex-shrink", "0");
-										(0, import_web$11.effect)(() => (0, import_web$8.setAttribute)(_el$101, "src", iconUrl()));
+										(0, import_web$12.effect)(() => (0, import_web$9.setAttribute)(_el$101, "src", iconUrl()));
 										return _el$101;
 									}
 								}), _el$106, _co$17);
 								_el$102.style.setProperty("min-width", "0");
 								_el$103.style.setProperty("color", "var(--header-primary)");
 								_el$103.style.setProperty("font-weight", "600");
-								(0, import_web$16.insert)(_el$103, () => getGuildName$1(id) ?? "Unknown Server");
+								(0, import_web$17.insert)(_el$103, () => getGuildName$1(id) ?? "Unknown Server");
 								_el$104.style.setProperty("color", "var(--text-muted)");
 								_el$104.style.setProperty("font-size", "12px");
 								_el$104.style.setProperty("margin-left", "8px");
-								(0, import_web$16.insert)(_el$104, id);
+								(0, import_web$17.insert)(_el$104, id);
 								_el$107.style.setProperty("display", "flex");
 								_el$107.style.setProperty("gap", "6px");
 								_el$107.style.setProperty("flex-shrink", "0");
 								_el$108.$$click = () => checkMembers(id);
-								(0, import_web$16.insert)(_el$108, () => cs()?.phase === "checking" ? "Checking…" : "Check Members");
+								(0, import_web$17.insert)(_el$108, () => cs()?.phase === "checking" ? "Checking…" : "Check Members");
 								_el$109.$$click = () => remove(id);
 								_el$110.style.setProperty("margin-top", "6px");
 								_el$110.style.setProperty("font-size", "12px");
@@ -1052,36 +1052,36 @@ else {
 								_el$110.style.setProperty("gap", "12px");
 								_el$110.style.setProperty("flex-wrap", "wrap");
 								_el$110.style.setProperty("align-items", "center");
-								(0, import_web$16.insert)(_el$114, count);
-								(0, import_web$16.insert)(_el$111, (0, import_web$14.createComponent)(import_solid_js.Show, {
+								(0, import_web$17.insert)(_el$114, count);
+								(0, import_web$17.insert)(_el$111, (0, import_web$15.createComponent)(import_solid_js.Show, {
 									get when() {
 										return total() > 0;
 									},
 									get children() {
 										return [
 											" / ",
-											(0, import_web$7.memo)(() => total()),
+											(0, import_web$8.memo)(() => total()),
 											" on server"
 										];
 									}
 								}), _el$116, _co$18);
-								(0, import_web$16.insert)(_el$110, (0, import_web$14.createComponent)(import_solid_js.Show, {
+								(0, import_web$17.insert)(_el$110, (0, import_web$15.createComponent)(import_solid_js.Show, {
 									get when() {
-										return (0, import_web$7.memo)(() => !!incomplete())() && !cs();
+										return (0, import_web$8.memo)(() => !!incomplete())() && !cs();
 									},
 									get children() {
-										const _el$117 = (0, import_web$13.getNextElement)(_tmpl$23);
+										const _el$117 = (0, import_web$14.getNextElement)(_tmpl$23);
 										_el$117.style.setProperty("color", "var(--text-warning)");
 										_el$117.style.setProperty("font-size", "11px");
 										return _el$117;
 									}
 								}), _el$120, _co$19);
-								(0, import_web$16.insert)(_el$110, (0, import_web$14.createComponent)(import_solid_js.Show, {
+								(0, import_web$17.insert)(_el$110, (0, import_web$15.createComponent)(import_solid_js.Show, {
 									get when() {
 										return count() > 0;
 									},
 									get children() {
-										const _el$118 = (0, import_web$13.getNextElement)(_tmpl$0);
+										const _el$118 = (0, import_web$14.getNextElement)(_tmpl$0);
 										_el$118.$$click = () => toggleMemberList(id);
 										_el$118.style.setProperty("background", "none");
 										_el$118.style.setProperty("border", "none");
@@ -1089,55 +1089,55 @@ else {
 										_el$118.style.setProperty("color", "var(--text-link)");
 										_el$118.style.setProperty("font-size", "12px");
 										_el$118.style.setProperty("padding", "0");
-										(0, import_web$16.insert)(_el$118, (() => {
-											const _c$2 = (0, import_web$7.memo)(() => !!isExpanded());
+										(0, import_web$17.insert)(_el$118, (() => {
+											const _c$2 = (0, import_web$8.memo)(() => !!isExpanded());
 											return () => _c$2() ? "Hide members" : `Show all ${count()} members`;
 										})());
-										(0, import_web$12.runHydrationEvents)();
+										(0, import_web$13.runHydrationEvents)();
 										return _el$118;
 									}
 								}), _el$122, _co$20);
-								(0, import_web$16.insert)(_el$98, (0, import_web$14.createComponent)(import_solid_js.Show, {
+								(0, import_web$17.insert)(_el$98, (0, import_web$15.createComponent)(import_solid_js.Show, {
 									get when() {
 										return cs()?.progress;
 									},
 									get children() {
-										const _el$123 = (0, import_web$13.getNextElement)(_tmpl$14);
+										const _el$123 = (0, import_web$14.getNextElement)(_tmpl$14);
 										_el$123.style.setProperty("font-size", "12px");
 										_el$123.style.setProperty("margin-top", "6px");
 										_el$123.style.setProperty("margin-bottom", "0");
-										(0, import_web$16.insert)(_el$123, () => cs().progress);
-										(0, import_web$11.effect)(() => _el$123.style.setProperty("color", cs()?.phase === "done" ? cs()?.complete ? "var(--text-positive)" : "var(--text-warning)" : "var(--text-muted)"));
+										(0, import_web$17.insert)(_el$123, () => cs().progress);
+										(0, import_web$12.effect)(() => _el$123.style.setProperty("color", cs()?.phase === "done" ? cs()?.complete ? "var(--text-positive)" : "var(--text-warning)" : "var(--text-muted)"));
 										return _el$123;
 									}
 								}), _el$125, _co$21);
-								(0, import_web$16.insert)(_el$97, (0, import_web$14.createComponent)(import_solid_js.Show, {
+								(0, import_web$17.insert)(_el$97, (0, import_web$15.createComponent)(import_solid_js.Show, {
 									get when() {
 										return isExpanded();
 									},
 									get children() {
-										const _el$126 = (0, import_web$13.getNextElement)(_tmpl$25), _el$128 = _el$126.firstChild, [_el$129, _co$22] = (0, import_web$15.getNextMarker)(_el$128.nextSibling), _el$130 = _el$129.nextSibling, [_el$131, _co$23] = (0, import_web$15.getNextMarker)(_el$130.nextSibling);
+										const _el$126 = (0, import_web$14.getNextElement)(_tmpl$25), _el$128 = _el$126.firstChild, [_el$129, _co$22] = (0, import_web$16.getNextMarker)(_el$128.nextSibling), _el$130 = _el$129.nextSibling, [_el$131, _co$23] = (0, import_web$16.getNextMarker)(_el$130.nextSibling);
 										_el$126.style.setProperty("border-top", "1px solid var(--background-modifier-accent)");
 										_el$126.style.setProperty("max-height", "280px");
 										_el$126.style.setProperty("overflow-y", "auto");
-										(0, import_web$16.insert)(_el$126, (0, import_web$14.createComponent)(import_solid_js.Show, {
+										(0, import_web$17.insert)(_el$126, (0, import_web$15.createComponent)(import_solid_js.Show, {
 											get when() {
 												return members().length === 0;
 											},
 											get children() {
-												const _el$127 = (0, import_web$13.getNextElement)(_tmpl$24);
+												const _el$127 = (0, import_web$14.getNextElement)(_tmpl$24);
 												_el$127.style.setProperty("color", "var(--text-muted)");
 												_el$127.style.setProperty("padding", "10px 12px");
 												_el$127.style.setProperty("margin", "0");
 												return _el$127;
 											}
 										}), _el$129, _co$22);
-										(0, import_web$16.insert)(_el$126, (0, import_web$14.createComponent)(import_solid_js.For, {
+										(0, import_web$17.insert)(_el$126, (0, import_web$15.createComponent)(import_solid_js.For, {
 											get each() {
 												return members();
 											},
 											children: (entry) => (() => {
-												const _el$135 = (0, import_web$13.getNextElement)(_tmpl$28), _el$136 = _el$135.firstChild, _el$141 = _el$136.firstChild, [_el$142, _co$26] = (0, import_web$15.getNextMarker)(_el$141.nextSibling), _el$143 = _el$142.nextSibling, [_el$144, _co$27] = (0, import_web$15.getNextMarker)(_el$143.nextSibling), _el$145 = _el$136.nextSibling;
+												const _el$135 = (0, import_web$14.getNextElement)(_tmpl$28), _el$136 = _el$135.firstChild, _el$141 = _el$136.firstChild, [_el$142, _co$26] = (0, import_web$16.getNextMarker)(_el$141.nextSibling), _el$143 = _el$142.nextSibling, [_el$144, _co$27] = (0, import_web$16.getNextMarker)(_el$143.nextSibling), _el$145 = _el$136.nextSibling;
 												_el$135.style.setProperty("display", "flex");
 												_el$135.style.setProperty("justify-content", "space-between");
 												_el$135.style.setProperty("align-items", "center");
@@ -1145,17 +1145,17 @@ else {
 												_el$135.style.setProperty("border-bottom", "1px solid var(--background-modifier-accent)");
 												_el$135.style.setProperty("font-size", "13px");
 												_el$136.style.setProperty("color", "var(--header-primary)");
-												(0, import_web$16.insert)(_el$136, () => entry.name, _el$142, _co$26);
-												(0, import_web$16.insert)(_el$136, (0, import_web$14.createComponent)(import_solid_js.Show, {
+												(0, import_web$17.insert)(_el$136, () => entry.name, _el$142, _co$26);
+												(0, import_web$17.insert)(_el$136, (0, import_web$15.createComponent)(import_solid_js.Show, {
 													get when() {
 														return entry.username && entry.globalName && entry.username !== entry.globalName;
 													},
 													get children() {
-														const _el$137 = (0, import_web$13.getNextElement)(_tmpl$27), _el$138 = _el$137.firstChild, _el$139 = _el$138.nextSibling, [_el$140, _co$25] = (0, import_web$15.getNextMarker)(_el$139.nextSibling);
+														const _el$137 = (0, import_web$14.getNextElement)(_tmpl$27), _el$138 = _el$137.firstChild, _el$139 = _el$138.nextSibling, [_el$140, _co$25] = (0, import_web$16.getNextMarker)(_el$139.nextSibling);
 														_el$137.style.setProperty("color", "var(--text-muted)");
 														_el$137.style.setProperty("margin-left", "6px");
 														_el$137.style.setProperty("font-size", "11px");
-														(0, import_web$16.insert)(_el$137, () => entry.username, _el$140, _co$25);
+														(0, import_web$17.insert)(_el$137, () => entry.username, _el$140, _co$25);
 														return _el$137;
 													}
 												}), _el$144, _co$27);
@@ -1164,17 +1164,17 @@ else {
 												_el$145.style.setProperty("font-family", "monospace");
 												_el$145.style.setProperty("flex-shrink", "0");
 												_el$145.style.setProperty("margin-left", "12px");
-												(0, import_web$16.insert)(_el$145, () => entry.uid);
+												(0, import_web$17.insert)(_el$145, () => entry.uid);
 												return _el$135;
 											})()
 										}), _el$131, _co$23);
 										return _el$126;
 									}
 								}), _el$133, _co$24);
-								(0, import_web$11.effect)((_p$) => {
+								(0, import_web$12.effect)((_p$) => {
 									const _v$8 = btn("var(--button-secondary-background)", { opacity: cs()?.phase === "checking" ? "0.6" : "1" }), _v$9 = btn("var(--button-danger-background)"), _v$0 = incomplete() ? "var(--text-warning)" : "var(--text-positive)";
-									_p$._v$8 = (0, import_web$9.style)(_el$108, _v$8, _p$._v$8);
-									_p$._v$9 = (0, import_web$9.style)(_el$109, _v$9, _p$._v$9);
+									_p$._v$8 = (0, import_web$10.style)(_el$108, _v$8, _p$._v$8);
+									_p$._v$9 = (0, import_web$10.style)(_el$109, _v$9, _p$._v$9);
 									_v$0 !== _p$._v$0 && _el$114.style.setProperty("color", _p$._v$0 = _v$0);
 									return _p$;
 								}, {
@@ -1182,17 +1182,17 @@ else {
 									_v$9: undefined,
 									_v$0: undefined
 								});
-								(0, import_web$12.runHydrationEvents)();
+								(0, import_web$13.runHydrationEvents)();
 								return _el$97;
 							})();
 						}
 					}),
-					(0, import_web$14.createComponent)(import_solid_js.Show, {
+					(0, import_web$15.createComponent)(import_solid_js.Show, {
 						get when() {
 							return guilds().length > 0;
 						},
 						get children() {
-							const _el$74 = (0, import_web$13.getNextElement)(_tmpl$16);
+							const _el$74 = (0, import_web$14.getNextElement)(_tmpl$16);
 							_el$74.style.setProperty("color", "var(--text-muted)");
 							_el$74.style.setProperty("font-size", "12px");
 							_el$74.style.setProperty("margin-top", "10px");
@@ -1202,32 +1202,32 @@ else {
 				];
 			}
 		}), _el$94, _co$15);
-		(0, import_web$16.insert)(_el$48, (0, import_web$14.createComponent)(import_solid_js.Show, {
+		(0, import_web$17.insert)(_el$48, (0, import_web$15.createComponent)(import_solid_js.Show, {
 			get when() {
 				return tab() === "log";
 			},
 			get children() {
 				return [
 					(() => {
-						const _el$75 = (0, import_web$13.getNextElement)(_tmpl$17), _el$76 = _el$75.firstChild, _el$77 = _el$76.nextSibling, [_el$78, _co$10] = (0, import_web$15.getNextMarker)(_el$77.nextSibling);
+						const _el$75 = (0, import_web$14.getNextElement)(_tmpl$17), _el$76 = _el$75.firstChild, _el$77 = _el$76.nextSibling, [_el$78, _co$10] = (0, import_web$16.getNextMarker)(_el$77.nextSibling);
 						_el$75.style.setProperty("display", "flex");
 						_el$75.style.setProperty("gap", "8px");
 						_el$75.style.setProperty("margin-bottom", "10px");
 						_el$75.style.setProperty("align-items", "center");
 						_el$76.style.setProperty("flex", "1");
-						(0, import_web$16.insert)(_el$76, (0, import_web$14.createComponent)(TextBox, {
+						(0, import_web$17.insert)(_el$76, (0, import_web$15.createComponent)(TextBox, {
 							get value() {
 								return logSearch();
 							},
 							onInput: (v) => setLogSearch(v),
 							placeholder: "Search by username or user ID…"
 						}));
-						(0, import_web$16.insert)(_el$75, (0, import_web$14.createComponent)(import_solid_js.Show, {
+						(0, import_web$17.insert)(_el$75, (0, import_web$15.createComponent)(import_solid_js.Show, {
 							get when() {
 								return logGuildOptions().length > 1;
 							},
 							get children() {
-								return (0, import_web$14.createComponent)(DarkSelect, {
+								return (0, import_web$15.createComponent)(DarkSelect, {
 									value: logGuild,
 									onChange: (v) => setLogGuild(v),
 									get options() {
@@ -1245,54 +1245,54 @@ else {
 						return _el$75;
 					})(),
 					(() => {
-						const _el$79 = (0, import_web$13.getNextElement)(_tmpl$19), _el$80 = _el$79.firstChild, _el$82 = _el$80.firstChild, [_el$83, _co$11] = (0, import_web$15.getNextMarker)(_el$82.nextSibling), _el$84 = _el$83.nextSibling, [_el$85, _co$12] = (0, import_web$15.getNextMarker)(_el$84.nextSibling), _el$81 = _el$85.nextSibling, _el$86 = _el$81.nextSibling, [_el$87, _co$13] = (0, import_web$15.getNextMarker)(_el$86.nextSibling), _el$89 = _el$80.nextSibling, [_el$90, _co$14] = (0, import_web$15.getNextMarker)(_el$89.nextSibling);
+						const _el$79 = (0, import_web$14.getNextElement)(_tmpl$19), _el$80 = _el$79.firstChild, _el$82 = _el$80.firstChild, [_el$83, _co$11] = (0, import_web$16.getNextMarker)(_el$82.nextSibling), _el$84 = _el$83.nextSibling, [_el$85, _co$12] = (0, import_web$16.getNextMarker)(_el$84.nextSibling), _el$81 = _el$85.nextSibling, _el$86 = _el$81.nextSibling, [_el$87, _co$13] = (0, import_web$16.getNextMarker)(_el$86.nextSibling), _el$89 = _el$80.nextSibling, [_el$90, _co$14] = (0, import_web$16.getNextMarker)(_el$89.nextSibling);
 						_el$79.style.setProperty("display", "flex");
 						_el$79.style.setProperty("justify-content", "space-between");
 						_el$79.style.setProperty("align-items", "center");
 						_el$79.style.setProperty("margin-bottom", "12px");
 						_el$80.style.setProperty("color", "var(--text-muted)");
 						_el$80.style.setProperty("font-size", "13px");
-						(0, import_web$16.insert)(_el$80, () => filteredHistory().length, _el$83, _co$11);
-						(0, import_web$16.insert)(_el$80, (() => {
-							const _c$ = (0, import_web$7.memo)(() => filteredHistory().length !== history().length);
+						(0, import_web$17.insert)(_el$80, () => filteredHistory().length, _el$83, _co$11);
+						(0, import_web$17.insert)(_el$80, (() => {
+							const _c$ = (0, import_web$8.memo)(() => filteredHistory().length !== history().length);
 							return () => _c$() ? ` / ${history().length}` : "";
 						})(), _el$85, _co$12);
-						(0, import_web$16.insert)(_el$80, () => history().length !== 1 ? "s" : "", _el$87, _co$13);
-						(0, import_web$16.insert)(_el$79, (0, import_web$14.createComponent)(import_solid_js.Show, {
+						(0, import_web$17.insert)(_el$80, () => history().length !== 1 ? "s" : "", _el$87, _co$13);
+						(0, import_web$17.insert)(_el$79, (0, import_web$15.createComponent)(import_solid_js.Show, {
 							get when() {
 								return history().length > 0;
 							},
 							get children() {
-								const _el$88 = (0, import_web$13.getNextElement)(_tmpl$18);
+								const _el$88 = (0, import_web$14.getNextElement)(_tmpl$18);
 								_el$88.$$click = clearLog;
-								(0, import_web$11.effect)((_$p) => (0, import_web$9.style)(_el$88, btn("var(--button-danger-background)"), _$p));
-								(0, import_web$12.runHydrationEvents)();
+								(0, import_web$12.effect)((_$p) => (0, import_web$10.style)(_el$88, btn("var(--button-danger-background)"), _$p));
+								(0, import_web$13.runHydrationEvents)();
 								return _el$88;
 							}
 						}), _el$90, _co$14);
 						return _el$79;
 					})(),
-					(0, import_web$14.createComponent)(import_solid_js.Show, {
+					(0, import_web$15.createComponent)(import_solid_js.Show, {
 						get when() {
 							return history().length === 0;
 						},
 						get children() {
-							const _el$91 = (0, import_web$13.getNextElement)(_tmpl$20);
+							const _el$91 = (0, import_web$14.getNextElement)(_tmpl$20);
 							_el$91.style.setProperty("color", "var(--text-muted)");
 							return _el$91;
 						}
 					}),
-					(0, import_web$14.createComponent)(import_solid_js.Show, {
+					(0, import_web$15.createComponent)(import_solid_js.Show, {
 						get when() {
-							return (0, import_web$7.memo)(() => history().length > 0)() && filteredHistory().length === 0;
+							return (0, import_web$8.memo)(() => history().length > 0)() && filteredHistory().length === 0;
 						},
 						get children() {
-							const _el$92 = (0, import_web$13.getNextElement)(_tmpl$21);
+							const _el$92 = (0, import_web$14.getNextElement)(_tmpl$21);
 							_el$92.style.setProperty("color", "var(--text-muted)");
 							return _el$92;
 						}
 					}),
-					(0, import_web$14.createComponent)(import_solid_js.For, {
+					(0, import_web$15.createComponent)(import_solid_js.For, {
 						get each() {
 							return filteredHistory();
 						},
@@ -1306,7 +1306,7 @@ else {
 								}
 							})();
 							return (() => {
-								const _el$146 = (0, import_web$13.getNextElement)(_tmpl$29), _el$147 = _el$146.firstChild, _el$148 = _el$147.firstChild, _el$149 = _el$148.firstChild, _el$150 = _el$149.nextSibling, _el$151 = _el$150.firstChild, _el$153 = _el$151.nextSibling, [_el$154, _co$28] = (0, import_web$15.getNextMarker)(_el$153.nextSibling), _el$152 = _el$154.nextSibling, _el$155 = _el$148.nextSibling, _el$156 = _el$147.nextSibling, _el$157 = _el$156.firstChild, _el$158 = _el$157.nextSibling, [_el$159, _co$29] = (0, import_web$15.getNextMarker)(_el$158.nextSibling);
+								const _el$146 = (0, import_web$14.getNextElement)(_tmpl$29), _el$147 = _el$146.firstChild, _el$148 = _el$147.firstChild, _el$149 = _el$148.firstChild, _el$150 = _el$149.nextSibling, _el$151 = _el$150.firstChild, _el$153 = _el$151.nextSibling, [_el$154, _co$28] = (0, import_web$16.getNextMarker)(_el$153.nextSibling), _el$152 = _el$154.nextSibling, _el$155 = _el$148.nextSibling, _el$156 = _el$147.nextSibling;
 								_el$146.addEventListener("mouseleave", (e) => e.currentTarget.style.background = "var(--background-secondary)");
 								_el$146.addEventListener("mouseenter", (e) => e.currentTarget.style.background = "var(--background-modifier-hover)");
 								_el$146.$$click = () => openProfile(entry.userId, entry.guildId);
@@ -1314,7 +1314,6 @@ else {
 								_el$146.style.setProperty("margin-bottom", "4px");
 								_el$146.style.setProperty("background", "var(--background-secondary)");
 								_el$146.style.setProperty("border-radius", "6px");
-								_el$146.style.setProperty("border-left", "3px solid var(--status-danger)");
 								_el$146.style.setProperty("cursor", "pointer");
 								_el$146.style.setProperty("transition", "background 0.1s");
 								_el$147.style.setProperty("display", "flex");
@@ -1322,19 +1321,28 @@ else {
 								_el$147.style.setProperty("align-items", "center");
 								_el$149.style.setProperty("color", "var(--header-primary)");
 								_el$149.style.setProperty("font-weight", "600");
-								(0, import_web$16.insert)(_el$149, name);
+								(0, import_web$17.insert)(_el$149, name);
 								_el$150.style.setProperty("color", "var(--text-muted)");
 								_el$150.style.setProperty("font-size", "12px");
 								_el$150.style.setProperty("margin-left", "6px");
-								(0, import_web$16.insert)(_el$150, () => entry.userId, _el$154, _co$28);
+								(0, import_web$17.insert)(_el$150, () => entry.userId, _el$154, _co$28);
 								_el$155.style.setProperty("color", "var(--text-muted)");
 								_el$155.style.setProperty("font-size", "12px");
-								(0, import_web$16.insert)(_el$155, () => formatTime(entry.timestamp));
+								(0, import_web$17.insert)(_el$155, () => formatTime(entry.timestamp));
 								_el$156.style.setProperty("color", "var(--text-muted)");
 								_el$156.style.setProperty("font-size", "13px");
 								_el$156.style.setProperty("margin-top", "2px");
-								(0, import_web$16.insert)(_el$156, guild, _el$159, _co$29);
-								(0, import_web$12.runHydrationEvents)();
+								(0, import_web$17.insert)(_el$156, (() => {
+									const _c$3 = (0, import_web$8.memo)(() => !!entry.isBan);
+									return () => _c$3() ? (() => {
+										const _el$157 = (0, import_web$14.getNextElement)(_tmpl$30), _el$158 = _el$157.firstChild, _el$159 = _el$158.nextSibling, [_el$160, _co$29] = (0, import_web$16.getNextMarker)(_el$159.nextSibling);
+										_el$157.style.setProperty("color", "#f23f43");
+										(0, import_web$17.insert)(_el$157, guild, _el$160, _co$29);
+										return _el$157;
+									})() : ["Left ", guild];
+								})());
+								(0, import_web$12.effect)(() => _el$146.style.setProperty("border-left", entry.isBan ? "3px solid #f23f43" : "3px solid var(--status-danger)"));
+								(0, import_web$13.runHydrationEvents)();
 								return _el$146;
 							})();
 						}
@@ -1342,17 +1350,17 @@ else {
 				];
 			}
 		}), _el$96, _co$16);
-		(0, import_web$11.effect)((_$p) => (0, import_web$9.style)(_el$53, {
+		(0, import_web$12.effect)((_$p) => (0, import_web$10.style)(_el$53, {
 			...btn("var(--button-secondary-background)"),
 			"padding": "4px 10px",
 			"font-size": "12px",
 			flex: "0 0 auto"
 		}, _$p));
-		(0, import_web$12.runHydrationEvents)();
+		(0, import_web$13.runHydrationEvents)();
 		return _el$48;
 	})();
 }
-(0, import_web$6.delegateEvents)(["click", "input"]);
+(0, import_web$7.delegateEvents)(["click", "input"]);
 
 //#endregion
 //#region plugins/ServerSentinel/index.jsx
@@ -1361,16 +1369,18 @@ var import_web$1 = __toESM(require_web(), 1);
 var import_web$2 = __toESM(require_web(), 1);
 var import_web$3 = __toESM(require_web(), 1);
 var import_web$4 = __toESM(require_web(), 1);
+var import_web$5 = __toESM(require_web(), 1);
 const _tmpl$ = /*#__PURE__*/ (0, import_web.template)(`<div><div><img><div><div></div><div></div></div></div><div><div><span>Server</span><span></span></div><div><span>User ID</span><span></span></div></div></div>`, 25);
 const { flux: { dispatcher, stores }, plugin: { store }, ui: { showToast }, settings: { registerSection } } = shelter;
 const MAX_HISTORY = 400;
 const seenThisSession = new Map();
+const pendingBans = new Map();
 let unregMain = null;
 let toastStyleEl = null;
 let reloadModalEl = null;
 function showReloadModal() {
 	if (reloadModalEl) return;
-	reloadModalEl = (0, import_web$4.createComponent)(ReloadModal, { onClose: () => removeReloadModal() });
+	reloadModalEl = (0, import_web$5.createComponent)(ReloadModal, { onClose: () => removeReloadModal() });
 	document.body.appendChild(reloadModalEl);
 }
 function removeReloadModal() {
@@ -1464,9 +1474,8 @@ function makeToastContent(entry) {
 	const handle = entry.username && entry.username !== "unknown" ? entry.username : null;
 	const avatarUrl = getAvatarUrl(entry.userId, entry.avatar ?? null);
 	return (() => {
-		const _el$ = (0, import_web$1.getNextElement)(_tmpl$), _el$2 = _el$.firstChild, _el$3 = _el$2.firstChild, _el$4 = _el$3.nextSibling, _el$5 = _el$4.firstChild, _el$6 = _el$5.nextSibling, _el$7 = _el$2.nextSibling, _el$8 = _el$7.firstChild, _el$9 = _el$8.firstChild, _el$0 = _el$9.nextSibling, _el$1 = _el$8.nextSibling, _el$10 = _el$1.firstChild, _el$11 = _el$10.nextSibling;
+		const _el$ = (0, import_web$2.getNextElement)(_tmpl$), _el$2 = _el$.firstChild, _el$3 = _el$2.firstChild, _el$4 = _el$3.nextSibling, _el$5 = _el$4.firstChild, _el$6 = _el$5.nextSibling, _el$7 = _el$2.nextSibling, _el$8 = _el$7.firstChild, _el$9 = _el$8.firstChild, _el$0 = _el$9.nextSibling, _el$1 = _el$8.nextSibling, _el$10 = _el$1.firstChild, _el$11 = _el$10.nextSibling;
 		_el$.style.setProperty("background", "#111214");
-		_el$.style.setProperty("border", "1px solid #2e2f33");
 		_el$.style.setProperty("border-radius", "10px");
 		_el$.style.setProperty("overflow", "hidden");
 		_el$.style.setProperty("width", "260px");
@@ -1475,7 +1484,7 @@ function makeToastContent(entry) {
 		_el$2.style.setProperty("align-items", "center");
 		_el$2.style.setProperty("gap", "11px");
 		_el$2.style.setProperty("border-bottom", "1px solid #1e1f22");
-		(0, import_web$3.setAttribute)(_el$3, "src", avatarUrl);
+		(0, import_web$4.setAttribute)(_el$3, "src", avatarUrl);
 		_el$3.style.setProperty("width", "40px");
 		_el$3.style.setProperty("height", "40px");
 		_el$3.style.setProperty("border-radius", "50%");
@@ -1489,10 +1498,10 @@ function makeToastContent(entry) {
 		_el$5.style.setProperty("white-space", "nowrap");
 		_el$5.style.setProperty("overflow", "hidden");
 		_el$5.style.setProperty("text-overflow", "ellipsis");
-		(0, import_web$2.insert)(_el$5, name);
+		(0, import_web$3.insert)(_el$5, name);
 		_el$6.style.setProperty("font-size", "12px");
 		_el$6.style.setProperty("color", "#6d6f78");
-		(0, import_web$2.insert)(_el$6, handle ? `@${handle}` : "");
+		(0, import_web$3.insert)(_el$6, handle ? `@${handle}` : "");
 		_el$7.style.setProperty("padding", "9px 15px");
 		_el$7.style.setProperty("display", "flex");
 		_el$7.style.setProperty("flex-direction", "column");
@@ -1506,7 +1515,7 @@ function makeToastContent(entry) {
 		_el$9.style.setProperty("letter-spacing", ".5px");
 		_el$0.style.setProperty("font-size", "12px");
 		_el$0.style.setProperty("color", "#b5bac1");
-		(0, import_web$2.insert)(_el$0, () => entry.guildName);
+		(0, import_web$3.insert)(_el$0, () => entry.guildName);
 		_el$1.style.setProperty("display", "flex");
 		_el$1.style.setProperty("justify-content", "space-between");
 		_el$1.style.setProperty("align-items", "center");
@@ -1517,7 +1526,8 @@ function makeToastContent(entry) {
 		_el$11.style.setProperty("font-size", "10px");
 		_el$11.style.setProperty("color", "#4e5058");
 		_el$11.style.setProperty("font-family", "monospace");
-		(0, import_web$2.insert)(_el$11, () => entry.userId);
+		(0, import_web$3.insert)(_el$11, () => entry.userId);
+		(0, import_web$1.effect)(() => _el$.style.setProperty("border", entry.isBan ? "1px solid #f23f43" : "1px solid #2e2f33"));
 		return _el$;
 	})();
 }
@@ -1544,6 +1554,12 @@ function recordLeave(entry) {
 			close();
 		}
 	});
+}
+function onGuildBanAdd({ guildId, user }) {
+	if (!user?.id || !guildId) return;
+	if (!store.watchedGuilds.includes(guildId)) return;
+	if (!pendingBans.has(guildId)) pendingBans.set(guildId, new Set());
+	pendingBans.get(guildId).add(user.id);
 }
 function onGuildMembersChunk({ guildId, members }) {
 	if (!store.watchedGuilds.includes(guildId)) return;
@@ -1581,6 +1597,8 @@ function onMemberRemove({ guildId, user }) {
 		const globalName = fromStore?.globalName ?? fromStore?.global_name ?? user.global_name ?? user.globalName ?? snapEntry?.globalName ?? null;
 		const discriminator = fromStore?.discriminator ?? user.discriminator ?? snapEntry?.discriminator ?? "0";
 		const avatar = fromStore?.avatar ?? user.avatar ?? snapEntry?.avatar ?? null;
+		const isBan = pendingBans.get(guildId)?.has(user.id) ?? false;
+		pendingBans.get(guildId)?.delete(user.id);
 		recordLeave({
 			guildId,
 			guildName: getGuildName(guildId),
@@ -1589,6 +1607,7 @@ function onMemberRemove({ guildId, user }) {
 			globalName,
 			discriminator,
 			avatar,
+			isBan,
 			timestamp: Date.now()
 		});
 	});
@@ -1643,6 +1662,7 @@ function onConnectionOpen() {
 function onLoad() {
 	bootstrapStore();
 	seenThisSession.clear();
+	pendingBans.clear();
 	injectToastStyle();
 	if (!store.shownReloadHint) {
 		store.shownReloadHint = true;
@@ -1658,6 +1678,7 @@ function onLoad() {
 		}
 	}
 	dispatcher.subscribe("CONNECTION_OPEN", onConnectionOpen);
+	dispatcher.subscribe("GUILD_BAN_ADD", onGuildBanAdd);
 	dispatcher.subscribe("GUILD_MEMBER_REMOVE", onMemberRemove);
 	dispatcher.subscribe("GUILD_MEMBER_ADD", onMemberAdd);
 	dispatcher.subscribe("GUILD_MEMBER_LIST_UPDATE", onMemberListUpdate);
@@ -1666,9 +1687,11 @@ function onLoad() {
 }
 function onUnload() {
 	seenThisSession.clear();
+	pendingBans.clear();
 	removeToastStyle();
 	removeReloadModal();
 	dispatcher.unsubscribe("CONNECTION_OPEN", onConnectionOpen);
+	dispatcher.unsubscribe("GUILD_BAN_ADD", onGuildBanAdd);
 	dispatcher.unsubscribe("GUILD_MEMBER_REMOVE", onMemberRemove);
 	dispatcher.unsubscribe("GUILD_MEMBER_ADD", onMemberAdd);
 	dispatcher.unsubscribe("GUILD_MEMBER_LIST_UPDATE", onMemberListUpdate);
