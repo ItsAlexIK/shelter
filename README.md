@@ -12,6 +12,7 @@ Stay aware of who leaves your Discord servers - quietly and locally.
 
 ### What it does
 - **Instant alerts** - get a toast when someone leaves while you're online  
+- **Ban detection** - bans are flagged separately from regular leaves (requires Ban Members permission in that server)
 - **Custom sound notifications** - upload your own audio file for leave alerts
 - **Leave history** - view past departures (username, userid, server, time) in settings  
 - **No API usage** - runs entirely on Discord internals (safe, no rate limits)

@@ -901,7 +901,7 @@ export function MainPanel() {
                 style={{
                   padding: "8px 12px", "margin-bottom": "4px",
                   background: "var(--background-secondary)", "border-radius": "6px",
-                  "border-left": "3px solid var(--status-danger)",
+                  "border-left": entry.isBan ? "3px solid #f23f43" : "3px solid var(--status-danger)",
                   cursor: "pointer",
                   transition: "background 0.1s",
                 }}
@@ -916,7 +916,10 @@ export function MainPanel() {
                   <span style={{ color: "var(--text-muted)", "font-size": "12px" }}>{formatTime(entry.timestamp)}</span>
                 </div>
                 <div style={{ color: "var(--text-muted)", "font-size": "13px", "margin-top": "2px" }}>
-                  Left {guild}
+                  {entry.isBan
+                    ? <span style={{ color: "#f23f43" }}>Banned from {guild}</span>
+                    : <>Left {guild}</>
+                  }
                 </div>
               </div>
             );

@@ -11,6 +11,7 @@ const {
 
 const MAX_HISTORY     = 400;
 const seenThisSession = new Map();
+const pendingBans     = new Map();
 
 let unregMain    = null;
 let toastStyleEl = null;
@@ -120,7 +121,7 @@ function makeToastContent(entry) {
   return (
     <div style={{
       background: "#111214",
-      border: "1px solid #2e2f33",
+      border: entry.isBan ? "1px solid #f23f43" : "1px solid #2e2f33",      
       "border-radius": "10px",
       overflow: "hidden",
       width: "260px",
@@ -194,6 +195,13 @@ function recordLeave(entry) {
   });
 }
 
+function onGuildBanAdd({ guildId, user }) {
+  if (!user?.id || !guildId) return;
+  if (!store.watchedGuilds.includes(guildId)) return;
+  if (!pendingBans.has(guildId)) pendingBans.set(guildId, new Set());
+  pendingBans.get(guildId).add(user.id);
+}
+
 function onGuildMembersChunk({ guildId, members }) {
   if (!store.watchedGuilds.includes(guildId)) return;
   if (!Array.isArray(members)) return;
@@ -236,6 +244,9 @@ function onMemberRemove({ guildId, user }) {
     const discriminator = fromStore?.discriminator ?? user.discriminator ?? snapEntry?.discriminator ?? "0";
     const avatar        = fromStore?.avatar        ?? user.avatar        ?? snapEntry?.avatar        ?? null;
 
+    const isBan = pendingBans.get(guildId)?.has(user.id) ?? false;
+    pendingBans.get(guildId)?.delete(user.id);
+
     recordLeave({
       guildId,
       guildName: getGuildName(guildId),
@@ -244,6 +255,7 @@ function onMemberRemove({ guildId, user }) {
       globalName,
       discriminator,
       avatar,
+      isBan,
       timestamp: Date.now(),
     });
   });
@@ -296,6 +308,7 @@ function onConnectionOpen() {
 export function onLoad() {
   bootstrapStore();
   seenThisSession.clear();
+  pendingBans.clear();
   injectToastStyle();
 
   if (!store.shownReloadHint) {
@@ -314,6 +327,7 @@ export function onLoad() {
   }
 
   dispatcher.subscribe("CONNECTION_OPEN",          onConnectionOpen);
+  dispatcher.subscribe("GUILD_BAN_ADD",            onGuildBanAdd);
   dispatcher.subscribe("GUILD_MEMBER_REMOVE",      onMemberRemove);
   dispatcher.subscribe("GUILD_MEMBER_ADD",         onMemberAdd);
   dispatcher.subscribe("GUILD_MEMBER_LIST_UPDATE", onMemberListUpdate);
@@ -324,10 +338,12 @@ export function onLoad() {
 
 export function onUnload() {
   seenThisSession.clear();
+  pendingBans.clear();
   removeToastStyle();
   removeReloadModal();
 
   dispatcher.unsubscribe("CONNECTION_OPEN",          onConnectionOpen);
+  dispatcher.unsubscribe("GUILD_BAN_ADD",            onGuildBanAdd);
   dispatcher.unsubscribe("GUILD_MEMBER_REMOVE",      onMemberRemove);
   dispatcher.unsubscribe("GUILD_MEMBER_ADD",         onMemberAdd);
   dispatcher.unsubscribe("GUILD_MEMBER_LIST_UPDATE", onMemberListUpdate);
