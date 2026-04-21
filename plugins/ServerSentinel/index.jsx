@@ -85,8 +85,9 @@ export function getRawMembers(guildId) {
 
 export function getTotalMemberCount(guildId) {
   try {
-    const g = stores.GuildStore?.getGuild(guildId);
-    return g?.memberCount ?? g?.member_count ?? g?.approximateMemberCount ?? 0;
+    return stores.GuildMemberCountStore?.getMemberCount(guildId)
+      ?? stores.GuildStore?.getGuild(guildId)?.approximateMemberCount
+      ?? 0;
   } catch { return 0; }
 }
 

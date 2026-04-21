@@ -496,7 +496,7 @@ export function MainPanel() {
       phase: "done", complete,
       progress: complete
         ? `Done: ${saved} members saved${total > 0 ? ` / ${total} total` : ""}.`
-        : `Gateway didn't respond. Saved ${saved} from cache${total > 0 ? ` / ${total} total` : ""}. Browse the server to load more.`,
+        : `Saved ${saved} from cache${total > 0 ? ` / ${total} total` : ""}. Coverage grows passively as members become active.`,
     }}));
 
     if (expanded() === guildId) await loadMemberList(guildId);
@@ -843,7 +843,7 @@ export function MainPanel() {
 
         <Show when={guilds().length > 0}>
           <p style={{ color: "var(--text-muted)", "font-size": "12px", "margin-top": "10px" }}>
-            Click "Check Members" after adding a server to build a snapshot. Snapshot data persists across Discord restarts. For servers with 150+ members Discord may not send the full list - browse channels to improve coverage.
+            Click "Check Members" to snapshot whoever Discord has loaded locally. Coverage grows automatically over time as members send messages or appear in the member sidebar.
           </p>
         </Show>
       </Show>
