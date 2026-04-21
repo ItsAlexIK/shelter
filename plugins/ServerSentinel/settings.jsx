@@ -383,7 +383,7 @@ function fetchMembersViaChunks(guildId, onProgress) {
       });
     } catch {}
 
-    const timer = setTimeout(() => finish(false), 15_000);
+    const timer = setTimeout(() => finish(false), 5_000);
   });
 }
 
@@ -474,7 +474,7 @@ export function MainPanel() {
     setSnapCounts(s => ({ ...s, [guildId]: Object.keys(snap).length }));
     setCheck(s => ({ ...s, [guildId]: {
       phase: "checking",
-      progress: `Cache: ${Object.keys(snap).length} members. Requesting full list from gateway…`,
+      progress: `Cache: ${Object.keys(snap).length} members. Requesting available members…`,
     }}));
 
     const { members: chunkMembers, complete, count: chunkCount } =
