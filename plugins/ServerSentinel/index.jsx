@@ -70,8 +70,11 @@ function wasSeen(guildId, userId) {
 }
 
 function getGuildName(guildId) {
-  try { return stores.GuildStore?.getGuild(guildId)?.name ?? guildId; }
-  catch { return guildId; }
+  try {
+    const g = stores.GuildStore?.getGuild(guildId)
+      ?? stores.GuildStore?.getGuilds()?.[guildId];
+    return g?.name ?? guildId;
+  } catch { return guildId; }
 }
 
 function getUserFromStore(userId) {
@@ -121,7 +124,7 @@ function makeToastContent(entry) {
   return (
     <div style={{
       background: "#111214",
-      border: entry.isBan ? "1px solid #f23f43" : "1px solid #2e2f33",      
+      border: entry.isBan ? "1px solid #f23f43" : "1px solid #2e2f33",
       "border-radius": "10px",
       overflow: "hidden",
       width: "260px",
