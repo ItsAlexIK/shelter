@@ -1301,7 +1301,8 @@ else {
 							const name = displayName(entry);
 							const guild = (() => {
 								try {
-									return stores$1.GuildStore?.getGuild(entry.guildId)?.name ?? entry.guildName ?? entry.guildId;
+									const g = stores$1.GuildStore?.getGuild(entry.guildId) ?? stores$1.GuildStore?.getGuilds()?.[entry.guildId];
+									return g?.name ?? entry.guildName ?? entry.guildId;
 								} catch {
 									return entry.guildName ?? entry.guildId;
 								}
