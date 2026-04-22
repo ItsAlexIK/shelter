@@ -155,7 +155,8 @@ const _tmpl$$1 = /*#__PURE__*/ (0, import_web$6.template)(`<div></div>`, 2), _tm
 const { plugin: { store: store$1 }, flux: { stores: stores$1, dispatcher: dispatcher$1 }, ui: { TextBox } } = shelter;
 function getGuildName$1(guildId) {
 	try {
-		return stores$1.GuildStore?.getGuild(guildId)?.name ?? null;
+		const g = stores$1.GuildStore?.getGuild(guildId) ?? stores$1.GuildStore?.getGuilds()?.[guildId];
+		return g?.name ?? null;
 	} catch {
 		return null;
 	}
@@ -1424,7 +1425,8 @@ function wasSeen(guildId, userId) {
 }
 function getGuildName(guildId) {
 	try {
-		return stores.GuildStore?.getGuild(guildId)?.name ?? guildId;
+		const g = stores.GuildStore?.getGuild(guildId) ?? stores.GuildStore?.getGuilds()?.[guildId];
+		return g?.name ?? guildId;
 	} catch {
 		return guildId;
 	}
