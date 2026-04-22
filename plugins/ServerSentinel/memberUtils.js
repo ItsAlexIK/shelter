@@ -1,7 +1,5 @@
-const { flux: { stores } } = shelter;
-
 function getUserFromStore(userId) {
-  try { return stores.UserStore?.getUser(userId) ?? null; }
+  try { return shelter.flux.stores.UserStore?.getUser(userId) ?? null; }
   catch { return null; }
 }
 

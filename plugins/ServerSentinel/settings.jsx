@@ -5,12 +5,12 @@ import { getRawMembers, getTotalMemberCount, playNotificationSound } from "./ind
 
 const {
   plugin: { store },
-  flux: { stores, dispatcher },
+  flux: { dispatcher },
   ui: { TextBox },
 } = shelter;
 
 function getGuildsMap() {
-  try { return stores.GuildStore?.getGuilds() ?? {}; }
+  try { return shelter.flux.stores.GuildStore?.getGuilds() ?? {}; }
   catch { return {}; }
 }
 
@@ -100,13 +100,10 @@ function DarkSelect({ value, onChange, options }) {
 
 function getAllGuilds() {
   try {
-    return Object.entries(getGuildsMap()).map(([id, guild]) => ({
-      ...guild,
-      id: guild.id ?? id,
-      name: guild.name ?? id,
-    })).sort((a, b) =>
-      (a.name ?? "").localeCompare(b.name ?? "", undefined, { sensitivity: "base" })
-    );
+    return Object.values(getGuildsMap())
+      .map(g => ({ id: g.id, name: g.name ?? g.id, icon: g.icon ?? null }))
+      .filter(g => g.id)
+      .sort((a, b) => (a.name ?? "").localeCompare(b.name ?? "", undefined, { sensitivity: "base" }));
   } catch { return []; }
 }
 
@@ -332,6 +329,7 @@ export function ReloadModal({ onClose }) {
     </div>
   );
 }
+
 function formatTime(ts) {
   return new Date(ts).toLocaleString(undefined, {
     month: "short", day: "numeric", hour: "2-digit", minute: "2-digit",
@@ -402,7 +400,7 @@ export function MainPanel() {
   const [expanded, setExpanded]     = createSignal(null);
   const [memberList, setMemberList] = createSignal({});
 
-  const [history, setHistory]   = createSignal([...(store.leaveHistory ?? [])]);
+  const [history, setHistory]     = createSignal([...(store.leaveHistory ?? [])]);
   const [logSearch, setLogSearch] = createSignal("");
   const [logGuild, setLogGuild]   = createSignal("all");
   const [soundFileName, setSoundFileName] = createSignal(
@@ -530,20 +528,20 @@ export function MainPanel() {
   function handleSoundFileUpload(event) {
     const file = event.currentTarget?.files?.[0] || event.target?.files?.[0];
     if (!file) return;
-    
+
     const isAudio = file.type.startsWith("audio/");
     const hasAudioExt = /\.(mp3|wav|ogg|webm|flac|aac|m4a)$/i.test(file.name);
-    
+
     if (!isAudio && !hasAudioExt) {
       alert("Please upload an audio file (MP3, WAV, OGG, etc.)");
       return;
     }
-    
+
     if (file.size > 5 * 1024 * 1024) {
       alert("File is too large. Maximum size is 5MB.");
       return;
     }
-    
+
     const reader = new FileReader();
     reader.onload = (e) => {
       try {
@@ -596,7 +594,7 @@ export function MainPanel() {
       </span>
 
       {/* Sound Settings Section */}
-      <div style={{ 
+      <div style={{
         "margin": "12px 0 16px",
         "padding": "8px 10px",
         "background": "var(--background-secondary)",
@@ -609,7 +607,7 @@ export function MainPanel() {
         <label style={{ "font-size": "12px", color: "var(--text-muted)", "white-space": "nowrap" }}>
           Leave sound:
         </label>
-        
+
         <input
           id="sound-file-input"
           type="file"
@@ -617,7 +615,7 @@ export function MainPanel() {
           onChange={(e) => handleSoundFileUpload(e)}
           style={{ display: "none" }}
         />
-        
+
         <button
           style={{
             ...btn("var(--button-secondary-background)"),
@@ -630,7 +628,7 @@ export function MainPanel() {
         >
           {hasCustomSound() ? "Change" : "Upload"}
         </button>
-        
+
         <Show when={hasCustomSound()}>
           <span style={{ "font-size": "12px", color: "var(--text-normal)", flex: "0 1 auto" }}>
             {soundFileName()}

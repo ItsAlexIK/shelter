@@ -3,7 +3,7 @@ import { getSnap, saveSnap } from "./Db.js";
 import { extractUser, toSnapEntry } from "./memberUtils.js";
 
 const {
-  flux: { dispatcher, stores },
+  flux: { dispatcher },
   plugin: { store },
   ui: { showToast },
   settings: { registerSection },
@@ -70,24 +70,24 @@ function wasSeen(guildId, userId) {
 }
 
 function getGuildName(guildId) {
-  try { return stores.GuildStore?.getGuilds()?.[guildId]?.name ?? guildId; }
+  try { return shelter.flux.stores.GuildStore?.getGuilds()?.[guildId]?.name ?? guildId; }
   catch { return guildId; }
 }
 
 function getUserFromStore(userId) {
-  try { return stores.UserStore?.getUser(userId) ?? null; }
+  try { return shelter.flux.stores.UserStore?.getUser(userId) ?? null; }
   catch { return null; }
 }
 
 export function getRawMembers(guildId) {
-  try { return stores.GuildMemberStore?.getMembers(guildId) ?? {}; }
+  try { return shelter.flux.stores.GuildMemberStore?.getMembers(guildId) ?? {}; }
   catch { return {}; }
 }
 
 export function getTotalMemberCount(guildId) {
   try {
-    return stores.GuildMemberCountStore?.getMemberCount(guildId)
-      ?? stores.GuildStore?.getGuild(guildId)?.approximateMemberCount
+    return shelter.flux.stores.GuildMemberCountStore?.getMemberCount(guildId)
+      ?? shelter.flux.stores.GuildStore?.getGuild(guildId)?.approximateMemberCount
       ?? 0;
   } catch { return 0; }
 }
