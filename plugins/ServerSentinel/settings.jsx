@@ -895,7 +895,11 @@ export function MainPanel() {
           {entry => {
             const name  = displayName(entry);
             const guild = (() => {
-              try { return stores.GuildStore?.getGuild(entry.guildId)?.name ?? entry.guildName ?? entry.guildId; }
+              try {
+                const g = stores.GuildStore?.getGuild(entry.guildId)
+                  ?? stores.GuildStore?.getGuilds()?.[entry.guildId];
+                return g?.name ?? entry.guildName ?? entry.guildId;
+              }
               catch { return entry.guildName ?? entry.guildId; }
             })();
             return (

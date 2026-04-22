@@ -12,8 +12,11 @@ function formatTime(ts) {
 }
 
 function getGuildName(guildId) {
-  try { return stores.GuildStore?.getGuild(guildId)?.name ?? null; }
-  catch { return null; }
+  try {
+    const g = stores.GuildStore?.getGuild(guildId)
+      ?? stores.GuildStore?.getGuilds()?.[guildId];
+    return g?.name ?? null;
+  } catch { return null; }
 }
 
 function openProfile(userId, guildId) {
