@@ -70,11 +70,8 @@ function wasSeen(guildId, userId) {
 }
 
 function getGuildName(guildId) {
-  try {
-    const g = stores.GuildStore?.getGuild(guildId)
-      ?? stores.GuildStore?.getGuilds()?.[guildId];
-    return g?.name ?? guildId;
-  } catch { return guildId; }
+  try { return stores.GuildStore?.getGuilds()?.[guildId]?.name ?? guildId; }
+  catch { return guildId; }
 }
 
 function getUserFromStore(userId) {

@@ -9,17 +9,18 @@ const {
   ui: { TextBox },
 } = shelter;
 
+function getGuildsMap() {
+  try { return stores.GuildStore?.getGuilds() ?? {}; }
+  catch { return {}; }
+}
+
 function getGuildName(guildId) {
-  try {
-    const g = stores.GuildStore?.getGuild(guildId)
-      ?? stores.GuildStore?.getGuilds()?.[guildId];
-    return g?.name ?? null;
-  } catch { return null; }
+  return getGuildsMap()[guildId]?.name ?? null;
 }
 
 function getGuildIcon(guildId) {
   try {
-    const icon = stores.GuildStore?.getGuild(guildId)?.icon;
+    const icon = getGuildsMap()[guildId]?.icon;
     if (!icon) return null;
     const ext = icon.startsWith("a_") ? "gif" : "webp";
     return `https://cdn.discordapp.com/icons/${guildId}/${icon}.${ext}?size=32`;
@@ -99,8 +100,7 @@ function DarkSelect({ value, onChange, options }) {
 
 function getAllGuilds() {
   try {
-    const guildsMap = stores.GuildStore?.getGuilds() ?? {};
-    return Object.entries(guildsMap).map(([id, guild]) => ({
+    return Object.entries(getGuildsMap()).map(([id, guild]) => ({
       ...guild,
       id: guild.id ?? id,
       name: guild.name ?? id,
@@ -895,11 +895,7 @@ export function MainPanel() {
           {entry => {
             const name  = displayName(entry);
             const guild = (() => {
-              try {
-                const g = stores.GuildStore?.getGuild(entry.guildId)
-                  ?? stores.GuildStore?.getGuilds()?.[entry.guildId];
-                return g?.name ?? entry.guildName ?? entry.guildId;
-              }
+              try { return getGuildsMap()[entry.guildId]?.name ?? entry.guildName ?? entry.guildId; }
               catch { return entry.guildName ?? entry.guildId; }
             })();
             return (
