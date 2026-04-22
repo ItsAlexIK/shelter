@@ -153,17 +153,19 @@ var import_web$17 = __toESM(require_web(), 1);
 var import_solid_js = __toESM(require_solid_js(), 1);
 const _tmpl$$1 = /*#__PURE__*/ (0, import_web$6.template)(`<div></div>`, 2), _tmpl$2 = /*#__PURE__*/ (0, import_web$6.template)(`<div><div><!#><!/><span>▼</span></div><!#><!/></div>`, 10), _tmpl$3 = /*#__PURE__*/ (0, import_web$6.template)(`<p>No servers found.</p>`, 2), _tmpl$4 = /*#__PURE__*/ (0, import_web$6.template)(`<div><div><div><span>Pick a Server</span><button>×</button></div><div><input type="text" placeholder="Search by name or ID…" autofocus></div><div><!#><!/><!#><!/></div></div></div>`, 19), _tmpl$5 = /*#__PURE__*/ (0, import_web$6.template)(`<img>`, 1), _tmpl$6 = /*#__PURE__*/ (0, import_web$6.template)(`<span>Watching</span>`, 2), _tmpl$7 = /*#__PURE__*/ (0, import_web$6.template)(`<div><!#><!/><div><div></div><div></div></div><!#><!/></div>`, 12), _tmpl$8 = /*#__PURE__*/ (0, import_web$6.template)(`<div><div><div><div>ServerSentinel enabled</div><div>One more step needed</div></div><div><div>Close and reopen <span>Discord Settings</span> for the plugin to fully load.</div><div></div><div>Got it</div></div></div></div>`, 20), _tmpl$9 = /*#__PURE__*/ (0, import_web$6.template)(`<div><div></div><span></span></div>`, 6), _tmpl$0 = /*#__PURE__*/ (0, import_web$6.template)(`<button></button>`, 2), _tmpl$1 = /*#__PURE__*/ (0, import_web$6.template)(`<span></span>`, 2), _tmpl$10 = /*#__PURE__*/ (0, import_web$6.template)(`<button title="Test the sound">Test</button>`, 2), _tmpl$11 = /*#__PURE__*/ (0, import_web$6.template)(`<button title="Remove custom sound">Clear</button>`, 2), _tmpl$12 = /*#__PURE__*/ (0, import_web$6.template)(`<span>No file selected</span>`, 2), _tmpl$13 = /*#__PURE__*/ (0, import_web$6.template)(`<div><!#><!/><button>Add</button><button>Browse</button></div>`, 8), _tmpl$14 = /*#__PURE__*/ (0, import_web$6.template)(`<p></p>`, 2), _tmpl$15 = /*#__PURE__*/ (0, import_web$6.template)(`<p>No servers added yet.</p>`, 2), _tmpl$16 = /*#__PURE__*/ (0, import_web$6.template)(`<p>Click "Check Members" to snapshot whoever Discord has loaded locally. Coverage grows automatically over time as members send messages or appear in the member sidebar.</p>`, 2), _tmpl$17 = /*#__PURE__*/ (0, import_web$6.template)(`<div><div></div><!#><!/></div>`, 6), _tmpl$18 = /*#__PURE__*/ (0, import_web$6.template)(`<button>Clear</button>`, 2), _tmpl$19 = /*#__PURE__*/ (0, import_web$6.template)(`<div><span><!#><!/><!#><!/> record<!#><!/></span><!#><!/></div>`, 12), _tmpl$20 = /*#__PURE__*/ (0, import_web$6.template)(`<p>No leaves recorded yet.</p>`, 2), _tmpl$21 = /*#__PURE__*/ (0, import_web$6.template)(`<p>No results match your search.</p>`, 2), _tmpl$22 = /*#__PURE__*/ (0, import_web$6.template)(`<div><span>ServerSentinel</span><div><label>Leave sound:</label><input id="sound-file-input" type="file" accept="audio/*,.mp3,.wav,.ogg,.webm,.flac,.aac,.m4a"><button title="Max 5MB MP3 file"></button><!#><!/><!#><!/></div><div><!#><!/><!#><!/></div><!#><!/><!#><!/></div>`, 25), _tmpl$23 = /*#__PURE__*/ (0, import_web$6.template)(`<span>Incomplete - click Check Members</span>`, 2), _tmpl$24 = /*#__PURE__*/ (0, import_web$6.template)(`<p>No members in snapshot yet.</p>`, 2), _tmpl$25 = /*#__PURE__*/ (0, import_web$6.template)(`<div><!#><!/><!#><!/></div>`, 6), _tmpl$26 = /*#__PURE__*/ (0, import_web$6.template)(`<div><div><div><div><!#><!/><div><span></span><span></span></div></div><div><button></button><button>Remove</button></div></div><div><span>Snapshot: <strong></strong><!#><!/></span><!#><!/><!#><!/></div><!#><!/></div><!#><!/></div>`, 38), _tmpl$27 = /*#__PURE__*/ (0, import_web$6.template)(`<span>@<!#><!/></span>`, 4), _tmpl$28 = /*#__PURE__*/ (0, import_web$6.template)(`<div><span><!#><!/><!#><!/></span><span></span></div>`, 10), _tmpl$29 = /*#__PURE__*/ (0, import_web$6.template)(`<div><div><span><span></span><span>(<!#><!/>)</span></span><span></span></div><div></div></div>`, 16), _tmpl$30 = /*#__PURE__*/ (0, import_web$6.template)(`<span>Banned from <!#><!/></span>`, 4);
 const { plugin: { store: store$1 }, flux: { stores: stores$1, dispatcher: dispatcher$1 }, ui: { TextBox } } = shelter;
-function getGuildName$1(guildId) {
+function getGuildsMap() {
 	try {
-		const g = stores$1.GuildStore?.getGuild(guildId) ?? stores$1.GuildStore?.getGuilds()?.[guildId];
-		return g?.name ?? null;
+		return stores$1.GuildStore?.getGuilds() ?? {};
 	} catch {
-		return null;
+		return {};
 	}
+}
+function getGuildName$1(guildId) {
+	return getGuildsMap()[guildId]?.name ?? null;
 }
 function getGuildIcon(guildId) {
 	try {
-		const icon = stores$1.GuildStore?.getGuild(guildId)?.icon;
+		const icon = getGuildsMap()[guildId]?.icon;
 		if (!icon) return null;
 		const ext = icon.startsWith("a_") ? "gif" : "webp";
 		return `https://cdn.discordapp.com/icons/${guildId}/${icon}.${ext}?size=32`;
@@ -266,8 +268,7 @@ function DarkSelect({ value, onChange, options }) {
 }
 function getAllGuilds() {
 	try {
-		const guildsMap = stores$1.GuildStore?.getGuilds() ?? {};
-		return Object.entries(guildsMap).map(([id, guild]) => ({
+		return Object.entries(getGuildsMap()).map(([id, guild]) => ({
 			...guild,
 			id: guild.id ?? id,
 			name: guild.name ?? id
@@ -1301,8 +1302,7 @@ else {
 							const name = displayName(entry);
 							const guild = (() => {
 								try {
-									const g = stores$1.GuildStore?.getGuild(entry.guildId) ?? stores$1.GuildStore?.getGuilds()?.[entry.guildId];
-									return g?.name ?? entry.guildName ?? entry.guildId;
+									return getGuildsMap()[entry.guildId]?.name ?? entry.guildName ?? entry.guildId;
 								} catch {
 									return entry.guildName ?? entry.guildId;
 								}
@@ -1426,8 +1426,7 @@ function wasSeen(guildId, userId) {
 }
 function getGuildName(guildId) {
 	try {
-		const g = stores.GuildStore?.getGuild(guildId) ?? stores.GuildStore?.getGuilds()?.[guildId];
-		return g?.name ?? guildId;
+		return stores.GuildStore?.getGuilds()?.[guildId]?.name ?? guildId;
 	} catch {
 		return guildId;
 	}
