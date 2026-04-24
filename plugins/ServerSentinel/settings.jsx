@@ -1,7 +1,7 @@
 import { createSignal, createMemo, For, Show } from "solid-js";
 import { getSnap, saveSnap, deleteSnap } from "./Db.js";
 import { extractUser, toSnapEntry, displayName } from "./memberUtils.js";
-import { getRawMembers, getTotalMemberCount, playNotificationSound } from "./index.jsx";
+import { getRawMembers, getTotalMemberCount, playNotificationSound, getAvatarUrl } from "./index.jsx";
 
 const {
   plugin: { store },
@@ -407,6 +407,7 @@ export function MainPanel() {
     store.customSoundFile ? "sound_uploaded.mp3" : "No file selected"
   );
   const [hasCustomSound, setHasCustomSound] = createSignal(!!store.customSoundFile);
+  const [volume, setVolume] = createSignal(store.soundVolume ?? 1);
 
   guilds().forEach(id => {
     getSnap(id).then(snap => setSnapCounts(s => ({ ...s, [id]: Object.keys(snap).length })));
@@ -657,6 +658,44 @@ export function MainPanel() {
           >
             Clear
           </button>
+          {/* Volume slider — full-width second row */}
+          <div style={{
+            "flex-basis": "100%",
+            display: "flex",
+            "align-items": "center",
+            gap: "8px",
+            "padding-top": "6px",
+            "border-top": "1px solid var(--background-modifier-accent)",
+            "margin-top": "2px",
+          }}>
+            <label style={{ "font-size": "12px", color: "var(--text-muted)", "white-space": "nowrap" }}>
+              Volume:
+            </label>
+            <input
+              type="range"
+              min="0"
+              max="100"
+              value={Math.round(volume() * 100)}
+              onInput={e => {
+                const v = Number(e.target.value) / 100;
+                setVolume(v);
+                store.soundVolume = v;
+              }}
+              style={{
+                flex: "1",
+                cursor: "pointer",
+                "accent-color": "var(--brand-experiment, #5865f2)",
+              }}
+            />
+            <span style={{
+              "font-size": "12px",
+              color: "var(--text-muted)",
+              "min-width": "34px",
+              "text-align": "right",
+            }}>
+              {Math.round(volume() * 100)}%
+            </span>
+          </div>
         </Show>
         <Show when={!hasCustomSound()}>
           <span style={{ "font-size": "12px", color: "var(--text-muted)" }}>No file selected</span>
@@ -896,6 +935,7 @@ export function MainPanel() {
               try { return getGuildsMap()[entry.guildId]?.name ?? entry.guildName ?? entry.guildId; }
               catch { return entry.guildName ?? entry.guildId; }
             })();
+            const avatarUrl = getAvatarUrl(entry.userId, entry.avatar ?? null);
             return (
               <div
                 onClick={() => openProfile(entry.userId, entry.guildId)}
@@ -905,22 +945,37 @@ export function MainPanel() {
                   "border-left": entry.isBan ? "3px solid #f23f43" : "3px solid var(--status-danger)",
                   cursor: "pointer",
                   transition: "background 0.1s",
+                  display: "flex",
+                  "align-items": "center",
+                  gap: "10px",
                 }}
                 onMouseEnter={e => e.currentTarget.style.background = "var(--background-modifier-hover)"}
                 onMouseLeave={e => e.currentTarget.style.background = "var(--background-secondary)"}
               >
-                <div style={{ display: "flex", "justify-content": "space-between", "align-items": "center" }}>
-                  <span>
-                    <span style={{ color: "var(--header-primary)", "font-weight": "600" }}>{name}</span>
-                    <span style={{ color: "var(--text-muted)", "font-size": "12px", "margin-left": "6px" }}>({entry.userId})</span>
-                  </span>
-                  <span style={{ color: "var(--text-muted)", "font-size": "12px" }}>{formatTime(entry.timestamp)}</span>
-                </div>
-                <div style={{ color: "var(--text-muted)", "font-size": "13px", "margin-top": "2px" }}>
-                  {entry.isBan
-                    ? <span style={{ color: "#f23f43" }}>Banned from {guild}</span>
-                    : <>Left {guild}</>
-                  }
+                <img
+                  src={avatarUrl}
+                  style={{
+                    width: "36px",
+                    height: "36px",
+                    "border-radius": "50%",
+                    "object-fit": "cover",
+                    "flex-shrink": "0",
+                  }}
+                />
+                <div style={{ "min-width": 0, flex: "1" }}>
+                  <div style={{ display: "flex", "justify-content": "space-between", "align-items": "center" }}>
+                    <span>
+                      <span style={{ color: "var(--header-primary)", "font-weight": "600" }}>{name}</span>
+                      <span style={{ color: "var(--text-muted)", "font-size": "12px", "margin-left": "6px" }}>({entry.userId})</span>
+                    </span>
+                    <span style={{ color: "var(--text-muted)", "font-size": "12px", "flex-shrink": "0", "margin-left": "8px" }}>{formatTime(entry.timestamp)}</span>
+                  </div>
+                  <div style={{ color: "var(--text-muted)", "font-size": "13px", "margin-top": "2px" }}>
+                    {entry.isBan
+                      ? <span style={{ color: "#f23f43" }}>Banned from {guild}</span>
+                      : <>Left {guild}</>
+                    }
+                  </div>
                 </div>
               </div>
             );

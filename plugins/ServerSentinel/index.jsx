@@ -36,6 +36,7 @@ function bootstrapStore() {
   if (store.soundEnabled    == null) store.soundEnabled    = true;
   if (store.shownReloadHint == null) store.shownReloadHint = false;
   if (store.customSoundFile == null) store.customSoundFile = null;
+  if (store.soundVolume     == null) store.soundVolume     = 1;
 }
 
 function injectToastStyle() {
@@ -104,7 +105,7 @@ export function extractCacheMembers(guildId) {
   return result;
 }
 
-function getAvatarUrl(userId, avatarHash) {
+export function getAvatarUrl(userId, avatarHash) {
   if (avatarHash) {
     const ext = avatarHash.startsWith("a_") ? "gif" : "webp";
     return `https://cdn.discordapp.com/avatars/${userId}/${avatarHash}.${ext}?size=64`;
@@ -171,7 +172,7 @@ function playNotificationSound() {
   if (store.customSoundFile) {
     try {
       const audio = new Audio(store.customSoundFile);
-      audio.volume = 1;
+      audio.volume = store.soundVolume ?? 1;
       audio.play().catch(e => {
         console.error("Failed to play custom sound, falling back to beep:", e);
       });
