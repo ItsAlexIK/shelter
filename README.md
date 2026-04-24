@@ -6,7 +6,7 @@ A small collection of plugins for [shelter](https://shelter.uwu.network/).
 
 ## ServerSentinel
 
-![version](https://img.shields.io/badge/version-1.7.0-blue)
+![version](https://img.shields.io/badge/version-1.7.2-blue)
 
 Stay aware of who leaves your Discord servers - quietly and locally.
 
