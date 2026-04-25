@@ -267,7 +267,8 @@ function DarkSelect({ value, onChange, options }) {
 }
 function getAllGuilds() {
 	try {
-		return Object.values(getGuildsMap()).map((g) => ({
+		const raw = shelter.flux.stores.GuildStore?.getGuilds() ?? {};
+		return Object.values(raw).map((g) => ({
 			id: g.id,
 			name: g.name ?? g.id,
 			icon: g.icon ?? null
