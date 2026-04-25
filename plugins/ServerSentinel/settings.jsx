@@ -109,14 +109,26 @@ function getAllGuilds() {
 }
 
 function GuildPickerModal({ onAdd, alreadyWatched, onClose }) {
-  const [search, setSearch] = createSignal("");
+  const [search, setSearch]       = createSignal("");
+  const [tick, setTick]           = createSignal(0);
+  const [spinning, setSpinning]   = createSignal(false);
 
-  const allGuilds = getAllGuilds();
+  const allGuilds = createMemo(() => {
+    tick();
+    return getAllGuilds();
+  });
+
+  function refresh() {
+    if (spinning()) return;
+    setSpinning(true);
+    setTick(t => t + 1);
+    setTimeout(() => setSpinning(false), 600);
+  }
 
   const filtered = createMemo(() => {
     const q = search().trim().toLowerCase();
-    if (!q) return allGuilds;
-    return allGuilds.filter(g =>
+    if (!q) return allGuilds();
+    return allGuilds().filter(g =>
       g.name?.toLowerCase().includes(q) || g.id?.includes(q)
     );
   });
@@ -149,6 +161,7 @@ function GuildPickerModal({ onAdd, alreadyWatched, onClose }) {
       }}
       onClick={e => e.target === e.currentTarget && onClose()}
     >
+      <style>{`@keyframes ss-spin { to { transform: rotate(360deg); } }`}</style>
       <div style={{
         background: "#2b2d31",
         border: "1px solid #1e1f22",
@@ -172,14 +185,28 @@ function GuildPickerModal({ onAdd, alreadyWatched, onClose }) {
           <span style={{ color: "#f2f3f5", "font-size": "16px", "font-weight": "700" }}>
             Pick a Server
           </span>
-          <button
-            onClick={onClose}
-            style={{
-              background: "none", border: "none", cursor: "pointer",
-              color: "#80848e", "font-size": "20px",
-              "line-height": "1", padding: "0 2px",
-            }}
-          >×</button>
+          <div style={{ display: "flex", "align-items": "center", gap: "6px" }}>
+            <button
+              onClick={refresh}
+              title="Reload server list"
+              style={{
+                background: "none", border: "none", cursor: "pointer",
+                color: "#80848e", "font-size": "16px",
+                "line-height": "1", padding: "0 4px",
+                display: "inline-block",
+                animation: spinning() ? "ss-spin 0.6s linear" : "none",
+                "transform-origin": "center",
+              }}
+            >↺</button>
+            <button
+              onClick={onClose}
+              style={{
+                background: "none", border: "none", cursor: "pointer",
+                color: "#80848e", "font-size": "20px",
+                "line-height": "1", padding: "0 2px",
+              }}
+            >×</button>
+          </div>
         </div>
 
         {/* Search */}
