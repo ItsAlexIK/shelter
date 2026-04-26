@@ -172,6 +172,14 @@ function getGuildIcon(guildId) {
 		return null;
 	}
 }
+function getGuildID(guildId) {
+	try {
+		const id = getGuildsMap()[guildId]?.id;
+		return id;
+	} catch {
+		return null;
+	}
+}
 function DarkSelect({ value, onChange, options }) {
 	const [open, setOpen] = (0, import_solid_js.createSignal)(false);
 	const selected = () => options.find((o) => o.value === value()) ?? options[0];
@@ -1041,6 +1049,8 @@ else {
 							const isExpanded = () => expanded() === id;
 							const members = () => memberList()[id] ?? [];
 							const iconUrl = () => getGuildIcon(id);
+							const guildName = () => getGuildName$1(id) ?? getGuildID(id) ?? "Unknown Server";
+							const guildRawId = () => getGuildID(id) ?? id;
 							return (() => {
 								const _el$107 = (0, import_web$14.getNextElement)(_tmpl$27), _el$108 = _el$107.firstChild, _el$109 = _el$108.firstChild, _el$110 = _el$109.firstChild, _el$115 = _el$110.firstChild, [_el$116, _co$18] = (0, import_web$16.getNextMarker)(_el$115.nextSibling), _el$112 = _el$116.nextSibling, _el$113 = _el$112.firstChild, _el$114 = _el$113.nextSibling, _el$117 = _el$110.nextSibling, _el$118 = _el$117.firstChild, _el$119 = _el$118.nextSibling, _el$120 = _el$109.nextSibling, _el$121 = _el$120.firstChild, _el$122 = _el$121.firstChild, _el$124 = _el$122.nextSibling, _el$125 = _el$124.nextSibling, [_el$126, _co$19] = (0, import_web$16.getNextMarker)(_el$125.nextSibling), _el$129 = _el$121.nextSibling, [_el$130, _co$20] = (0, import_web$16.getNextMarker)(_el$129.nextSibling), _el$131 = _el$130.nextSibling, [_el$132, _co$21] = (0, import_web$16.getNextMarker)(_el$131.nextSibling), _el$134 = _el$120.nextSibling, [_el$135, _co$22] = (0, import_web$16.getNextMarker)(_el$134.nextSibling), _el$142 = _el$108.nextSibling, [_el$143, _co$25] = (0, import_web$16.getNextMarker)(_el$142.nextSibling);
 								_el$107.style.setProperty("margin-bottom", "6px");
@@ -1073,7 +1083,7 @@ else {
 											_el$144.style.setProperty("flex-shrink", "0");
 											_el$144.style.setProperty("font-size", "12px");
 											_el$144.style.setProperty("color", "var(--text-muted)");
-											(0, import_web$17.insert)(_el$144, () => (getGuildName$1(id) ?? "?")[0]?.toUpperCase());
+											(0, import_web$17.insert)(_el$144, () => (guildName() ?? "?")[0]?.toUpperCase());
 											return _el$144;
 										})();
 									},
@@ -1091,11 +1101,11 @@ else {
 								_el$112.style.setProperty("min-width", "0");
 								_el$113.style.setProperty("color", "var(--header-primary)");
 								_el$113.style.setProperty("font-weight", "600");
-								(0, import_web$17.insert)(_el$113, () => getGuildName$1(id) ?? "Unknown Server");
+								(0, import_web$17.insert)(_el$113, guildName);
 								_el$114.style.setProperty("color", "var(--text-muted)");
 								_el$114.style.setProperty("font-size", "12px");
 								_el$114.style.setProperty("margin-left", "8px");
-								(0, import_web$17.insert)(_el$114, id);
+								(0, import_web$17.insert)(_el$114, guildRawId);
 								_el$117.style.setProperty("display", "flex");
 								_el$117.style.setProperty("gap", "6px");
 								_el$117.style.setProperty("flex-shrink", "0");
@@ -1355,13 +1365,7 @@ else {
 						},
 						children: (entry) => {
 							const name = displayName(entry);
-							const guild = (() => {
-								try {
-									return getGuildsMap()[entry.guildId]?.name ?? entry.guildName ?? entry.guildId;
-								} catch {
-									return entry.guildName ?? entry.guildId;
-								}
-							})();
+							const guild = () => getGuildName$1(entry.guildId) ?? entry.guildName ?? entry.guildId;
 							const avatarUrl = getAvatarUrl(entry.userId, entry.avatar ?? null);
 							return (() => {
 								const _el$156 = (0, import_web$14.getNextElement)(_tmpl$30), _el$157 = _el$156.firstChild, _el$158 = _el$157.nextSibling, _el$159 = _el$158.firstChild, _el$160 = _el$159.firstChild, _el$161 = _el$160.firstChild, _el$162 = _el$161.nextSibling, _el$163 = _el$162.firstChild, _el$165 = _el$163.nextSibling, [_el$166, _co$29] = (0, import_web$16.getNextMarker)(_el$165.nextSibling), _el$164 = _el$166.nextSibling, _el$167 = _el$160.nextSibling, _el$168 = _el$159.nextSibling;
@@ -1410,7 +1414,7 @@ else {
 										_el$169.style.setProperty("color", "#f23f43");
 										(0, import_web$17.insert)(_el$169, guild, _el$172, _co$30);
 										return _el$169;
-									})() : ["Left ", guild];
+									})() : ["Left ", (0, import_web$8.memo)(guild)];
 								})());
 								(0, import_web$12.effect)(() => _el$156.style.setProperty("border-left", entry.isBan ? "3px solid #f23f43" : "3px solid var(--status-danger)"));
 								(0, import_web$13.runHydrationEvents)();
