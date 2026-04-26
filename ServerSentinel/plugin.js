@@ -160,7 +160,11 @@ function getGuildsMap() {
 	}
 }
 function getGuildName$1(guildId) {
-	return getGuildsMap()[guildId]?.name ?? null;
+	try {
+		return getGuildsMap()[guildId]?.name ?? null;
+	} catch {
+		return null;
+	}
 }
 function getGuildIcon(guildId) {
 	try {
@@ -168,14 +172,6 @@ function getGuildIcon(guildId) {
 		if (!icon) return null;
 		const ext = icon.startsWith("a_") ? "gif" : "webp";
 		return `https://cdn.discordapp.com/icons/${guildId}/${icon}.${ext}?size=32`;
-	} catch {
-		return null;
-	}
-}
-function getGuildID(guildId) {
-	try {
-		const id = getGuildsMap()[guildId]?.id;
-		return id;
 	} catch {
 		return null;
 	}
@@ -1049,8 +1045,8 @@ else {
 							const isExpanded = () => expanded() === id;
 							const members = () => memberList()[id] ?? [];
 							const iconUrl = () => getGuildIcon(id);
-							const guildName = () => getGuildName$1(id) ?? getGuildID(id) ?? "Unknown Server";
-							const guildRawId = () => getGuildID(id) ?? id;
+							const guildName = () => getGuildName$1(id) ?? id;
+							const guildRawId = id;
 							return (() => {
 								const _el$107 = (0, import_web$14.getNextElement)(_tmpl$27), _el$108 = _el$107.firstChild, _el$109 = _el$108.firstChild, _el$110 = _el$109.firstChild, _el$115 = _el$110.firstChild, [_el$116, _co$18] = (0, import_web$16.getNextMarker)(_el$115.nextSibling), _el$112 = _el$116.nextSibling, _el$113 = _el$112.firstChild, _el$114 = _el$113.nextSibling, _el$117 = _el$110.nextSibling, _el$118 = _el$117.firstChild, _el$119 = _el$118.nextSibling, _el$120 = _el$109.nextSibling, _el$121 = _el$120.firstChild, _el$122 = _el$121.firstChild, _el$124 = _el$122.nextSibling, _el$125 = _el$124.nextSibling, [_el$126, _co$19] = (0, import_web$16.getNextMarker)(_el$125.nextSibling), _el$129 = _el$121.nextSibling, [_el$130, _co$20] = (0, import_web$16.getNextMarker)(_el$129.nextSibling), _el$131 = _el$130.nextSibling, [_el$132, _co$21] = (0, import_web$16.getNextMarker)(_el$131.nextSibling), _el$134 = _el$120.nextSibling, [_el$135, _co$22] = (0, import_web$16.getNextMarker)(_el$134.nextSibling), _el$142 = _el$108.nextSibling, [_el$143, _co$25] = (0, import_web$16.getNextMarker)(_el$142.nextSibling);
 								_el$107.style.setProperty("margin-bottom", "6px");
