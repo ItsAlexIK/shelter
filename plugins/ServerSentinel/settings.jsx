@@ -27,6 +27,13 @@ function getGuildIcon(guildId) {
   } catch { return null; }
 }
 
+function getGuildID(guildId) {
+  try {
+    const id = getGuildsMap()[guildId]?.id;
+    return id;
+  } catch { return null; }
+}
+
 function DarkSelect({ value, onChange, options }) {
   const [open, setOpen] = createSignal(false);
   const selected = () => options.find(o => o.value === value()) ?? options[0];
@@ -773,6 +780,8 @@ export function MainPanel() {
             const isExpanded = () => expanded() === id;
             const members    = () => memberList()[id] ?? [];
             const iconUrl    = () => getGuildIcon(id);
+            const guildName  = () => getGuildName(id) ?? getGuildID(id) ?? "Unknown Server";
+            const guildRawId = () => getGuildID(id) ?? id;
 
             return (
               <div style={{ "margin-bottom": "6px", background: "var(--background-secondary)", "border-radius": "6px", overflow: "hidden" }}>
@@ -790,7 +799,7 @@ export function MainPanel() {
                             display: "flex", "align-items": "center", "justify-content": "center",
                             "flex-shrink": "0", "font-size": "12px", color: "var(--text-muted)",
                           }}>
-                            {(getGuildName(id) ?? "?")[0]?.toUpperCase()}
+                            {(guildName() ?? "?")[0]?.toUpperCase()}
                           </div>
                         }
                       >
@@ -804,9 +813,9 @@ export function MainPanel() {
                       </Show>
                       <div style={{ "min-width": 0 }}>
                         <span style={{ color: "var(--header-primary)", "font-weight": "600" }}>
-                          {getGuildName(id) ?? "Unknown Server"}
+                          {guildName()}
                         </span>
-                        <span style={{ color: "var(--text-muted)", "font-size": "12px", "margin-left": "8px" }}>{id}</span>
+                        <span style={{ color: "var(--text-muted)", "font-size": "12px", "margin-left": "8px" }}>{guildRawId()}</span>
                       </div>
                     </div>
 
@@ -958,11 +967,8 @@ export function MainPanel() {
 
         <For each={filteredHistory()}>
           {entry => {
-            const name  = displayName(entry);
-            const guild = (() => {
-              try { return getGuildsMap()[entry.guildId]?.name ?? entry.guildName ?? entry.guildId; }
-              catch { return entry.guildName ?? entry.guildId; }
-            })();
+            const name      = displayName(entry);
+            const guild     = () => getGuildName(entry.guildId) ?? entry.guildName ?? entry.guildId;
             const avatarUrl = getAvatarUrl(entry.userId, entry.avatar ?? null);
             return (
               <div
@@ -1000,9 +1006,8 @@ export function MainPanel() {
                   </div>
                   <div style={{ color: "var(--text-muted)", "font-size": "13px", "margin-top": "2px" }}>
                     {entry.isBan
-                      ? <span style={{ color: "#f23f43" }}>Banned from {guild}</span>
-                      : <>Left {guild}</>
-                    }
+                      ? <span style={{ color: "#f23f43" }}>Banned from {guild()}</span>
+                      : <>Left {guild()}</>}
                   </div>
                 </div>
               </div>
