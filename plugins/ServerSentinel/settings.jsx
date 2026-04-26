@@ -15,7 +15,8 @@ function getGuildsMap() {
 }
 
 function getGuildName(guildId) {
-  return getGuildsMap()[guildId]?.name ?? null;
+  try { return getGuildsMap()[guildId]?.name ?? null; }
+  catch { return null; }
 }
 
 function getGuildIcon(guildId) {
@@ -24,13 +25,6 @@ function getGuildIcon(guildId) {
     if (!icon) return null;
     const ext = icon.startsWith("a_") ? "gif" : "webp";
     return `https://cdn.discordapp.com/icons/${guildId}/${icon}.${ext}?size=32`;
-  } catch { return null; }
-}
-
-function getGuildID(guildId) {
-  try {
-    const id = getGuildsMap()[guildId]?.id;
-    return id;
   } catch { return null; }
 }
 
@@ -780,8 +774,8 @@ export function MainPanel() {
             const isExpanded = () => expanded() === id;
             const members    = () => memberList()[id] ?? [];
             const iconUrl    = () => getGuildIcon(id);
-            const guildName  = () => getGuildName(id) ?? getGuildID(id) ?? "Unknown Server";
-            const guildRawId = () => getGuildID(id) ?? id;
+            const guildName  = () => getGuildName(id) ?? id;
+            const guildRawId = id;
 
             return (
               <div style={{ "margin-bottom": "6px", background: "var(--background-secondary)", "border-radius": "6px", overflow: "hidden" }}>
@@ -815,7 +809,7 @@ export function MainPanel() {
                         <span style={{ color: "var(--header-primary)", "font-weight": "600" }}>
                           {guildName()}
                         </span>
-                        <span style={{ color: "var(--text-muted)", "font-size": "12px", "margin-left": "8px" }}>{guildRawId()}</span>
+                        <span style={{ color: "var(--text-muted)", "font-size": "12px", "margin-left": "8px" }}>{guildRawId}</span>
                       </div>
                     </div>
 
